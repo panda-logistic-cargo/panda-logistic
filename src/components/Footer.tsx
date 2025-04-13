@@ -2,8 +2,7 @@
 import React from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   const { t } = useLanguage();
@@ -28,14 +27,14 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-cargo-gray-900 text-white pt-16">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {/* Company Info */}
           <div>
-            <a href="/" className="inline-block mb-6">
+            <Link to="/" className="inline-block mb-6">
               <span className="text-2xl font-bold">
                 CARGO <span className="text-cargo-red">A71</span>
               </span>
-            </a>
+            </Link>
             <p className="text-cargo-gray-300 mb-4">
               Международная логистическая компания с многолетним опытом доставки грузов из Китая в Россию и страны СНГ.
             </p>
@@ -73,13 +72,13 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href} 
+                  <Link 
+                    to={link.href} 
                     className="text-cargo-gray-300 hover:text-cargo-red transition-colors inline-flex items-center"
                   >
                     <ArrowRight className="h-3 w-3 mr-2" />
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -91,33 +90,16 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               {serviceLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href} 
+                  <Link 
+                    to={link.href} 
                     className="text-cargo-gray-300 hover:text-cargo-red transition-colors inline-flex items-center"
                   >
                     <ArrowRight className="h-3 w-3 mr-2" />
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
-          </div>
-          
-          {/* Newsletter */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">Подписка на новости</h3>
-            <p className="text-cargo-gray-300 mb-4">
-              Подпишитесь на наши новости, чтобы получать информацию о специальных предложениях, акциях и новых услугах.
-            </p>
-            <div className="flex">
-              <Input
-                placeholder="Ваш email"
-                className="rounded-r-none border-r-0 focus-visible:ring-0 focus-visible:ring-offset-0"
-              />
-              <Button className="rounded-l-none bg-cargo-red hover:bg-cargo-red/90">
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </div>
           </div>
         </div>
         
