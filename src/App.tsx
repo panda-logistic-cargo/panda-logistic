@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/context/LanguageContext";
 import ScrollToTop from "./components/ScrollToTop";
+import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
@@ -19,7 +20,16 @@ import CargoConsolidation from "./pages/services/CargoConsolidation";
 import Delivery from "./pages/services/Delivery";
 import BusinessTours from "./pages/services/BusinessTours";
 
-const queryClient = new QueryClient();
+// Configure with better caching and error handling
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -27,29 +37,31 @@ const App = () => (
       <LanguageProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            
-            {/* Основные страницы */}
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/calculator" element={<Calculator />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contacts" element={<Contacts />} />
-            
-            {/* Страницы услуг */}
-            <Route path="/services/supplier-search" element={<SupplierSearch />} />
-            <Route path="/services/marketplace-purchase" element={<MarketplacePurchase />} />
-            <Route path="/services/cargo-consolidation" element={<CargoConsolidation />} />
-            <Route path="/services/delivery" element={<Delivery />} />
-            <Route path="/services/business-tours" element={<BusinessTours />} />
-            
-            {/* Страница 404 */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+        <ErrorBoundary>
+          <BrowserRouter>
+            <ScrollToTop />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              
+              {/* Основные страницы */}
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/calculator" element={<Calculator />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/contacts" element={<Contacts />} />
+              
+              {/* Страницы услуг */}
+              <Route path="/services/supplier-search" element={<SupplierSearch />} />
+              <Route path="/services/marketplace-purchase" element={<MarketplacePurchase />} />
+              <Route path="/services/cargo-consolidation" element={<CargoConsolidation />} />
+              <Route path="/services/delivery" element={<Delivery />} />
+              <Route path="/services/business-tours" element={<BusinessTours />} />
+              
+              {/* Страница 404 */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </ErrorBoundary>
       </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>

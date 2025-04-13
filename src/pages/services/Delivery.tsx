@@ -5,75 +5,51 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { CheckCircle2, Phone, Mail, Plane, Ship, Train, Truck } from "lucide-react";
+import ResponsiveContainer from "@/components/ResponsiveContainer";
+import { useScrollBehavior } from "@/hooks/use-scroll";
+import { CheckCircle2, Phone, Mail } from "lucide-react";
 
 const Delivery = () => {
   const { t } = useLanguage();
+  // Apply smooth scrolling to the page
+  useScrollBehavior();
 
-  const deliveryMethods = [
+  const deliveryOptions = [
     {
-      icon: <Plane className="h-8 w-8 text-cargo-red" />,
-      title: "Авиадоставка",
-      time: "7-12 дней",
-      description: "Самый быстрый способ доставки грузов из Китая. Идеально подходит для срочных отправлений, образцов продукции и дорогостоящих товаров.",
-      features: [
-        "Минимальные сроки доставки",
-        "Высокий уровень безопасности",
-        "Возможность отправки небольших партий",
-        "Оперативное таможенное оформление"
-      ]
+      title: "Авиа доставка",
+      description: "Самый быстрый способ доставки. Сроки: 7-15 дней",
+      priceRange: "от $15 за кг"
     },
     {
-      icon: <Train className="h-8 w-8 text-cargo-red" />,
       title: "Железнодорожная доставка",
-      time: "18-25 дней",
-      description: "Оптимальное соотношение цены и скорости. Подходит для большинства коммерческих грузов средних объемов.",
-      features: [
-        "Стабильное расписание отправлений",
-        "Средние сроки доставки",
-        "Доступная стоимость перевозки",
-        "Возможность отслеживания груза"
-      ]
+      description: "Оптимальное соотношение стоимости и сроков. Сроки: 18-25 дней",
+      priceRange: "от $5 за кг"
     },
     {
-      icon: <Ship className="h-8 w-8 text-cargo-red" />,
       title: "Морская доставка",
-      time: "35-45 дней",
-      description: "Экономичный вариант для крупных и тяжелых грузов. Идеально подходит для регулярных поставок больших объемов.",
-      features: [
-        "Низкая стоимость перевозки",
-        "Возможность отправки крупногабаритных грузов",
-        "Высокая грузоподъемность",
-        "Экологичность перевозки"
-      ]
+      description: "Экономичный вариант для крупных грузов. Сроки: 35-45 дней",
+      priceRange: "от $2 за кг"
     },
     {
-      icon: <Truck className="h-8 w-8 text-cargo-red" />,
-      title: "Автодоставка",
-      time: "20-30 дней",
-      description: "Удобный вариант для доставки в регионы, недоступные для других видов транспорта. Возможность доставки «до двери».",
-      features: [
-        "Гибкий маршрут перевозки",
-        "Доставка до конкретного адреса",
-        "Возможность комбинирования с другими видами транспорта",
-        "Подходит для средних партий грузов"
-      ]
+      title: "Автомобильная доставка",
+      description: "Гибкий вариант с возможностью доставки до двери. Сроки: 20-30 дней",
+      priceRange: "от $3 за кг"
     }
   ];
 
-  const additionalServices = [
-    "Таможенное оформление",
-    "Страхование грузов",
-    "Сертификация продукции",
-    "Отслеживание грузов в реальном времени",
-    "Ответственное хранение"
+  const benefits = [
+    "Полное таможенное оформление грузов",
+    "Страхование и обеспечение безопасности перевозки",
+    "Отслеживание местоположения груза в режиме реального времени",
+    "Гибкая система тарификации в зависимости от объема и веса",
+    "Доставка до двери или до указанного склада"
   ];
 
   return (
     <div className="min-h-screen">
       <Navbar />
       <div className="pt-20 pb-16">
-        <div className="container mx-auto px-4 mt-10">
+        <ResponsiveContainer>
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
             <div>
               <Link to="/services" className="text-cargo-red hover:underline mb-2 inline-block">
@@ -89,89 +65,68 @@ const Delivery = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             <div className="lg:col-span-2">
               <p className="text-lg text-cargo-gray-700 mb-6">
-                Мы предлагаем различные способы доставки грузов из Китая в Россию и страны СНГ, 
-                учитывая особенности вашего груза, сроки и бюджет. Наши специалисты помогут выбрать 
-                оптимальный маршрут и вид транспорта для вашего груза, обеспечивая его безопасную 
-                и своевременную доставку до конечного пункта назначения.
+                Предлагаем комплексные решения по доставке грузов из Китая в Россию и страны СНГ. 
+                Выбирайте оптимальный способ доставки в зависимости от ваших приоритетов: сроки, стоимость или специфика груза.
               </p>
 
-              <h2 className="text-2xl font-bold mb-6">Способы доставки</h2>
-              <div className="space-y-8 mb-10">
-                {deliveryMethods.map((method, index) => (
-                  <div key={index} className="bg-white border border-cargo-gray-200 rounded-lg p-6">
-                    <div className="flex flex-col md:flex-row items-start md:items-center mb-4">
-                      <div className="mr-4 mb-4 md:mb-0">{method.icon}</div>
-                      <div>
-                        <h3 className="text-xl font-bold">{method.title}</h3>
-                        <div className="text-cargo-red font-semibold">{method.time}</div>
-                      </div>
-                    </div>
-                    <p className="text-cargo-gray-700 mb-4">{method.description}</p>
-                    <div>
-                      <h4 className="font-semibold mb-2">Особенности:</h4>
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        {method.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <CheckCircle2 className="h-4 w-4 text-cargo-red mr-2 flex-shrink-0 mt-1" />
-                            <span className="text-sm">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+              <h2 className="text-2xl font-bold mb-4">Способы доставки</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                {deliveryOptions.map((option, index) => (
+                  <div key={index} className="border border-cargo-gray-200 rounded-lg p-4 hover:border-cargo-red hover:shadow-md transition-all">
+                    <h3 className="font-bold text-lg mb-2">{option.title}</h3>
+                    <p className="text-cargo-gray-700 mb-2">{option.description}</p>
+                    <p className="text-cargo-red font-medium">{option.priceRange}</p>
                   </div>
                 ))}
               </div>
 
-              <h2 className="text-2xl font-bold mb-4">Дополнительные услуги</h2>
+              <h2 className="text-2xl font-bold mb-4">Преимущества нашей логистики</h2>
               <ul className="space-y-3 mb-8">
-                {additionalServices.map((service, index) => (
+                {benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle2 className="h-5 w-5 text-cargo-red mr-2 flex-shrink-0 mt-1" />
-                    <span>{service}</span>
+                    <span>{benefit}</span>
                   </li>
                 ))}
               </ul>
+
+              <h2 className="text-2xl font-bold mb-4">Типы грузов</h2>
+              <div className="bg-cargo-gray-100 p-6 rounded-lg mb-8">
+                <p className="mb-4">Мы осуществляем доставку различных типов грузов:</p>
+                <ul className="list-disc list-inside space-y-2">
+                  <li>Коммерческие грузы для бизнеса</li>
+                  <li>Консолидированные сборные грузы</li>
+                  <li>Личные вещи и посылки</li>
+                  <li>Негабаритные и тяжеловесные грузы</li>
+                  <li>Опасные грузы (требуется дополнительное согласование)</li>
+                </ul>
+              </div>
             </div>
 
             <div>
-              <div className="bg-cargo-gray-100 p-6 rounded-lg">
-                <h3 className="font-bold text-xl mb-4">Рассчитать стоимость</h3>
-                <p className="text-cargo-gray-700 mb-6">
-                  Используйте наш онлайн-калькулятор для предварительного расчета стоимости доставки вашего груза
+              <div className="bg-cargo-gray-100 p-6 rounded-lg sticky top-24">
+                <h3 className="font-bold text-xl mb-4">Расчет стоимости доставки</h3>
+                <p className="text-sm text-cargo-gray-600 mb-6">
+                  Для получения точного расчета стоимости доставки вашего груза, пожалуйста, укажите детали отправления через форму заказа или свяжитесь с нашими специалистами
                 </p>
-                <Link to="/calculator">
-                  <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full mb-4">
-                    Перейти к калькулятору
-                  </Button>
-                </Link>
-                <p className="text-sm text-cargo-gray-600">
-                  Или свяжитесь с нами для получения точного расчета с учетом всех особенностей вашего груза
-                </p>
-              </div>
-
-              <div className="bg-white border border-cargo-gray-200 rounded-lg p-6 mt-6">
-                <h3 className="font-bold text-xl mb-4">Нужна консультация?</h3>
-                <p className="text-cargo-gray-700 mb-4">
-                  Наши специалисты помогут выбрать оптимальный способ доставки для вашего груза
-                </p>
-                <div className="flex items-center mb-2">
-                  <Phone className="h-5 w-5 text-cargo-red mr-2" />
-                  <span>+7 (495) 123-45-67</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail className="h-5 w-5 text-cargo-red mr-2" />
-                  <span>info@cargoa71.com</span>
-                </div>
-              </div>
-
-              <div className="bg-cargo-red/5 border border-cargo-red/20 p-6 rounded-lg mt-6">
-                <h3 className="font-bold mb-2">Отслеживание груза</h3>
-                <p className="text-cargo-gray-700 mb-4">
-                  Вы можете отслеживать статус вашего груза в режиме реального времени в личном кабинете
-                </p>
-                <Button variant="outline" className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full">
-                  Отследить груз
+                <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full mb-4">
+                  {t('calculateDeliveryCost')}
                 </Button>
+                <Button variant="outline" className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full">
+                  {t('requestConsultation')}
+                </Button>
+
+                <div className="mt-6 pt-6 border-t border-cargo-gray-200">
+                  <h4 className="font-bold mb-2">Нужна консультация?</h4>
+                  <div className="flex items-center mb-2">
+                    <Phone className="h-5 w-5 text-cargo-red mr-2" />
+                    <span>+7 (495) 123-45-67</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Mail className="h-5 w-5 text-cargo-red mr-2" />
+                    <span>logistics@cargoa71.com</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -205,7 +160,7 @@ const Delivery = () => {
               </Link>
             </div>
           </div>
-        </div>
+        </ResponsiveContainer>
       </div>
       <Footer />
     </div>
