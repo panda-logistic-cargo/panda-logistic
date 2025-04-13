@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,23 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Cargo A71 corporate colors
+				cargo: {
+					red: '#ea384c',
+					black: '#000000',
+					white: '#FFFFFF',
+					gray: {
+						100: '#f3f3f3',
+						200: '#e5e5e5',
+						300: '#d4d4d4',
+						400: '#a3a3a3',
+						500: '#737373',
+						600: '#525252',
+						700: '#404040',
+						800: '#262626',
+						900: '#171717',
+					}
 				}
 			},
 			borderRadius: {
@@ -84,11 +102,21 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'slide-up': {
+					'0%': { transform: 'translateY(20px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'slide-up': 'slide-up 0.5s ease-out'
 			}
 		}
 	},
