@@ -86,11 +86,6 @@
     --sidebar-border: 0 0% 20%;
     --sidebar-ring: 353 83% 57%;
   }
-
-  /* Apply smoother transitions for theme switching */
-  * {
-    @apply transition-colors duration-200;
-  }
 }
 
 @layer base {
@@ -139,13 +134,5 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(to right, #ea384c, #f95738);
-  }
-
-  .dark .glass-effect {
-    @apply bg-cargo-gray-900/60 backdrop-blur-md border border-cargo-gray-800;
-  }
-
-  .glass-effect {
-    @apply bg-white/70 backdrop-blur-md border border-cargo-gray-200;
   }
 }

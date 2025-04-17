@@ -9,7 +9,6 @@ import {
   DropdownMenuItem, 
   DropdownMenuTrigger 
 } from "@/components/ui/dropdown-menu";
-import ThemeToggle from "./ThemeToggle";
 
 const Navbar: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -51,7 +50,7 @@ const Navbar: React.FC = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 dark:bg-cargo-gray-900/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+        isScrolled ? 'bg-white/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4">
@@ -59,7 +58,7 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <a href="/" className="flex items-center">
             <span className="text-2xl font-bold text-cargo-red">
-              CARGO <span className="text-cargo-black dark:text-cargo-gray-100">A71</span>
+              CARGO <span className="text-cargo-black">A71</span>
             </span>
           </a>
 
@@ -69,20 +68,18 @@ const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3 py-2 text-sm font-medium text-cargo-gray-700 dark:text-cargo-gray-300 hover:text-cargo-red transition-colors"
+                className="px-3 py-2 text-sm font-medium text-cargo-gray-700 hover:text-cargo-red transition-colors"
               >
                 {link.name}
               </a>
             ))}
           </nav>
 
-          {/* Language Switcher, Theme Toggle and CTA Button (Desktop) */}
+          {/* Language Switcher and CTA Button (Desktop) */}
           <div className="hidden md:flex items-center">
-            <ThemeToggle />
-            
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="flex items-center gap-1 ml-2">
+                <Button variant="ghost" size="sm" className="flex items-center gap-1">
                   <Globe className="h-4 w-4" />
                   <span className="uppercase">{language}</span>
                   <ChevronDown className="h-4 w-4" />
@@ -108,8 +105,6 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
-            <ThemeToggle className="mr-2" />
-            
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="mr-2">
@@ -127,7 +122,7 @@ const Navbar: React.FC = () => {
             </DropdownMenu>
             
             <button
-              className="text-cargo-gray-800 dark:text-cargo-gray-200 hover:text-cargo-red"
+              className="text-cargo-gray-800 hover:text-cargo-red"
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
@@ -139,7 +134,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`md:hidden absolute w-full bg-white dark:bg-cargo-gray-900 shadow-lg transition-all duration-300 ease-in-out ${
+        className={`md:hidden absolute w-full bg-white shadow-lg transition-all duration-300 ease-in-out ${
           isMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
         }`}
       >
@@ -149,7 +144,7 @@ const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="py-2 text-cargo-gray-700 dark:text-cargo-gray-300 hover:text-cargo-red transition-colors"
+                className="py-2 text-cargo-gray-700 hover:text-cargo-red transition-colors"
                 onClick={closeMenu}
               >
                 {link.name}
