@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
@@ -64,7 +65,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           <a href="/" className="flex items-center">
             <span className="text-2xl font-bold text-cargo-red">
-              CARGO <span className="text-cargo-black">A71</span>
+              CARGO <span className={isScrolled ? "text-cargo-black" : "text-white"}>A71</span>
             </span>
           </a>
 
@@ -73,7 +74,11 @@ const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3 py-2 text-sm font-medium text-cargo-gray-700 hover:text-cargo-red transition-colors"
+                className={`px-3 py-2 text-sm font-medium transition-colors ${
+                  isScrolled 
+                    ? 'text-cargo-gray-700 hover:text-cargo-red' 
+                    : 'text-white hover:text-cargo-red'
+                }`}
               >
                 {link.name}
               </a>
@@ -83,7 +88,13 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className={`flex items-center gap-2 ${
+                    isScrolled ? 'text-cargo-gray-700' : 'text-white'
+                  }`}
+                >
                   <Languages className="h-4 w-4" />
                   <span className="flex items-center gap-2">
                     <span>{currentLanguage?.flag}</span>
@@ -117,7 +128,13 @@ const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="mr-2 flex items-center gap-2">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className={`mr-2 flex items-center gap-2 ${
+                    isScrolled ? 'text-cargo-gray-700' : 'text-white'
+                  }`}
+                >
                   <Languages className="h-5 w-5" />
                   <span>{currentLanguage?.flag}</span>
                 </Button>
@@ -137,7 +154,9 @@ const Navbar: React.FC = () => {
             </DropdownMenu>
             
             <button
-              className="text-cargo-gray-800 hover:text-cargo-red"
+              className={`hover:text-cargo-red ${
+                isScrolled ? 'text-cargo-gray-800' : 'text-white'
+              }`}
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
