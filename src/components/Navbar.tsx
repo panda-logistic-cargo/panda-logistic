@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
@@ -9,6 +8,11 @@ import {
   DropdownMenuItem, 
   DropdownMenuTrigger 
 } from "@/components/ui/dropdown-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const Navbar: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -29,10 +33,6 @@ const Navbar: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -153,43 +153,43 @@ const Navbar: React.FC = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             
-            <button
-              className={`hover:text-cargo-red ${
-                isScrolled ? 'text-cargo-gray-800' : 'text-white'
-              }`}
-              onClick={toggleMenu}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            <Sheet>
+              <SheetTrigger asChild>
+                <button
+                  className={`hover:text-cargo-red ${
+                    isScrolled ? 'text-cargo-gray-800' : 'text-white'
+                  }`}
+                  aria-label="Toggle menu"
+                >
+                  <Menu size={24} />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-full sm:w-[400px] p-0">
+                <div className="flex flex-col h-full bg-white">
+                  <div className="p-6">
+                    <nav className="flex flex-col space-y-4">
+                      {navLinks.map((link) => (
+                        <a
+                          key={link.name}
+                          href={link.href}
+                          className="py-2 text-lg font-medium text-cargo-gray-700 hover:text-cargo-red transition-colors"
+                          onClick={closeMenu}
+                        >
+                          {link.name}
+                        </a>
+                      ))}
+                      <Button 
+                        variant="default" 
+                        className="mt-4 bg-cargo-red hover:bg-cargo-red/90 transition-colors w-full"
+                      >
+                        {t('contactUs')}
+                      </Button>
+                    </nav>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
-        </div>
-      </div>
-
-      <div 
-        className={`md:hidden absolute w-full bg-white shadow-lg transition-all duration-300 ease-in-out ${
-          isMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
-        }`}
-      >
-        <div className="container mx-auto px-4 py-4">
-          <nav className="flex flex-col space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="py-2 text-cargo-gray-700 hover:text-cargo-red transition-colors"
-                onClick={closeMenu}
-              >
-                {link.name}
-              </a>
-            ))}
-            <Button 
-              variant="default" 
-              className="mt-4 bg-cargo-red hover:bg-cargo-red/90 transition-colors w-full"
-            >
-              {t('contactUs')}
-            </Button>
-          </nav>
         </div>
       </div>
     </header>
