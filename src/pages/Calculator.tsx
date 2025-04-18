@@ -1,9 +1,9 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Calculator from "@/components/Calculator";
+import { Plane, TrainFront, Ship } from "lucide-react";
 
 const CalculatorPage = () => {
   const { t } = useLanguage();
@@ -25,19 +25,28 @@ const CalculatorPage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="bg-cargo-gray-100 p-6 rounded-lg">
-              <h3 className="font-bold text-lg mb-2">Авиадоставка</h3>
+              <div className="flex items-center gap-3 mb-3">
+                <Plane className="h-6 w-6 text-cargo-red" />
+                <h3 className="font-bold text-lg">Авиадоставка</h3>
+              </div>
               <p className="text-cargo-gray-700 mb-2">Самый быстрый способ доставки.</p>
               <p className="font-semibold">7-12 дней</p>
             </div>
             
             <div className="bg-cargo-gray-100 p-6 rounded-lg">
-              <h3 className="font-bold text-lg mb-2">Железнодорожная доставка</h3>
+              <div className="flex items-center gap-3 mb-3">
+                <TrainFront className="h-6 w-6 text-cargo-red" />
+                <h3 className="font-bold text-lg">Железнодорожная доставка</h3>
+              </div>
               <p className="text-cargo-gray-700 mb-2">Оптимальное соотношение цены и скорости.</p>
               <p className="font-semibold">18-25 дней</p>
             </div>
             
             <div className="bg-cargo-gray-100 p-6 rounded-lg">
-              <h3 className="font-bold text-lg mb-2">Морская доставка</h3>
+              <div className="flex items-center gap-3 mb-3">
+                <Ship className="h-6 w-6 text-cargo-red" />
+                <h3 className="font-bold text-lg">Морская доставка</h3>
+              </div>
               <p className="text-cargo-gray-700 mb-2">Экономичный вариант для крупных грузов.</p>
               <p className="font-semibold">35-45 дней</p>
             </div>
