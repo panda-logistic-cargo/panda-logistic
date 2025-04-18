@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 import { Menu, X, ChevronDown, Languages } from "lucide-react";
+import { useLocation } from "react-router-dom";
 import { 
   DropdownMenu, 
   DropdownMenuContent, 
@@ -18,6 +19,8 @@ const Navbar: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,7 +68,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           <a href="/" className="flex items-center">
             <span className="text-2xl font-bold text-cargo-red">
-              CARGO <span className={isScrolled ? "text-cargo-black" : "text-white"}>A71</span>
+              CARGO <span className={isScrolled ? "text-cargo-black" : isHomePage ? "text-white" : "text-cargo-gray-800"}>A71</span>
             </span>
           </a>
 
@@ -77,7 +80,9 @@ const Navbar: React.FC = () => {
                 className={`px-3 py-2 text-sm font-medium transition-colors ${
                   isScrolled 
                     ? 'text-cargo-gray-700 hover:text-cargo-red' 
-                    : 'text-white hover:text-cargo-red'
+                    : isHomePage
+                      ? 'text-white hover:text-cargo-red'
+                      : 'text-cargo-gray-800 hover:text-cargo-red'
                 }`}
               >
                 {link.name}
@@ -92,7 +97,11 @@ const Navbar: React.FC = () => {
                   variant="ghost" 
                   size="sm" 
                   className={`flex items-center gap-2 ${
-                    isScrolled ? 'text-cargo-gray-700' : 'text-white'
+                    isScrolled 
+                      ? 'text-cargo-gray-700' 
+                      : isHomePage 
+                        ? 'text-white' 
+                        : 'text-cargo-gray-800'
                   }`}
                 >
                   <Languages className="h-4 w-4" />
@@ -132,7 +141,11 @@ const Navbar: React.FC = () => {
                   variant="ghost" 
                   size="sm" 
                   className={`mr-2 flex items-center gap-2 ${
-                    isScrolled ? 'text-cargo-gray-700' : 'text-white'
+                    isScrolled 
+                      ? 'text-cargo-gray-700' 
+                      : isHomePage 
+                        ? 'text-white' 
+                        : 'text-cargo-gray-800'
                   }`}
                 >
                   <Languages className="h-5 w-5" />
@@ -157,7 +170,11 @@ const Navbar: React.FC = () => {
               <SheetTrigger asChild>
                 <button
                   className={`hover:text-cargo-red ${
-                    isScrolled ? 'text-cargo-gray-800' : 'text-white'
+                    isScrolled 
+                      ? 'text-cargo-gray-800' 
+                      : isHomePage 
+                        ? 'text-white' 
+                        : 'text-cargo-gray-800'
                   }`}
                   aria-label="Toggle menu"
                 >
