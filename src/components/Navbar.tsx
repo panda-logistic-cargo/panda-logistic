@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
-import { Menu, X, ChevronDown, Globe } from "lucide-react";
+import { Menu, X, ChevronDown, Languages } from "lucide-react";
 import { 
   DropdownMenu, 
   DropdownMenuContent, 
@@ -47,6 +46,14 @@ const Navbar: React.FC = () => {
     { name: t('contacts'), href: '/contacts' }
   ];
 
+  const languages = [
+    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+    { code: 'en', name: 'English', flag: '🇬🇧' },
+    { code: 'zh', name: '中文', flag: '🇨🇳' }
+  ];
+
+  const currentLanguage = languages.find(lang => lang.code === language);
+
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -55,14 +62,12 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
           <a href="/" className="flex items-center">
             <span className="text-2xl font-bold text-cargo-red">
               CARGO <span className="text-cargo-black">A71</span>
             </span>
           </a>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
               <a
@@ -75,23 +80,29 @@ const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          {/* Language Switcher and CTA Button (Desktop) */}
           <div className="hidden md:flex items-center">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="flex items-center gap-1">
-                  <Globe className="h-4 w-4" />
-                  <span className="uppercase">{language}</span>
+                <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                  <Languages className="h-4 w-4" />
+                  <span className="flex items-center gap-2">
+                    <span>{currentLanguage?.flag}</span>
+                    <span className="uppercase">{currentLanguage?.code}</span>
+                  </span>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage('ru')}>
-                  Русский
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('en')}>
-                  English
-                </DropdownMenuItem>
+                {languages.map((lang) => (
+                  <DropdownMenuItem 
+                    key={lang.code}
+                    onClick={() => setLanguage(lang.code)}
+                    className="flex items-center gap-2"
+                  >
+                    <span>{lang.flag}</span>
+                    <span>{lang.name}</span>
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -103,21 +114,25 @@ const Navbar: React.FC = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="mr-2">
-                  <Globe className="h-5 w-5" />
+                <Button variant="ghost" size="sm" className="mr-2 flex items-center gap-2">
+                  <Languages className="h-5 w-5" />
+                  <span>{currentLanguage?.flag}</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage('ru')}>
-                  Русский
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('en')}>
-                  English
-                </DropdownMenuItem>
+                {languages.map((lang) => (
+                  <DropdownMenuItem 
+                    key={lang.code}
+                    onClick={() => setLanguage(lang.code)}
+                    className="flex items-center gap-2"
+                  >
+                    <span>{lang.flag}</span>
+                    <span>{lang.name}</span>
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
             
@@ -132,7 +147,6 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div 
         className={`md:hidden absolute w-full bg-white shadow-lg transition-all duration-300 ease-in-out ${
           isMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
