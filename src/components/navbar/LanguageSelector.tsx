@@ -8,14 +8,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Language } from "@/translations";
 
-interface Language {
-  code: string;
+interface LanguageOption {
+  code: Language;
   name: string;
   flag: string;
 }
 
-const languages: Language[] = [
+const languages: LanguageOption[] = [
   { code: 'ru', name: 'Русский', flag: '🇷🇺' },
   { code: 'en', name: 'English', flag: '🇬🇧' },
   { code: 'zh', name: '中文', flag: '🇨🇳' }

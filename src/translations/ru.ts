@@ -71,4 +71,28 @@ export const ruTranslations = {
   allRightsReserved: 'Все права защищены',
   privacyPolicy: 'Политика конфиденциальности',
   termsOfService: 'Условия использования',
+  
+  // Added missing translations
+  aboutUs: 'О нас',
+  companyDescription: 'Описание компании',
+  statistics: 'Статистика',
+  yearsInMarket: 'Лет на рынке',
+  happyClients: 'Довольных клиентов',
+  professionalTeam: 'Профессионалов в команде',
+  deliveredTons: 'Доставлено тонн груза',
+  ourHistory: 'Наша история',
+  companyFounded: 'Основание компании',
+  expansion: 'Расширение',
+  newServices: 'Новые услуги',
+  digitalTransformation: 'Цифровая трансформация',
+  internationalExpansion: 'Международное расширение',
+  ourTeam: 'Наша команда',
+  director: 'Директор',
+  phoneNumber: 'Телефон',
+  email: 'Email',
+  address: 'Адрес',
+  workingHours: 'Часы работы',
+  allServices: 'Все услуги',
+  orderService: 'Заказать услугу',
+  requestConsultation: 'Запросить консультацию'
 };

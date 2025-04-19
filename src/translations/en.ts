@@ -71,4 +71,28 @@ export const enTranslations = {
   allRightsReserved: 'All Rights Reserved',
   privacyPolicy: 'Privacy Policy',
   termsOfService: 'Terms of Service',
+  
+  // Added missing translations
+  aboutUs: 'About Us',
+  companyDescription: 'Company Description',
+  statistics: 'Statistics',
+  yearsInMarket: 'Years in Market',
+  happyClients: 'Happy Clients',
+  professionalTeam: 'Professional Team',
+  deliveredTons: 'Tons Delivered',
+  ourHistory: 'Our History',
+  companyFounded: 'Company Founded',
+  expansion: 'Expansion',
+  newServices: 'New Services',
+  digitalTransformation: 'Digital Transformation',
+  internationalExpansion: 'International Expansion',
+  ourTeam: 'Our Team',
+  director: 'Director',
+  phoneNumber: 'Phone Number',
+  email: 'Email',
+  address: 'Address',
+  workingHours: 'Working Hours',
+  allServices: 'All Services',
+  orderService: 'Order Service',
+  requestConsultation: 'Request Consultation'
 };

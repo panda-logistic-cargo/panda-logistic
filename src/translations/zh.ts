@@ -71,4 +71,28 @@ export const zhTranslations = {
   allRightsReserved: '版权所有',
   privacyPolicy: '隐私政策',
   termsOfService: '服务条款',
+  
+  // Added missing translations
+  aboutUs: '关于我们',
+  companyDescription: '公司描述',
+  statistics: '统计数据',
+  yearsInMarket: '市场年限',
+  happyClients: '满意客户',
+  professionalTeam: '专业团队',
+  deliveredTons: '已交付吨位',
+  ourHistory: '我们的历史',
+  companyFounded: '公司成立',
+  expansion: '业务扩张',
+  newServices: '新服务',
+  digitalTransformation: '数字化转型',
+  internationalExpansion: '国际扩张',
+  ourTeam: '我们的团队',
+  director: '董事',
+  phoneNumber: '电话号码',
+  email: '电子邮件',
+  address: '地址',
+  workingHours: '工作时间',
+  allServices: '所有服务',
+  orderService: '订购服务',
+  requestConsultation: '请求咨询'
 };
