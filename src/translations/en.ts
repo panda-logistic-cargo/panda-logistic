@@ -45,7 +45,7 @@ export const enTranslations = {
   // Calculator
   calculatorTitle: 'Calculate Delivery Cost',
   calculatorSubtitle: 'Fill out the form for a quick calculation',
-  calculatorDisclaimer: 'This calculation is preliminary. For an accurate quote, contact our manager.',
+  calculatorDisclaimer: '*This calculation is preliminary. For an accurate quote, contact our manager.',
   origin: 'Origin',
   destination: 'Destination',
   weight: 'Weight (kg)',

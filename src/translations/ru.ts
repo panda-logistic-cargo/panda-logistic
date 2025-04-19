@@ -45,7 +45,7 @@ export const ruTranslations = {
   // Calculator
   calculatorTitle: 'Рассчитать стоимость доставки',
   calculatorSubtitle: 'Заполните форму для быстрого расчета',
-  calculatorDisclaimer: 'Расчет является предварительным. Для точной оценки свяжитесь с менеджером.',
+  calculatorDisclaimer: '*Расчет является предварительным. Для точной оценки свяжитесь с менеджером.',
   origin: 'Откуда',
   destination: 'Куда',
   weight: 'Вес (кг)',

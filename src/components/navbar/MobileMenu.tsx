@@ -29,7 +29,7 @@ export const MobileMenu = ({ navLinks, textColorClass }: MobileMenuProps) => {
       </SheetTrigger>
       <SheetContent side="right" className="w-full sm:w-[400px] p-0">
         <div className="flex flex-col h-full bg-white">
-          <div className="p-6">
+          <div className="flex-1 p-6">
             <nav className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <NavLink
@@ -47,6 +47,11 @@ export const MobileMenu = ({ navLinks, textColorClass }: MobileMenuProps) => {
                 {t('contactUs')}
               </Button>
             </nav>
+          </div>
+          <div className="p-6 border-t border-gray-200">
+            <p className="text-sm text-cargo-gray-500 text-center">
+              © 2025 CARGO A71
+            </p>
           </div>
         </div>
       </SheetContent>

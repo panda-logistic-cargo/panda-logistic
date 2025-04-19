@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowRight, Calculator } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -42,22 +42,26 @@ const Hero: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
-              size="lg" 
-              className="bg-cargo-red hover:bg-cargo-red/90 text-white font-medium rounded-md"
-            >
-              <Calculator className="mr-2 h-5 w-5" />
-              {t('getQuote')}
-            </Button>
+            <Link to="/calculator">
+              <Button 
+                size="lg" 
+                className="bg-cargo-red hover:bg-cargo-red/90 text-white font-medium rounded-md w-full sm:w-auto"
+              >
+                <Calculator className="mr-2 h-5 w-5" />
+                {t('getQuote')}
+              </Button>
+            </Link>
             
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:text-white rounded-md"
-            >
-              {t('contactUs')}
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <Link to="/contacts">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:text-white rounded-md w-full sm:w-auto"
+              >
+                {t('contactUs')}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
           
           {/* Promo banner */}

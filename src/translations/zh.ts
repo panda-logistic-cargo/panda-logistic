@@ -45,7 +45,7 @@ export const zhTranslations = {
   // Calculator
   calculatorTitle: '计算运输成本',
   calculatorSubtitle: '填写表格快速计算',
-  calculatorDisclaimer: '这是初步计算。要获得准确报价，请联系我们的经理。',
+  calculatorDisclaimer: '*这是初步计算。要获得准确报价，请联系我们的经理。',
   origin: '始发地',
   destination: '目的地',
   weight: '重量（公斤）',
