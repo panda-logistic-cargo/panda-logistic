@@ -1,45 +1,26 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
-import { Menu, X, ChevronDown, Languages } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuTrigger 
-} from "@/components/ui/dropdown-menu";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { LanguageSelector } from "./navbar/LanguageSelector";
+import { MobileMenu } from "./navbar/MobileMenu";
+import { NavLink } from "./navbar/NavLink";
 
 const Navbar: React.FC = () => {
-  const { language, setLanguage, t } = useLanguage();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
 
   const navLinks = [
     { name: t('home'), href: '/' },
@@ -50,13 +31,13 @@ const Navbar: React.FC = () => {
     { name: t('contacts'), href: '/contacts' }
   ];
 
-  const languages = [
-    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'zh', name: '中文', flag: '🇨🇳' }
-  ];
+  const getTextColorClass = () => {
+    if (isScrolled) return 'text-cargo-gray-700';
+    if (isHomePage) return 'text-white';
+    return 'text-cargo-gray-800';
+  };
 
-  const currentLanguage = languages.find(lang => lang.code === language);
+  const textColorClass = getTextColorClass();
 
   return (
     <header 
@@ -74,58 +55,18 @@ const Navbar: React.FC = () => {
 
           <nav className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
-              <a
+              <NavLink
                 key={link.name}
                 href={link.href}
-                className={`px-3 py-2 text-sm font-medium transition-colors ${
-                  isScrolled 
-                    ? 'text-cargo-gray-700 hover:text-cargo-red' 
-                    : isHomePage
-                      ? 'text-white hover:text-cargo-red'
-                      : 'text-cargo-gray-800 hover:text-cargo-red'
-                }`}
+                className={`px-3 py-2 text-sm font-medium transition-colors ${textColorClass} hover:text-cargo-red`}
               >
                 {link.name}
-              </a>
+              </NavLink>
             ))}
           </nav>
 
           <div className="hidden md:flex items-center">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className={`flex items-center gap-2 ${
-                    isScrolled 
-                      ? 'text-cargo-gray-700' 
-                      : isHomePage 
-                        ? 'text-white' 
-                        : 'text-cargo-gray-800'
-                  }`}
-                >
-                  <Languages className="h-4 w-4" />
-                  <span className="flex items-center gap-2">
-                    <span>{currentLanguage?.flag}</span>
-                    <span className="uppercase">{currentLanguage?.code}</span>
-                  </span>
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {languages.map((lang) => (
-                  <DropdownMenuItem 
-                    key={lang.code}
-                    onClick={() => setLanguage(lang.code)}
-                    className="flex items-center gap-2"
-                  >
-                    <span>{lang.flag}</span>
-                    <span>{lang.name}</span>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
+            <LanguageSelector className={textColorClass} />
             <Button 
               variant="default" 
               className="ml-4 bg-cargo-red hover:bg-cargo-red/90 transition-colors"
@@ -135,77 +76,8 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="md:hidden flex items-center">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className={`mr-2 flex items-center gap-2 ${
-                    isScrolled 
-                      ? 'text-cargo-gray-700' 
-                      : isHomePage 
-                        ? 'text-white' 
-                        : 'text-cargo-gray-800'
-                  }`}
-                >
-                  <Languages className="h-5 w-5" />
-                  <span>{currentLanguage?.flag}</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {languages.map((lang) => (
-                  <DropdownMenuItem 
-                    key={lang.code}
-                    onClick={() => setLanguage(lang.code)}
-                    className="flex items-center gap-2"
-                  >
-                    <span>{lang.flag}</span>
-                    <span>{lang.name}</span>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-            
-            <Sheet>
-              <SheetTrigger asChild>
-                <button
-                  className={`hover:text-cargo-red ${
-                    isScrolled 
-                      ? 'text-cargo-gray-800' 
-                      : isHomePage 
-                        ? 'text-white' 
-                        : 'text-cargo-gray-800'
-                  }`}
-                  aria-label="Toggle menu"
-                >
-                  <Menu size={24} />
-                </button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:w-[400px] p-0">
-                <div className="flex flex-col h-full bg-white">
-                  <div className="p-6">
-                    <nav className="flex flex-col space-y-4">
-                      {navLinks.map((link) => (
-                        <a
-                          key={link.name}
-                          href={link.href}
-                          className="py-2 text-lg font-medium text-cargo-gray-700 hover:text-cargo-red transition-colors"
-                          onClick={closeMenu}
-                        >
-                          {link.name}
-                        </a>
-                      ))}
-                      <Button 
-                        variant="default" 
-                        className="mt-4 bg-cargo-red hover:bg-cargo-red/90 transition-colors w-full"
-                      >
-                        {t('contactUs')}
-                      </Button>
-                    </nav>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
+            <LanguageSelector className={`mr-2 ${textColorClass}`} />
+            <MobileMenu navLinks={navLinks} textColorClass={textColorClass} />
           </div>
         </div>
       </div>
