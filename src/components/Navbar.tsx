@@ -1,11 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 import { useLocation } from "react-router-dom";
-import { LanguageSelector } from "./navbar/LanguageSelector";
-import { MobileMenu } from "./navbar/MobileMenu";
-import { NavLink } from "./navbar/NavLink";
+import { Logo } from "./navbar/Logo";
+import { DesktopNav } from "./navbar/DesktopNav";
+import { MobileNav } from "./navbar/MobileNav";
 
 const Navbar: React.FC = () => {
   const { t } = useLanguage();
@@ -47,38 +46,13 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <a href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-cargo-red">
-              CARGO <span className={isScrolled ? "text-cargo-black" : isHomePage ? "text-white" : "text-cargo-gray-800"}>A71</span>
-            </span>
-          </a>
-
-          <nav className="hidden md:flex items-center space-x-1">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.name}
-                href={link.href}
-                className={`px-3 py-2 text-sm font-medium transition-colors ${textColorClass} hover:text-cargo-red`}
-              >
-                {link.name}
-              </NavLink>
-            ))}
-          </nav>
-
-          <div className="hidden md:flex items-center">
-            <LanguageSelector className={textColorClass} />
-            <Button 
-              variant="default" 
-              className="ml-4 bg-cargo-red hover:bg-cargo-red/90 transition-colors"
-            >
-              {t('contactUs')}
-            </Button>
-          </div>
-
-          <div className="md:hidden flex items-center">
-            <LanguageSelector className={`mr-2 ${textColorClass}`} />
-            <MobileMenu navLinks={navLinks} textColorClass={textColorClass} />
-          </div>
+          <Logo isScrolled={isScrolled} isHomePage={isHomePage} />
+          <DesktopNav 
+            navLinks={navLinks} 
+            textColorClass={textColorClass} 
+            contactButtonText={t('contactUs')} 
+          />
+          <MobileNav navLinks={navLinks} textColorClass={textColorClass} />
         </div>
       </div>
     </header>
