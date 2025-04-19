@@ -1,4 +1,3 @@
-
 export const ruTranslations = {
   // Navbar
   home: 'Главная',
@@ -53,6 +52,7 @@ export const ruTranslations = {
   volume: 'Объем (м³)',
   category: 'Категория товара',
   calculate: 'Рассчитать',
+  calculateDeliveryCost: 'Рассчитать стоимость доставки',
   
   // Testimonials
   testimonialsTitle: 'Отзывы клиентов',

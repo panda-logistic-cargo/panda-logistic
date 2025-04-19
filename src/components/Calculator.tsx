@@ -14,6 +14,29 @@ import {
 } from "@/components/ui/select";
 import { Calculator as CalculatorIcon } from "lucide-react";
 
+/**
+ * Калькулятор стоимости доставки.
+ * 
+ * Логика работы:
+ * 1. Пользователь вводит вес, объем, выбирает направление и категорию товара
+ * 2. При нажатии на кнопку "Рассчитать" происходит:
+ *    - Валидация полей (проверка на заполненность и корректность значений)
+ *    - Расчет объемного веса (объем * 167)
+ *    - Определение расчетного веса (максимум между фактическим и объемным весом)
+ *    - Применение базовой ставки (10 USD за кг)
+ *    - Расчет предварительной стоимости (расчетный вес * базовая ставка)
+ *    - Отображение результата и уведомление пользователя через toast
+ * 
+ * Формулы расчета:
+ * - Объемный вес (кг) = Объем (м³) * 167
+ * - Расчетный вес (кг) = max(Физический вес, Объемный вес)
+ * - Стоимость ($) = Расчетный вес * Базовая ставка
+ * 
+ * Ограничения текущей реализации:
+ * - Фиксированная базовая ставка 10 USD/кг (в реальности зависит от направления, типа товара и т.д.)
+ * - Не учитываются дополнительные сборы, страховка и т.п.
+ * - Не учитывается специфика разных видов транспорта
+ */
 const Calculator: React.FC = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
@@ -25,10 +48,14 @@ const Calculator: React.FC = () => {
   const [category, setCategory] = useState('');
   const [result, setResult] = useState<number | null>(null);
   
+  /**
+   * Обработчик отправки формы калькулятора
+   * Выполняет валидацию и расчет стоимости доставки
+   */
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simple calculation example (this would typically be more complex)
+    // Валидация обязательных полей
     if (!weight || !volume) {
       toast({
         title: "Ошибка",
@@ -38,6 +65,7 @@ const Calculator: React.FC = () => {
       return;
     }
     
+    // Проверка корректности числовых значений
     const weightNum = parseFloat(weight);
     const volumeNum = parseFloat(volume);
     
@@ -50,14 +78,23 @@ const Calculator: React.FC = () => {
       return;
     }
     
-    // Very simplified calculation logic
+    // Расчет стоимости доставки
+    // 1. Вычисляем объемный вес (коэффициент 167 кг/м³)
     const volumetricWeight = volumeNum * 167;
+    
+    // 2. Определяем расчетный вес (максимальный из фактического и объемного)
     const chargeableWeight = Math.max(weightNum, volumetricWeight);
+    
+    // 3. Применяем базовую ставку (10 USD за кг)
     const baseRate = 10; // USD per kg
+    
+    // 4. Рассчитываем предварительную стоимость и округляем до целого числа
     const calculatedPrice = Math.round(chargeableWeight * baseRate);
     
+    // Обновляем состояние и отображаем результат
     setResult(calculatedPrice);
     
+    // Показываем уведомление с результатом
     toast({
       title: "Расчет выполнен",
       description: `Предварительная стоимость доставки: $${calculatedPrice}`,
@@ -177,7 +214,7 @@ const Calculator: React.FC = () => {
                 </Button>
                 
                 {result !== null && (
-                  <div className="mt-4 p-4 bg-cargo-gray-100 rounded-md">
+                  <div className="mt-4 p-4 bg-cargo-gray-100 rounded-md animate-fade-in">
                     <div className="text-lg font-semibold">Предварительная стоимость:</div>
                     <div className="text-2xl font-bold text-cargo-red">${result}</div>
                   </div>

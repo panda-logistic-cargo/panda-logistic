@@ -16,6 +16,7 @@ interface LanguageOption {
   flag: string;
 }
 
+// Определяем языки и их флаги в формате unicode emoji
 const languages: LanguageOption[] = [
   { code: 'ru', name: 'Русский', flag: '🇷🇺' },
   { code: 'en', name: 'English', flag: '🇬🇧' },
@@ -34,12 +35,12 @@ export const LanguageSelector = ({ className }: { className?: string }) => {
           size="sm" 
           className={className}
         >
-          <Languages className="h-4 w-4" />
-          <span className="flex items-center gap-2">
-            <span>{currentLanguage?.flag}</span>
-            <span className="uppercase">{currentLanguage?.code}</span>
+          <Languages className="h-4 w-4 mr-1" />
+          <span className="flex items-center gap-1">
+            <span className="inline-block mr-1">{currentLanguage?.flag}</span>
+            <span className="uppercase text-xs">{currentLanguage?.code}</span>
           </span>
-          <ChevronDown className="h-4 w-4" />
+          <ChevronDown className="h-4 w-4 ml-1" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -47,10 +48,10 @@ export const LanguageSelector = ({ className }: { className?: string }) => {
           <DropdownMenuItem 
             key={lang.code}
             onClick={() => setLanguage(lang.code)}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 px-3 py-2"
           >
-            <span>{lang.flag}</span>
-            <span>{lang.name}</span>
+            <span className="text-lg">{lang.flag}</span>
+            <span className="ml-1">{lang.name}</span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

@@ -1,4 +1,3 @@
-
 export const enTranslations = {
   // Navbar
   home: 'Home',
@@ -53,6 +52,7 @@ export const enTranslations = {
   volume: 'Volume (m³)',
   category: 'Product Category',
   calculate: 'Calculate',
+  calculateDeliveryCost: 'Calculate Delivery Cost',
   
   // Testimonials
   testimonialsTitle: 'Client Testimonials',

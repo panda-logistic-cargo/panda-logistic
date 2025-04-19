@@ -1,4 +1,3 @@
-
 export const zhTranslations = {
   // Navbar
   home: '首页',
@@ -53,6 +52,7 @@ export const zhTranslations = {
   volume: '体积（立方米）',
   category: '产品类别',
   calculate: '计算',
+  calculateDeliveryCost: '计算运输成本',
   
   // Testimonials
   testimonialsTitle: '客户评价',

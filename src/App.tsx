@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,7 +10,6 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
-import About1 from "./pages/About1";
 import About2 from "./pages/About2";
 import Services from "./pages/Services";
 import Calculator from "./pages/Calculator";
@@ -44,7 +44,6 @@ const App = () => (
               <Route path="/" element={<Index />} />
               
               <Route path="/about" element={<About />} />
-              <Route path="/about1" element={<About1 />} />
               <Route path="/about2" element={<About2 />} />
               
               <Route path="/services" element={<Services />} />

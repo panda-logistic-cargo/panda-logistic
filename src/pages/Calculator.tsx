@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -24,7 +25,7 @@ const CalculatorPage = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div className="bg-cargo-gray-100 p-6 rounded-lg">
+            <div className="bg-cargo-gray-100 p-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in">
               <div className="flex items-center gap-3 mb-3">
                 <Plane className="h-6 w-6 text-cargo-red" />
                 <h3 className="font-bold text-lg">Авиадоставка</h3>
@@ -33,7 +34,7 @@ const CalculatorPage = () => {
               <p className="font-semibold">7-12 дней</p>
             </div>
             
-            <div className="bg-cargo-gray-100 p-6 rounded-lg">
+            <div className="bg-cargo-gray-100 p-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in" style={{animationDelay: "0.2s"}}>
               <div className="flex items-center gap-3 mb-3">
                 <TrainFront className="h-6 w-6 text-cargo-red" />
                 <h3 className="font-bold text-lg">Железнодорожная доставка</h3>
@@ -42,7 +43,7 @@ const CalculatorPage = () => {
               <p className="font-semibold">18-25 дней</p>
             </div>
             
-            <div className="bg-cargo-gray-100 p-6 rounded-lg">
+            <div className="bg-cargo-gray-100 p-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in" style={{animationDelay: "0.4s"}}>
               <div className="flex items-center gap-3 mb-3">
                 <Ship className="h-6 w-6 text-cargo-red" />
                 <h3 className="font-bold text-lg">Морская доставка</h3>
