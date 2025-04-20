@@ -83,12 +83,14 @@ const ServicesSection: React.FC = () => {
         </div>
         
         <div className="text-center mt-10">
-          <Button 
-            variant="outline" 
-            className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white"
-          >
-            {t('viewAllServices')}
-          </Button>
+          <Link to="/services">
+            <Button 
+              variant="outline" 
+              className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white"
+            >
+              {t('viewAllServices')}
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

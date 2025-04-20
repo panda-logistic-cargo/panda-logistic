@@ -13,15 +13,15 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, link, icon }) => {
   return (
-    <Link to={link} className="block">
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-cargo-red/20 transition-all group">
-        <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-cargo-red/10 text-cargo-red group-hover:bg-cargo-red group-hover:text-white transition-colors">
-          {icon}
-        </div>
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-cargo-red/20 transition-all group">
+      <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-cargo-red/10 text-cargo-red group-hover:bg-cargo-red group-hover:text-white transition-colors">
+        {icon}
+      </div>
+      <Link to={link}>
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
         <p className="text-cargo-gray-500">{description}</p>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 
