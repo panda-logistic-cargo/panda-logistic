@@ -57,9 +57,6 @@ const Delivery = () => {
               </Link>
               <h1 className="text-3xl md:text-4xl font-bold">{t('delivery')}</h1>
             </div>
-            <Button className="bg-cargo-red hover:bg-cargo-red/90 mt-4 md:mt-0">
-              {t('orderService')}
-            </Button>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">

@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useLanguage } from "@/context/LanguageContext";
 import { Search, ShoppingCart, Package, Truck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
   title: string;
@@ -24,26 +24,24 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, link, icon }) => {
 };
 
 const OtherServicesSection = ({ excludeService }: { excludeService: string }) => {
-  const { t } = useLanguage();
-  
   const services = [
     {
-      title: t('supplierSearch'),
+      title: "Поиск поставщиков",
       link: '/services/supplier-search',
       icon: <Search className="h-6 w-6" />
     },
     {
-      title: t('marketplacePurchase'),
+      title: "Выкуп с маркетплейсов",
       link: '/services/marketplace-purchase',
       icon: <ShoppingCart className="h-6 w-6" />
     },
     {
-      title: t('cargoConsolidation'),
+      title: "Консолидация груза",
       link: '/services/cargo-consolidation',
       icon: <Package className="h-6 w-6" />
     },
     {
-      title: t('delivery'),
+      title: "Доставка",
       link: '/services/delivery',
       icon: <Truck className="h-6 w-6" />
     }
@@ -52,11 +50,11 @@ const OtherServicesSection = ({ excludeService }: { excludeService: string }) =>
   const filteredServices = services.filter(service => service.link !== excludeService);
 
   return (
-    <div className="border-t border-cargo-gray-200 pt-8">
+    <section className="py-16 bg-cargo-gray-100">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold">{t('otherServices')}</h2>
-          <div className="w-20 h-1 bg-cargo-red mx-auto mt-4"></div>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Другие услуги</h2>
+          <div className="w-20 h-1 bg-cargo-red mx-auto"></div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -70,7 +68,7 @@ const OtherServicesSection = ({ excludeService }: { excludeService: string }) =>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
