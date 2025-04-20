@@ -1,10 +1,11 @@
+
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { CheckCircle2, Phone, Mail } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Phone, Mail } from "lucide-react";
 import OtherServicesSection from "@/components/OtherServicesSection";
 
 const SupplierSearch = () => {
