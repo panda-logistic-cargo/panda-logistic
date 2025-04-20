@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -7,48 +6,33 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, Phone, Mail } from "lucide-react";
 import OtherServicesSection from "@/components/OtherServicesSection";
-
 const SupplierSearch = () => {
-  const { t } = useLanguage();
-
-  const benefits = [
-    "Доступ к проверенной базе производителей и оптовых поставщиков в Китае",
-    "Верификация поставщиков: проверка бизнес-лицензии, производственных мощностей и опыта",
-    "Организация переговоров и заключение контрактов на выгодных условиях",
-    "Контроль качества образцов продукции",
-    "Полное сопровождение на всех этапах работы с поставщиком"
-  ];
-
-  const stages = [
-    {
-      number: "01",
-      title: "Анализ потребностей",
-      description: "Изучаем ваши требования к товару, целевую цену, объемы закупки и другие параметры"
-    },
-    {
-      number: "02",
-      title: "Поиск поставщиков",
-      description: "Подбираем варианты производителей и оптовых поставщиков, соответствующих вашим критериям"
-    },
-    {
-      number: "03",
-      title: "Проверка и верификация",
-      description: "Проводим проверку потенциальных поставщиков, их опыта и производственных возможностей"
-    },
-    {
-      number: "04",
-      title: "Запрос образцов",
-      description: "Организуем получение и проверку качества образцов продукции"
-    },
-    {
-      number: "05",
-      title: "Переговоры и контракты",
-      description: "Ведем переговоры по условиям сотрудничества и помогаем заключить контракт"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const {
+    t
+  } = useLanguage();
+  const benefits = ["Доступ к проверенной базе производителей и оптовых поставщиков в Китае", "Верификация поставщиков: проверка бизнес-лицензии, производственных мощностей и опыта", "Организация переговоров и заключение контрактов на выгодных условиях", "Контроль качества образцов продукции", "Полное сопровождение на всех этапах работы с поставщиком"];
+  const stages = [{
+    number: "01",
+    title: "Анализ потребностей",
+    description: "Изучаем ваши требования к товару, целевую цену, объемы закупки и другие параметры"
+  }, {
+    number: "02",
+    title: "Поиск поставщиков",
+    description: "Подбираем варианты производителей и оптовых поставщиков, соответствующих вашим критериям"
+  }, {
+    number: "03",
+    title: "Проверка и верификация",
+    description: "Проводим проверку потенциальных поставщиков, их опыта и производственных возможностей"
+  }, {
+    number: "04",
+    title: "Запрос образцов",
+    description: "Организуем получение и проверку качества образцов продукции"
+  }, {
+    number: "05",
+    title: "Переговоры и контракты",
+    description: "Ведем переговоры по условиям сотрудничества и помогаем заключить контракт"
+  }];
+  return <div className="min-h-screen">
       <Navbar />
       <div className="pt-20 pb-16">
         <div className="container mx-auto px-4 mt-10">
@@ -66,26 +50,19 @@ const SupplierSearch = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             <div className="lg:col-span-2">
-              <p className="text-lg text-cargo-gray-700 mb-6">
-                Поиск надежных поставщиков — ключевой этап при импорте товаров из Китая. 
-                Наши специалисты помогут найти проверенных производителей, соответствующих вашим требованиям 
-                по качеству, цене и объемам производства, защищая вас от рисков работы с ��енадежными контрагентами.
-              </p>
+              <p className="text-lg text-cargo-gray-700 mb-6">Поиск надежных поставщиков — ключевой этап при импорте товаров из Китая. Наши специалисты помогут найти проверенных производителей, соответствующих вашим требованиям по качеству, цене и объемам производства, защищая вас от рисков работы с ненадежными контрагентами.</p>
 
               <h2 className="text-2xl font-bold mb-4">Преимущества услуги</h2>
               <ul className="space-y-3 mb-8">
-                {benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start">
+                {benefits.map((benefit, index) => <li key={index} className="flex items-start">
                     <CheckCircle2 className="h-5 w-5 text-cargo-red mr-2 flex-shrink-0 mt-1" />
                     <span>{benefit}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
 
               <h2 className="text-2xl font-bold mb-4">Как мы работаем</h2>
               <div className="space-y-6 mb-8">
-                {stages.map((stage) => (
-                  <div key={stage.number} className="flex">
+                {stages.map(stage => <div key={stage.number} className="flex">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cargo-red/10 text-cargo-red flex items-center justify-center mr-4">
                       {stage.number}
                     </div>
@@ -93,8 +70,7 @@ const SupplierSearch = () => {
                       <h3 className="font-bold text-lg">{stage.title}</h3>
                       <p className="text-cargo-gray-700">{stage.description}</p>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
 
@@ -135,8 +111,6 @@ const SupplierSearch = () => {
         </div>
       </div>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default SupplierSearch;
