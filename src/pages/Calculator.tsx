@@ -4,16 +4,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Calculator from "@/components/Calculator";
 import { Plane, TrainFront, Ship } from "lucide-react";
-
 const CalculatorPage = () => {
-  const { t } = useLanguage();
-
-  return (
-    <div className="min-h-screen">
+  const {
+    t
+  } = useLanguage();
+  return <div className="min-h-screen">
       <Navbar />
       <div className="pt-20 pb-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 my-[25px]">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('calculator')}</h1>
             <p className="text-lg text-cargo-gray-700 max-w-3xl mx-auto">
               Рассчитайте приблизительную стоимость доставки вашего груза из Китая.
@@ -35,7 +34,9 @@ const CalculatorPage = () => {
               <p className="font-semibold">7-12 дней</p>
             </div>
             
-            <div className="bg-cargo-gray-100 p-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in" style={{animationDelay: "0.2s"}}>
+            <div className="bg-cargo-gray-100 p-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in" style={{
+            animationDelay: "0.2s"
+          }}>
               <div className="flex items-center gap-3 mb-3">
                 <TrainFront className="h-6 w-6 text-cargo-red" />
                 <h3 className="font-bold text-lg">Железнодорожная доставка</h3>
@@ -44,7 +45,9 @@ const CalculatorPage = () => {
               <p className="font-semibold">18-25 дней</p>
             </div>
             
-            <div className="bg-cargo-gray-100 p-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in" style={{animationDelay: "0.4s"}}>
+            <div className="bg-cargo-gray-100 p-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-fade-in" style={{
+            animationDelay: "0.4s"
+          }}>
               <div className="flex items-center gap-3 mb-3">
                 <Ship className="h-6 w-6 text-cargo-red" />
                 <h3 className="font-bold text-lg">Морская доставка</h3>
@@ -65,8 +68,6 @@ const CalculatorPage = () => {
         </div>
       </div>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default CalculatorPage;
