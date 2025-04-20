@@ -6,28 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, Phone, Mail } from "lucide-react";
 import OtherServicesSection from "@/components/OtherServicesSection";
-
 const MarketplacePurchase = () => {
-  const { t } = useLanguage();
-
-  const marketplaces = [
-    "Taobao — популярная В2С площадка с миллионами товаров",
-    "Tmall — маркетплейс с брендовыми товарами и гарантией качества",
-    "1688.com — оптовая B2B площадка для прямых покупок у производителей",
-    "JD.com — платформа с акцентом на электронику и бытовую технику",
-    "Pinduoduo — площадка с групповыми покупками и низкими ценами"
-  ];
-
-  const benefits = [
-    "Доступ к миллионам товаров китайских производителей",
-    "Выкуп товаров без знания китайского языка",
-    "Проверка товара перед отправкой",
-    "Консолидация заказов с разных площадок",
-    "Защита от недобросовестных продавцов"
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const {
+    t
+  } = useLanguage();
+  const marketplaces = ["Taobao — популярная В2С площадка с миллионами товаров", "Tmall — маркетплейс с брендовыми товарами и гарантией качества", "1688.com — оптовая B2B площадка для прямых покупок у производителей", "JD.com — платформа с акцентом на электронику и бытовую технику", "Pinduoduo — площадка с групповыми покупками и низкими ценами"];
+  const benefits = ["Доступ к миллионам товаров китайских производителей", "Выкуп товаров без знания китайского языка", "Проверка товара перед отправкой", "Консолидация заказов с разных площадок", "Защита от недобросовестных продавцов"];
+  return <div className="min-h-screen">
       <Navbar />
       <div className="pt-20 pb-16">
         <div className="container mx-auto px-4">
@@ -49,22 +34,18 @@ const MarketplacePurchase = () => {
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-bold mb-4">Основные китайские маркетплейсы</h2>
               <ul className="space-y-3 mb-8">
-                {marketplaces.map((item, index) => (
-                  <li key={index} className="flex items-start">
+                {marketplaces.map((item, index) => <li key={index} className="flex items-start">
                     <CheckCircle2 className="h-5 w-5 text-cargo-red mr-2 flex-shrink-0 mt-1" />
                     <span>{item}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
 
               <h2 className="text-2xl font-bold mb-4">Преимущества услуги</h2>
               <ul className="space-y-3 mb-8">
-                {benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start">
+                {benefits.map((benefit, index) => <li key={index} className="flex items-start">
                     <CheckCircle2 className="h-5 w-5 text-cargo-red mr-2 flex-shrink-0 mt-1" />
                     <span>{benefit}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
 
               <h2 className="text-2xl font-bold mb-4">Как работает услуга выкупа</h2>
@@ -108,9 +89,7 @@ const MarketplacePurchase = () => {
 
               <div className="bg-white border border-cargo-gray-200 rounded-lg p-6 mt-6">
                 <h3 className="font-bold text-xl mb-4">Остались вопросы?</h3>
-                <p className="text-cargo-gray-700 mb-4">
-                  Свяжитесь с нашими специалистами для получения под��обной консультации по выкупу товаров с китайских маркетплейсов.
-                </p>
+                <p className="text-cargo-gray-700 mb-4">Свяжитесь с нашими специалистами для получения подробной консультации по выкупу товаров с китайских маркетплейсов.</p>
                 <div className="flex items-center mb-2">
                   <Phone className="h-5 w-5 text-cargo-red mr-2" />
                   <span>+7 (495) 123-45-67</span>
@@ -127,8 +106,6 @@ const MarketplacePurchase = () => {
         </div>
       </div>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default MarketplacePurchase;
