@@ -2,6 +2,7 @@
 import React from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { PackageOpen, DollarSign, User, Shield } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface AdvantageCardProps {
   title: string;
@@ -12,16 +13,18 @@ interface AdvantageCardProps {
 
 const AdvantageCard: React.FC<AdvantageCardProps> = ({ title, description, icon, index }) => {
   return (
-    <div 
-      className="flex flex-col items-center p-6 text-center"
-      style={{ animationDelay: `${index * 0.1}s` }}
-    >
-      <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-cargo-red text-white">
-        {icon}
-      </div>
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-cargo-gray-500">{description}</p>
-    </div>
+    <Card className="group relative overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1 duration-300 border-none bg-gradient-to-br from-white to-cargo-gray-100">
+      <CardContent className="p-6">
+        <div className="absolute top-0 right-0 w-32 h-32 transform translate-x-16 -translate-y-16 rounded-full group-hover:bg-cargo-red/10 transition-all duration-500" />
+        <div className="relative z-10">
+          <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-xl bg-cargo-red/10 group-hover:bg-cargo-red text-cargo-red group-hover:text-white transition-all duration-300">
+            {icon}
+          </div>
+          <h3 className="text-xl font-bold mb-3">{title}</h3>
+          <p className="text-cargo-gray-600">{description}</p>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -52,14 +55,18 @@ const AdvantagesSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-gradient-to-b from-white to-cargo-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('advantagesTitle')}</h2>
-          <div className="w-20 h-1 bg-cargo-red mx-auto"></div>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cargo-red to-cargo-red/70 bg-clip-text text-transparent">
+            {t('advantagesTitle')}
+          </h2>
+          <p className="text-cargo-gray-600 max-w-2xl mx-auto">
+            Мы предоставляем полный спектр услуг по доставке грузов из Китая
+          </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {advantages.map((advantage, index) => (
             <AdvantageCard
               key={index}
@@ -71,20 +78,19 @@ const AdvantagesSection: React.FC = () => {
           ))}
         </div>
         
-        {/* Stats */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center p-6 bg-cargo-gray-100 rounded-lg">
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Card className="p-8 text-center bg-gradient-to-br from-cargo-red/5 to-cargo-red/10 border-none hover:shadow-lg transition-all duration-300">
             <div className="text-4xl font-bold text-cargo-red mb-2">10+</div>
             <p className="text-cargo-gray-700">{t('yearsExperience')}</p>
-          </div>
-          <div className="text-center p-6 bg-cargo-gray-100 rounded-lg">
+          </Card>
+          <Card className="p-8 text-center bg-gradient-to-br from-cargo-red/5 to-cargo-red/10 border-none hover:shadow-lg transition-all duration-300">
             <div className="text-4xl font-bold text-cargo-red mb-2">15+</div>
             <p className="text-cargo-gray-700">{t('countriesServed')}</p>
-          </div>
-          <div className="text-center p-6 bg-cargo-gray-100 rounded-lg">
+          </Card>
+          <Card className="p-8 text-center bg-gradient-to-br from-cargo-red/5 to-cargo-red/10 border-none hover:shadow-lg transition-all duration-300">
             <div className="text-4xl font-bold text-cargo-red mb-2">50,000+</div>
             <p className="text-cargo-gray-700">{t('successfulDeliveries')}</p>
-          </div>
+          </Card>
         </div>
       </div>
     </section>
