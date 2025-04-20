@@ -5,12 +5,11 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/context/LanguageContext";
-
 const TermsOfUse = () => {
-  const { t } = useLanguage();
-
-  return (
-    <div className="min-h-screen">
+  const {
+    t
+  } = useLanguage();
+  return <div className="min-h-screen">
       <Navbar />
       <div className="pt-20 pb-16 bg-cargo-gray-100">
         <div className="container mx-auto px-4 mt-10">
@@ -48,7 +47,7 @@ const TermsOfUse = () => {
             {/* Продолжение разделов 3-7... */}
 
             <div className="mt-12 p-4 bg-cargo-gray-100 rounded-lg">
-              <p className="text-sm text-cargo-gray-600">
+              <p className="text-sm text-cargo-gray-600 font-bold">
                 Дата последнего обновления: 01.05.2025
               </p>
             </div>
@@ -56,8 +55,6 @@ const TermsOfUse = () => {
         </div>
       </div>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default TermsOfUse;
