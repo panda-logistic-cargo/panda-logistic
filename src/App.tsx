@@ -20,6 +20,7 @@ import Delivery from "./pages/services/Delivery";
 import BusinessTours from "./pages/services/BusinessTours";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
+import CustomsClearance from "./pages/services/CustomsClearance";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,6 +54,7 @@ const App = () => (
               <Route path="/services/cargo-consolidation" element={<CargoConsolidation />} />
               <Route path="/services/delivery" element={<Delivery />} />
               <Route path="/services/business-tours" element={<BusinessTours />} />
+              <Route path="/services/customs-clearance" element={<CustomsClearance />} />
               
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-use" element={<TermsOfUse />} />

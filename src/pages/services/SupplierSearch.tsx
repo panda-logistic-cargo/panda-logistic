@@ -86,12 +86,16 @@ const SupplierSearch = () => {
                 <p className="text-sm text-cargo-gray-600 mb-6">
                   Окончательная стоимость зависит от сложности поиска, категории товара и количества требуемых поставщиков
                 </p>
-                <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full mb-4">
-                  Рассчитать стоимость доставки
-                </Button>
-                <Button variant="outline" className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full">
-                  {t('requestConsultation')}
-                </Button>
+                <Link to="/calculator">
+                  <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full mb-4">
+                    Рассчитать стоимость доставки
+                  </Button>
+                </Link>
+                <Link to="/contacts">
+                  <Button variant="outline" className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full">
+                    {t('requestConsultation')}
+                  </Button>
+                </Link>
               </div>
 
               <div className="bg-white border border-cargo-gray-200 rounded-lg p-6 mt-6">

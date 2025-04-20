@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -7,46 +8,47 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, Phone, Mail } from "lucide-react";
 import OtherServicesSection from "@/components/OtherServicesSection";
 
-const CargoConsolidation = () => {
+const CustomsClearance = () => {
   const { t } = useLanguage();
 
   const benefits = [
-    "Оптимизация затрат на доставку сборных грузов",
-    "Консолидация товаров от разных поставщиков в одну отправку",
-    "Уменьшение рисков повреждения или потери груза",
-    "Удобный контроль и отслеживание всех этапов доставки",
-    "Экономия времени и ресурсов на организацию логистики"
+    "Полное таможенное оформление импортных и экспортных грузов",
+    "Расчет таможенных платежей и определение кода ТН ВЭД",
+    "Подготовка полного пакета документов для таможни",
+    "Консультации по вопросам таможенного законодательства",
+    "Представление интересов в таможенных органах"
   ];
 
   const stages = [
     {
       number: "01",
-      title: "Приемка товаров",
-      description: "Принимаем товары от ваших поставщиков на нашем складе в Китае"
+      title: "Анализ документов",
+      description: "Проверяем документы и определяем оптимальный способ оформления"
     },
     {
       number: "02",
-      title: "Проверка и упаковка",
-      description: "Проверяем количество и качество товаров, надежно упаковываем для транспортировки"
+      title: "Расчет платежей",
+      description: "Рассчитываем таможенные платежи и определяем код ТН ВЭД"
     },
     {
       number: "03",
-      title: "Формирование партии",
-      description: "Формируем оптимальную партию для отправки с учетом габаритов и веса"
+      title: "Подготовка декларации",
+      description: "Готовим таможенную декларацию и сопроводительные документы"
     },
     {
       number: "04",
-      title: "Оформление документов",
-      description: "Подготавливаем все необходимые документы для таможенного оформления"
+      title: "Подача документов",
+      description: "Подаем документы в таможенные органы и контролируем процесс"
     },
     {
       number: "05",
-      title: "Отправка и доставка",
-      description: "Отправляем груз выбранным способом и доставляем до вашего склада"
+      title: "Выпуск товара",
+      description: "Получаем разрешение на выпуск товара в свободное обращение"
     }
   ];
 
-  return <div className="min-h-screen">
+  return (
+    <div className="min-h-screen">
       <Navbar />
       <div className="pt-20 pb-16">
         <div className="container mx-auto px-4">
@@ -58,21 +60,17 @@ const CargoConsolidation = () => {
           </Link>
           
           <div className="text-center mb-12 my-[25px] bg-cargo-gray-100 p-8 rounded-lg">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('cargoConsolidation')}</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">Таможенное оформление</h1>
             <p className="text-lg text-cargo-gray-700 max-w-3xl mx-auto">
-              Услуга консолидации грузов позволяет объединить товары от разных поставщиков в одну отправку, что значительно снижает стоимость доставки и упрощает логистику. Мы обеспечиваем приемку, проверку, упаковку и оформление всех необходимых документов для таможенного оформления.
+              Предоставляем полный комплекс услуг по таможенному оформлению грузов из Китая. 
+              Наши специалисты помогут правильно классифицировать товар, рассчитать таможенные платежи 
+              и подготовить все необходимые документы для быстрого прохождения таможенной очистки.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             <div className="lg:col-span-2">
-              <p className="text-lg text-cargo-gray-700 mb-6">
-                Услуга консолидации грузов позволяет объединить товары от разных поставщиков в одну отправку, 
-                что значительно снижает стоимость доставки и упрощает логистику. Мы обеспечиваем приемку, 
-                проверку, упаковку и оформление всех необходимых документов для таможенного оформления.
-              </p>
-
-              <h2 className="text-2xl font-bold mb-4">Преимущества консолидации</h2>
+              <h2 className="text-2xl font-bold mb-4">Преимущества услуги</h2>
               <ul className="space-y-3 mb-8">
                 {benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
@@ -82,9 +80,9 @@ const CargoConsolidation = () => {
                 ))}
               </ul>
 
-              <h2 className="text-2xl font-bold mb-4">Этапы консолидации груза</h2>
+              <h2 className="text-2xl font-bold mb-4">Как мы работаем</h2>
               <div className="space-y-6 mb-8">
-                {stages.map((stage) => (
+                {stages.map(stage => (
                   <div key={stage.number} className="flex">
                     <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cargo-red/10 text-cargo-red flex items-center justify-center mr-4">
                       {stage.number}
@@ -102,9 +100,9 @@ const CargoConsolidation = () => {
               <div className="bg-cargo-gray-100 p-6 rounded-lg">
                 <h3 className="font-bold text-xl mb-4">Стоимость услуги</h3>
                 <p className="text-cargo-gray-700 mb-2">Базовая стоимость:</p>
-                <p className="text-2xl font-bold text-cargo-red mb-4">от $30 за м3</p>
+                <p className="text-2xl font-bold text-cargo-red mb-4">от $300</p>
                 <p className="text-sm text-cargo-gray-600 mb-6">
-                  Окончательная стоимость зависит от объема груза, количества поставщиков и дополнительных услуг (упаковка, страхование и т.д.)
+                  Окончательная стоимость зависит от типа товара, кода ТН ВЭД и сложности оформления
                 </p>
                 <Link to="/calculator">
                   <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full mb-4">
@@ -121,7 +119,7 @@ const CargoConsolidation = () => {
               <div className="bg-white border border-cargo-gray-200 rounded-lg p-6 mt-6">
                 <h3 className="font-bold text-xl mb-4">Остались вопросы?</h3>
                 <p className="text-cargo-gray-700 mb-4">
-                  Свяжитесь с нашими специалистами для получения подробной консультации по консолидации грузов и расчета стоимости доставки.
+                  Свяжитесь с нашими специалистами для получения подробной консультации по таможенному оформлению.
                 </p>
                 <div className="flex items-center mb-2">
                   <Phone className="h-5 w-5 text-cargo-red mr-2" />
@@ -135,11 +133,12 @@ const CargoConsolidation = () => {
             </div>
           </div>
 
-          <OtherServicesSection excludeService="/services/cargo-consolidation" />
+          <OtherServicesSection excludeService="/services/customs-clearance" />
         </div>
       </div>
       <Footer />
-    </div>;
+    </div>
+  );
 };
 
-export default CargoConsolidation;
+export default CustomsClearance;

@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, CheckCircle2, Phone, Mail } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Phone, Mail, Plane, TrainFront, Ship, Truck } from "lucide-react";
 import OtherServicesSection from "@/components/OtherServicesSection";
 
 const Delivery = () => {
@@ -12,21 +12,25 @@ const Delivery = () => {
 
   const deliveryOptions = [
     {
+      icon: <Plane className="h-8 w-8 text-cargo-red mb-3" />,
       title: "Авиа доставка",
       description: "Самый быстрый способ доставки. Сроки: 7-15 дней",
       priceRange: "от $15 за кг"
     },
     {
+      icon: <TrainFront className="h-8 w-8 text-cargo-red mb-3" />,
       title: "Железнодорожная доставка",
       description: "Оптимальное соотношение стоимости и сроков. Сроки: 18-25 дней",
       priceRange: "от $5 за кг"
     },
     {
+      icon: <Ship className="h-8 w-8 text-cargo-red mb-3" />,
       title: "Морская доставка",
       description: "Экономичный вариант для крупных грузов. Сроки: 35-45 дней",
       priceRange: "от $2 за кг"
     },
     {
+      icon: <Truck className="h-8 w-8 text-cargo-red mb-3" />,
       title: "Автомобильная доставка",
       description: "Гибкий вариант с возможностью доставки до двери. Сроки: 20-30 дней",
       priceRange: "от $3 за кг"
@@ -65,6 +69,7 @@ const Delivery = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 {deliveryOptions.map((option, index) => (
                   <div key={index} className="border border-cargo-gray-200 rounded-lg p-4 hover:border-cargo-red hover:shadow-md transition-all">
+                    {option.icon}
                     <h3 className="font-bold text-lg mb-2">{option.title}</h3>
                     <p className="text-cargo-gray-700 mb-2">{option.description}</p>
                     <p className="text-cargo-red font-medium">{option.priceRange}</p>
@@ -101,12 +106,16 @@ const Delivery = () => {
                 <p className="text-sm text-cargo-gray-600 mb-6">
                   Для получения точного расчета стоимости доставки вашего груза, пожалуйста, укажите детали отправления через форму заказа или свяжитесь с нашими специалистами
                 </p>
-                <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full mb-4">
-                  {t('calculateDeliveryCost')}
-                </Button>
-                <Button variant="outline" className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full">
-                  {t('requestConsultation')}
-                </Button>
+                <Link to="/calculator">
+                  <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full mb-4">
+                    Рассчитать стоимость доставки
+                  </Button>
+                </Link>
+                <Link to="/contacts">
+                  <Button variant="outline" className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full">
+                    {t('requestConsultation')}
+                  </Button>
+                </Link>
 
                 <div className="mt-6 pt-6 border-t border-cargo-gray-200">
                   <h4 className="font-bold mb-2">Нужна консультация?</h4>

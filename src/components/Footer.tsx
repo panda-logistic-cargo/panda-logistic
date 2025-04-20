@@ -20,7 +20,8 @@ const Footer: React.FC = () => {
     { name: t('marketplacePurchase'), href: '/services/marketplace-purchase' },
     { name: t('cargoConsolidation'), href: '/services/cargo-consolidation' },
     { name: t('delivery'), href: '/services/delivery' },
-    { name: t('businessTours'), href: '/services/business-tours' }
+    { name: t('businessTours'), href: '/services/business-tours' },
+    { name: 'Таможенное оформление', href: '/services/customs-clearance' }
   ];
 
   return (
