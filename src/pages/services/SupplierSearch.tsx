@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -6,6 +5,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { CheckCircle2, Phone, Mail } from "lucide-react";
+import OtherServicesSection from "@/components/OtherServicesSection";
 
 const SupplierSearch = () => {
   const { t } = useLanguage();
@@ -58,9 +58,6 @@ const SupplierSearch = () => {
               </Link>
               <h1 className="text-3xl md:text-4xl font-bold">{t('supplierSearch')}</h1>
             </div>
-            <Button className="bg-cargo-red hover:bg-cargo-red/90 mt-4 md:mt-0">
-              {t('orderService')}
-            </Button>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
@@ -130,35 +127,7 @@ const SupplierSearch = () => {
             </div>
           </div>
 
-          <div className="border-t border-cargo-gray-200 pt-8">
-            <h2 className="text-2xl font-bold mb-6">Другие услуги</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Link 
-                to="/services/marketplace-purchase" 
-                className="block p-4 border border-cargo-gray-200 rounded-lg hover:border-cargo-red hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold">{t('marketplacePurchase')}</h3>
-              </Link>
-              <Link 
-                to="/services/cargo-consolidation" 
-                className="block p-4 border border-cargo-gray-200 rounded-lg hover:border-cargo-red hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold">{t('cargoConsolidation')}</h3>
-              </Link>
-              <Link 
-                to="/services/delivery" 
-                className="block p-4 border border-cargo-gray-200 rounded-lg hover:border-cargo-red hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold">{t('delivery')}</h3>
-              </Link>
-              <Link 
-                to="/services/business-tours" 
-                className="block p-4 border border-cargo-gray-200 rounded-lg hover:border-cargo-red hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold">{t('businessTours')}</h3>
-              </Link>
-            </div>
-          </div>
+          <OtherServicesSection excludeService="/services/supplier-search" />
         </div>
       </div>
       <Footer />

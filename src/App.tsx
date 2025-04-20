@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,8 +8,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import About from "./pages/About";
-import About2 from "./pages/About2";
+import About from "./pages/About2";
 import Services from "./pages/Services";
 import Calculator from "./pages/Calculator";
 import Blog from "./pages/Blog";
@@ -44,10 +42,7 @@ const App = () => (
             <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
-              
               <Route path="/about" element={<About />} />
-              <Route path="/about2" element={<About2 />} />
-              
               <Route path="/services" element={<Services />} />
               <Route path="/calculator" element={<Calculator />} />
               <Route path="/blog" element={<Blog />} />
