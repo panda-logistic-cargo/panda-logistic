@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -73,10 +72,12 @@ const Contacts = () => {
       <Navbar />
       <div className="pt-20 pb-16">
         <div className="container mx-auto px-4 mt-10">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('contacts')}</h1>
-          <p className="text-lg text-cargo-gray-700 mb-10 max-w-3xl">
-            Свяжитесь с нами любым удобным способом или оставьте заявку, и мы перезвоним вам в ближайшее время.
-          </p>
+          <div className="text-center mb-12 my-[25px] bg-cargo-gray-100 p-8 rounded-lg">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('contacts')}</h1>
+            <p className="text-lg text-cargo-gray-700 max-w-3xl mx-auto">
+              Свяжитесь с нами любым удобным способом или оставьте заявку, и мы перезвоним вам в ближайшее время.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="md:col-span-1">
