@@ -1,19 +1,26 @@
+
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { FileText, Import, Truck, Shield, Users, ShoppingCart, Briefcase } from "lucide-react";
+
+interface BlogCategory {
+  name: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
 
 // Define the categories array
-const categories = [
-  "Все статьи",
-  "Импорт из Китая",
-  "Логистика",
-  "Таможня",
-  "Поставщики",
-  "Маркетплейсы",
-  "Бизнес с Китаем"
+const categories: BlogCategory[] = [
+  { name: "Все статьи", icon: FileText },
+  { name: "Импорт из Китая", icon: Import },
+  { name: "Логистика", icon: Truck },
+  { name: "Таможня", icon: Shield },
+  { name: "Поставщики", icon: Users },
+  { name: "Маркетплейсы", icon: ShoppingCart },
+  { name: "Бизнес с Китаем", icon: Briefcase }
 ];
 
 // Define the articles array
@@ -85,18 +92,22 @@ const Blog = () => {
           </div>
 
           <div className="flex flex-wrap gap-2 mb-8">
-            {categories.map((category, index) => (
-              <button
-                key={index}
-                className={`px-4 py-2 rounded-full text-sm ${
-                  index === 0
-                    ? "bg-cargo-red text-white"
-                    : "bg-cargo-gray-100 text-cargo-gray-700 hover:bg-cargo-gray-200"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+            {categories.map((category, index) => {
+              const Icon = category.icon;
+              return (
+                <button
+                  key={index}
+                  className={`px-4 py-2 rounded-full text-sm flex items-center gap-2 ${
+                    index === 0
+                      ? "bg-cargo-red text-white"
+                      : "bg-cargo-gray-100 text-cargo-gray-700 hover:bg-cargo-gray-200"
+                  }`}
+                >
+                  <Icon className="h-4 w-4" />
+                  {category.name}
+                </button>
+              );
+            })}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">

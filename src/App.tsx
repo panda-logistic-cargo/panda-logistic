@@ -18,9 +18,7 @@ import Calculator3 from "./pages/calculator/Calculator3";
 import Blog from "./pages/Blog";
 import Contacts from "./pages/Contacts";
 import SupplierSearch from "./pages/services/SupplierSearch";
-import MarketplacePurchase from "./pages/services/MarketplaceP
-
-urchase";
+import MarketplacePurchase from "./pages/services/MarketplacePurchase";
 import CargoConsolidation from "./pages/services/CargoConsolidation";
 import Delivery from "./pages/services/Delivery";
 import BusinessTours from "./pages/services/BusinessTours";
