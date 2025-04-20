@@ -50,21 +50,22 @@ const BusinessTours = () => {
     }
   ];
 
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
       <div className="pt-20 pb-16">
-        <div className="container mx-auto px-4 mt-10">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-            <div>
-              <Link to="/services">
-                <Button variant="outline" className="mb-8">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  {t('allServices')}
-                </Button>
-              </Link>
-              <h1 className="text-3xl md:text-4xl font-bold">{t('businessTours')}</h1>
-            </div>
+        <div className="container mx-auto px-4">
+          <Link to="/services">
+            <Button variant="outline" className="mb-8">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              {t('allServices')}
+            </Button>
+          </Link>
+          
+          <div className="text-center mb-12 my-[25px] bg-cargo-gray-100 p-8 rounded-lg">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('businessTours')}</h1>
+            <p className="text-lg text-cargo-gray-700 max-w-3xl mx-auto">
+              Организуем индивидуальные и групповые бизнес-туры в Китай с целью посещения выставок, поиска поставщиков, проверки фабрик и налаживания деловых контактов. Наши специалисты со знанием китайского языка и бизнес-культуры помогут вам провести успешные переговоры и заключить выгодные контракты.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
@@ -171,8 +172,7 @@ const BusinessTours = () => {
         </div>
       </div>
       <Footer />
-    </div>
-  );
+    </div>;
 };
 
 export default BusinessTours;

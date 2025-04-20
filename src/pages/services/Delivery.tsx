@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -42,30 +41,26 @@ const Delivery = () => {
     "Доставка до двери или до указанного склада"
   ];
 
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
       <div className="pt-20 pb-16">
-        <div className="container mx-auto px-4 mt-10">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-            <div>
-              <Link to="/services">
-                <Button variant="outline" className="mb-8">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  {t('allServices')}
-                </Button>
-              </Link>
-              <h1 className="text-3xl md:text-4xl font-bold">{t('delivery')}</h1>
-            </div>
+        <div className="container mx-auto px-4">
+          <Link to="/services">
+            <Button variant="outline" className="mb-8">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              {t('allServices')}
+            </Button>
+          </Link>
+          
+          <div className="text-center mb-12 my-[25px] bg-cargo-gray-100 p-8 rounded-lg">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('delivery')}</h1>
+            <p className="text-lg text-cargo-gray-700 max-w-3xl mx-auto">
+              Предлагаем комплексные решения по доставке грузов из Китая в Россию и страны СНГ. Выбирайте оптимальный способ доставки в зависимости от ваших приоритетов: сроки, стоимость или специфика груза.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             <div className="lg:col-span-2">
-              <p className="text-lg text-cargo-gray-700 mb-6">
-                Предлагаем комплексные решения по доставке грузов из Китая в Россию и страны СНГ. 
-                Выбирайте оптимальный способ доставки в зависимости от ваших приоритетов: сроки, стоимость или специфика груза.
-              </p>
-
               <h2 className="text-2xl font-bold mb-4">Способы доставки</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 {deliveryOptions.map((option, index) => (
@@ -132,8 +127,7 @@ const Delivery = () => {
         </div>
       </div>
       <Footer />
-    </div>
-  );
+    </div>;
 };
 
 export default Delivery;
