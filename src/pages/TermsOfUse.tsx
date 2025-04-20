@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
@@ -13,7 +12,7 @@ const TermsOfUse = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div className="pt-20 pb-16">
+      <div className="pt-20 pb-16 bg-cargo-gray-100">
         <div className="container mx-auto px-4 mt-10">
           <Link to="/">
             <Button variant="outline" className="mb-8">
@@ -22,7 +21,7 @@ const TermsOfUse = () => {
             </Button>
           </Link>
           
-          <article className="prose prose-lg max-w-4xl mx-auto">
+          <article className="prose prose-lg max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm">
             <h1 className="text-3xl md:text-4xl font-bold mb-8">Условия использования сайта</h1>
             
             <p className="text-cargo-gray-700 mb-6">

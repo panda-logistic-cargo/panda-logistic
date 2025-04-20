@@ -1,23 +1,25 @@
 
 import React from 'react';
 import { useLanguage } from "@/context/LanguageContext";
-import { Search, ShoppingCart, Package, Truck } from "lucide-react";
+import { Search, ShoppingCart, Package, Truck, Plane } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
   title: string;
+  description: string;
   link: string;
   icon: React.ReactNode;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, link, icon }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, link, icon }) => {
   return (
     <Link to={link} className="block">
       <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-cargo-red/20 transition-all group">
         <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-cargo-red/10 text-cargo-red group-hover:bg-cargo-red group-hover:text-white transition-colors">
           {icon}
         </div>
-        <h3 className="text-xl font-semibold">{title}</h3>
+        <h3 className="text-xl font-semibold mb-2">{title}</h3>
+        <p className="text-cargo-gray-500">{description}</p>
       </div>
     </Link>
   );
@@ -27,23 +29,33 @@ const OtherServicesSection = ({ excludeService }: { excludeService: string }) =>
   const services = [
     {
       title: "Поиск поставщиков",
+      description: "Поможем найти надежных производителей товаров в Китае под ваши требования.",
       link: '/services/supplier-search',
       icon: <Search className="h-6 w-6" />
     },
     {
       title: "Выкуп с маркетплейсов",
+      description: "Выкуп товаров с популярных китайских площадок Taobao, 1688, Alibaba.",
       link: '/services/marketplace-purchase',
       icon: <ShoppingCart className="h-6 w-6" />
     },
     {
       title: "Консолидация груза",
+      description: "Объединение нескольких поставок на нашем складе для оптимизации расходов.",
       link: '/services/cargo-consolidation',
       icon: <Package className="h-6 w-6" />
     },
     {
       title: "Доставка",
+      description: "Доставка любым способом: авиа, жд, морем, автотранспортом до вашего склада.",
       link: '/services/delivery',
       icon: <Truck className="h-6 w-6" />
+    },
+    {
+      title: "Бизнес-туры",
+      description: "Организация поездок в Китай для посещения выставок и встреч с поставщиками.",
+      link: '/services/business-tours',
+      icon: <Plane className="h-6 w-6" />
     }
   ];
 
@@ -62,6 +74,7 @@ const OtherServicesSection = ({ excludeService }: { excludeService: string }) =>
             <ServiceCard
               key={index}
               title={service.title}
+              description={service.description}
               link={service.link}
               icon={service.icon}
             />

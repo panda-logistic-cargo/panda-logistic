@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
@@ -13,7 +12,7 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <div className="pt-20 pb-16">
+      <div className="pt-20 pb-16 bg-cargo-gray-100">
         <div className="container mx-auto px-4 mt-10">
           <Link to="/">
             <Button variant="outline" className="mb-8">
@@ -22,7 +21,7 @@ const PrivacyPolicy = () => {
             </Button>
           </Link>
           
-          <article className="prose prose-lg max-w-4xl mx-auto">
+          <article className="prose prose-lg max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm">
             <h1 className="text-3xl md:text-4xl font-bold mb-8">Политика конфиденциальности</h1>
             
             <p className="text-cargo-gray-700 mb-6">
@@ -52,7 +51,6 @@ const PrivacyPolicy = () => {
               <li>Обработка заявок и запросов от пользователя.</li>
             </ul>
 
-            {/* Продолжение разделов 3-7... */}
             <h2 className="text-2xl font-bold mt-8 mb-4">3. Условия обработки персональной информации</h2>
             <div className="pl-4">
               <p className="mb-4">3.1. Компания хранит персональную информацию пользователей до завершения взаимодействия с пользователем, если иное не предусмотрено законодательством РФ.</p>
