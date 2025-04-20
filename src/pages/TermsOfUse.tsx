@@ -1,9 +1,11 @@
 
 import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/context/LanguageContext";
-import { Link } from "react-router-dom";
 
 const TermsOfUse = () => {
   const { t } = useLanguage();
@@ -13,6 +15,13 @@ const TermsOfUse = () => {
       <Navbar />
       <div className="pt-20 pb-16">
         <div className="container mx-auto px-4 mt-10">
+          <Link to="/">
+            <Button variant="outline" className="mb-8">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Вернуться на главную
+            </Button>
+          </Link>
+          
           <article className="prose prose-lg max-w-4xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-bold mb-8">Условия использования сайта</h1>
             

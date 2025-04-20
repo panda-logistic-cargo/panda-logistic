@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -9,76 +8,18 @@ import { ArrowRight } from "lucide-react";
 const Blog = () => {
   const { t } = useLanguage();
 
-  const articles = [
-    {
-      id: 1,
-      title: "Как найти надежного поставщика в Китае?",
-      excerpt: "Узнайте проверенные методы поиска и проверки китайских поставщиков, чтобы избежать рисков при импорте товаров.",
-      date: "10.04.2025",
-      category: "Бизнес",
-      image: "placeholder.svg",
-    },
-    {
-      id: 2,
-      title: "Особенности импорта электроники из Китая",
-      excerpt: "Рассказываем о сертификации, требованиях безопасности и других нюансах при импорте электронных товаров.",
-      date: "05.04.2025",
-      category: "Импорт",
-      image: "placeholder.svg",
-    },
-    {
-      id: 3,
-      title: "ТОП-10 китайских выставок, которые стоит посетить в 2025 году",
-      excerpt: "Обзор самых важных отраслевых выставок в Китае для поиска поставщиков и новых товаров.",
-      date: "28.03.2025",
-      category: "Выставки",
-      image: "placeholder.svg",
-    },
-    {
-      id: 4,
-      title: "Как работать с маркетплейсом 1688.com?",
-      excerpt: "Пошаговое руководство по регистрации, поиску товаров и совершению покупок на крупнейшей B2B площадке Китая.",
-      date: "20.03.2025",
-      category: "Маркетплейсы",
-      image: "placeholder.svg",
-    },
-    {
-      id: 5,
-      title: "Изменения в таможенном законодательстве 2025 года",
-      excerpt: "Основные изменения в правилах таможенного оформления и их влияние на импорт товаров из Китая.",
-      date: "15.03.2025",
-      category: "Законодательство",
-      image: "placeholder.svg",
-    },
-    {
-      id: 6,
-      title: "Сезонность производства в Китае: когда лучше размещать заказы?",
-      excerpt: "Разбираемся, как китайские праздники и сезонные факторы влияют на производство и логистику.",
-      date: "10.03.2025",
-      category: "Производство",
-      image: "placeholder.svg",
-    },
-  ];
-
-  const categories = [
-    "Все категории",
-    "Бизнес",
-    "Импорт",
-    "Выставки",
-    "Маркетплейсы",
-    "Законодательство",
-    "Производство",
-  ];
-
   return (
     <div className="min-h-screen">
       <Navbar />
       <div className="pt-20 pb-16">
-        <div className="container mx-auto px-4 mt-10">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('blog')}</h1>
-          <p className="text-lg text-cargo-gray-700 mb-10 max-w-3xl">
-            Актуальные статьи о логистике, импорте из Китая и ведении бизнеса с китайскими партнерами.
-          </p>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('blog')}</h1>
+            <p className="text-lg text-cargo-gray-700 max-w-3xl mx-auto">
+              Актуальные статьи о логистике, импорте из Китая и ведении бизнеса 
+              с китайскими партнерами.
+            </p>
+          </div>
 
           <div className="flex flex-wrap gap-2 mb-8">
             {categories.map((category, index) => (
