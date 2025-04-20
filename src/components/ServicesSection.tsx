@@ -3,6 +3,7 @@ import React from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { Search, ShoppingCart, CreditCard, Package, CheckCircle, Truck, Plane } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 interface ServiceCardProps {
   title: string;
