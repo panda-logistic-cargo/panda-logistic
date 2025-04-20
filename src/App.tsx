@@ -20,12 +20,14 @@ import MarketplacePurchase from "./pages/services/MarketplacePurchase";
 import CargoConsolidation from "./pages/services/CargoConsolidation";
 import Delivery from "./pages/services/Delivery";
 import BusinessTours from "./pages/services/BusinessTours";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 1,
-      staleTime: 5 * 60 * 1000, // 5 minutes
+      staleTime: 5 * 60 * 1000,
       refetchOnWindowFocus: false,
     },
   },
@@ -56,6 +58,9 @@ const App = () => (
               <Route path="/services/cargo-consolidation" element={<CargoConsolidation />} />
               <Route path="/services/delivery" element={<Delivery />} />
               <Route path="/services/business-tours" element={<BusinessTours />} />
+              
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-use" element={<TermsOfUse />} />
               
               <Route path="*" element={<NotFound />} />
             </Routes>

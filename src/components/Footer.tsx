@@ -108,12 +108,12 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} Cargo A71. {t('allRightsReserved')}
           </div>
           <div className="flex items-center space-x-4">
-            <a href="#" className="text-cargo-gray-400 hover:text-cargo-red text-sm">
+            <Link to="/privacy-policy" className="text-cargo-gray-400 hover:text-cargo-red text-sm">
               {t('privacyPolicy')}
-            </a>
-            <a href="#" className="text-cargo-gray-400 hover:text-cargo-red text-sm">
+            </Link>
+            <Link to="/terms-of-use" className="text-cargo-gray-400 hover:text-cargo-red text-sm">
               {t('termsOfService')}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
