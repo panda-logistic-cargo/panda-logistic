@@ -1,47 +1,48 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { CheckCircle2, Phone, Mail } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Phone, Mail } from "lucide-react";
+import OtherServicesSection from "@/components/OtherServicesSection";
 
 const CargoConsolidation = () => {
   const { t } = useLanguage();
 
   const benefits = [
-    "Существенная экономия на международной доставке",
-    "Оптимизация логистических расходов",
-    "Снижение рисков повреждения или утери груза",
-    "Упрощение документооборота",
-    "Контроль качества товаров перед отправкой"
+    "Оптимизация затрат на доставку сборных грузов",
+    "Консолидация товаров от разных поставщиков в одну отправку",
+    "Уменьшение рисков повреждения или потери груза",
+    "Удобный контроль и отслеживание всех этапов доставки",
+    "Экономия времени и ресурсов на организацию логистики"
   ];
 
-  const services = [
+  const stages = [
     {
-      title: "Приём и хранение грузов",
-      description: "Принимаем товары от разных поставщиков на наш склад в Китае и храним их до формирования полной партии"
+      number: "01",
+      title: "Приемка товаров",
+      description: "Принимаем товары от ваших поставщиков на нашем складе в Китае"
     },
     {
-      title: "Проверка товаров",
-      description: "Проводим базовую проверку качества и соответствия товаров заявленным характеристикам"
+      number: "02",
+      title: "Проверка и упаковка",
+      description: "Проверяем количество и качество товаров, надежно упаковываем для транспортировки"
     },
     {
-      title: "Фото- и видеоотчёты",
-      description: "Предоставляем подробные фото и видеоотчёты о состоянии и количестве поступивших товаров"
-    },
-    {
-      title: "Переупаковка и маркировка",
-      description: "Оптимизируем упаковку для минимизации объёма и предотвращения повреждений при транспортировке"
-    },
-    {
+      number: "03",
       title: "Формирование партии",
-      description: "Объединяем товары в одну партию для международной перевозки"
+      description: "Формируем оптимальную партию для отправки с учетом габаритов и веса"
     },
     {
-      title: "Подготовка документации",
-      description: "Оформляем все необходимые документы для международной перевозки и таможенного оформления"
+      number: "04",
+      title: "Оформление документов",
+      description: "Подготавливаем все необходимые документы для таможенного оформления"
+    },
+    {
+      number: "05",
+      title: "Отправка и доставка",
+      description: "Отправляем груз выбранным способом и доставляем до вашего склада"
     }
   ];
 
@@ -52,8 +53,11 @@ const CargoConsolidation = () => {
         <div className="container mx-auto px-4 mt-10">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
             <div>
-              <Link to="/services" className="text-cargo-red hover:underline mb-2 inline-block">
-                &larr; {t('allServices')}
+              <Link to="/services">
+                <Button variant="outline" className="mb-8">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  {t('allServices')}
+                </Button>
               </Link>
               <h1 className="text-3xl md:text-4xl font-bold">{t('cargoConsolidation')}</h1>
             </div>
@@ -62,9 +66,9 @@ const CargoConsolidation = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             <div className="lg:col-span-2">
               <p className="text-lg text-cargo-gray-700 mb-6">
-                Консолидация груза — это объединение нескольких небольших партий товаров в одну крупную отправку. 
-                Такой подход позволяет существенно снизить затраты на международную перевозку и упростить логистические процессы.
-                Наши склады в Китае принимают товары от различных поставщиков, проводят проверку качества и формируют оптимальные партии для отправки.
+                Услуга консолидации грузов позволяет объединить товары от разных поставщиков в одну отправку, 
+                что значительно снижает стоимость доставки и упрощает логистику. Мы обеспечиваем приемку, 
+                проверку, упаковку и оформление всех необходимых документов для таможенного оформления.
               </p>
 
               <h2 className="text-2xl font-bold mb-4">Преимущества консолидации</h2>
@@ -77,72 +81,19 @@ const CargoConsolidation = () => {
                 ))}
               </ul>
 
-              <h2 className="text-2xl font-bold mb-4">Включенные услуги</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                {services.map((service, index) => (
-                  <div key={index} className="bg-cargo-gray-100 p-4 rounded-lg">
-                    <h3 className="font-bold mb-2">{service.title}</h3>
-                    <p className="text-sm text-cargo-gray-700">{service.description}</p>
+              <h2 className="text-2xl font-bold mb-4">Этапы консолидации груза</h2>
+              <div className="space-y-6 mb-8">
+                {stages.map((stage) => (
+                  <div key={stage.number} className="flex">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cargo-red/10 text-cargo-red flex items-center justify-center mr-4">
+                      {stage.number}
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg">{stage.title}</h3>
+                      <p className="text-cargo-gray-700">{stage.description}</p>
+                    </div>
                   </div>
                 ))}
-              </div>
-
-              <h2 className="text-2xl font-bold mb-4">Процесс консолидации</h2>
-              <div className="relative">
-                {/* Вертикальная линия для соединения шагов */}
-                <div className="absolute left-6 top-8 bottom-0 w-0.5 bg-cargo-gray-200"></div>
-                
-                <div className="space-y-8">
-                  <div className="relative flex">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cargo-red text-white flex items-center justify-center mr-4 z-10">
-                      1
-                    </div>
-                    <div className="pt-2">
-                      <h3 className="font-bold text-lg">Получение персонального адреса склада</h3>
-                      <p className="text-cargo-gray-700">После оформления заказа вы получаете персональный адрес нашего склада в Китае для отправки товаров</p>
-                    </div>
-                  </div>
-                  
-                  <div className="relative flex">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cargo-red text-white flex items-center justify-center mr-4 z-10">
-                      2
-                    </div>
-                    <div className="pt-2">
-                      <h3 className="font-bold text-lg">Прием и проверка товаров</h3>
-                      <p className="text-cargo-gray-700">Мы принимаем товары от поставщиков, проверяем их количество и базовое качество</p>
-                    </div>
-                  </div>
-                  
-                  <div className="relative flex">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cargo-red text-white flex items-center justify-center mr-4 z-10">
-                      3
-                    </div>
-                    <div className="pt-2">
-                      <h3 className="font-bold text-lg">Подтверждение и отчеты</h3>
-                      <p className="text-cargo-gray-700">Отправляем вам фото и видеоотчеты о принятых товарах, ожидаем подтверждения для дальнейших действий</p>
-                    </div>
-                  </div>
-                  
-                  <div className="relative flex">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cargo-red text-white flex items-center justify-center mr-4 z-10">
-                      4
-                    </div>
-                    <div className="pt-2">
-                      <h3 className="font-bold text-lg">Оптимизация упаковки</h3>
-                      <p className="text-cargo-gray-700">Переупаковываем товары для минимизации объема и обеспечения сохранности при транспортировке</p>
-                    </div>
-                  </div>
-                  
-                  <div className="relative flex">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-cargo-red text-white flex items-center justify-center mr-4 z-10">
-                      5
-                    </div>
-                    <div className="pt-2">
-                      <h3 className="font-bold text-lg">Формирование партии и отправка</h3>
-                      <p className="text-cargo-gray-700">Объединяем все товары в одну партию и отправляем выбранным способом доставки</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -150,9 +101,9 @@ const CargoConsolidation = () => {
               <div className="bg-cargo-gray-100 p-6 rounded-lg">
                 <h3 className="font-bold text-xl mb-4">Стоимость услуги</h3>
                 <p className="text-cargo-gray-700 mb-2">Базовая стоимость:</p>
-                <p className="text-2xl font-bold text-cargo-red mb-4">от $10 за место</p>
+                <p className="text-2xl font-bold text-cargo-red mb-4">от $30 за м3</p>
                 <p className="text-sm text-cargo-gray-600 mb-6">
-                  Точная стоимость зависит от количества мест, веса, объема и необходимости дополнительных услуг по переупаковке и проверке товара
+                  Окончательная стоимость зависит от объема груза, количества поставщиков и дополнительных услуг (упаковка, страхование и т.д.)
                 </p>
                 <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full mb-4">
                   {t('orderService')}
@@ -165,7 +116,7 @@ const CargoConsolidation = () => {
               <div className="bg-white border border-cargo-gray-200 rounded-lg p-6 mt-6">
                 <h3 className="font-bold text-xl mb-4">Остались вопросы?</h3>
                 <p className="text-cargo-gray-700 mb-4">
-                  Свяжитесь с нашими специалистами для получения подробной консультации по услуге консолидации груза.
+                  Свяжитесь с нашими специалистами для получения подробной консультации по консолидации грузов и расчета стоимости доставки.
                 </p>
                 <div className="flex items-center mb-2">
                   <Phone className="h-5 w-5 text-cargo-red mr-2" />
@@ -179,35 +130,7 @@ const CargoConsolidation = () => {
             </div>
           </div>
 
-          <div className="border-t border-cargo-gray-200 pt-8">
-            <h2 className="text-2xl font-bold mb-6">Другие услуги</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Link 
-                to="/services/supplier-search" 
-                className="block p-4 border border-cargo-gray-200 rounded-lg hover:border-cargo-red hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold">{t('supplierSearch')}</h3>
-              </Link>
-              <Link 
-                to="/services/marketplace-purchase" 
-                className="block p-4 border border-cargo-gray-200 rounded-lg hover:border-cargo-red hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold">{t('marketplacePurchase')}</h3>
-              </Link>
-              <Link 
-                to="/services/delivery" 
-                className="block p-4 border border-cargo-gray-200 rounded-lg hover:border-cargo-red hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold">{t('delivery')}</h3>
-              </Link>
-              <Link 
-                to="/services/business-tours" 
-                className="block p-4 border border-cargo-gray-200 rounded-lg hover:border-cargo-red hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold">{t('businessTours')}</h3>
-              </Link>
-            </div>
-          </div>
+          <OtherServicesSection excludeService="/services/cargo-consolidation" />
         </div>
       </div>
       <Footer />

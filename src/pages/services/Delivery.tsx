@@ -1,18 +1,14 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import ResponsiveContainer from "@/components/ResponsiveContainer";
-import { useScrollBehavior } from "@/hooks/use-scroll";
-import { CheckCircle2, Phone, Mail } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
+import OtherServicesSection from "@/components/OtherServicesSection";
 
 const Delivery = () => {
   const { t } = useLanguage();
-  // Apply smooth scrolling to the page
-  useScrollBehavior();
 
   const deliveryOptions = [
     {
@@ -49,11 +45,14 @@ const Delivery = () => {
     <div className="min-h-screen">
       <Navbar />
       <div className="pt-20 pb-16">
-        <ResponsiveContainer>
+        <div className="container mx-auto px-4 mt-10">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
             <div>
-              <Link to="/services" className="text-cargo-red hover:underline mb-2 inline-block">
-                &larr; {t('allServices')}
+              <Link to="/services">
+                <Button variant="outline" className="mb-8">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  {t('allServices')}
+                </Button>
               </Link>
               <h1 className="text-3xl md:text-4xl font-bold">{t('delivery')}</h1>
             </div>
@@ -128,36 +127,8 @@ const Delivery = () => {
             </div>
           </div>
 
-          <div className="border-t border-cargo-gray-200 pt-8">
-            <h2 className="text-2xl font-bold mb-6">Другие услуги</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Link 
-                to="/services/supplier-search" 
-                className="block p-4 border border-cargo-gray-200 rounded-lg hover:border-cargo-red hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold">{t('supplierSearch')}</h3>
-              </Link>
-              <Link 
-                to="/services/marketplace-purchase" 
-                className="block p-4 border border-cargo-gray-200 rounded-lg hover:border-cargo-red hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold">{t('marketplacePurchase')}</h3>
-              </Link>
-              <Link 
-                to="/services/cargo-consolidation" 
-                className="block p-4 border border-cargo-gray-200 rounded-lg hover:border-cargo-red hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold">{t('cargoConsolidation')}</h3>
-              </Link>
-              <Link 
-                to="/services/business-tours" 
-                className="block p-4 border border-cargo-gray-200 rounded-lg hover:border-cargo-red hover:shadow-md transition-all"
-              >
-                <h3 className="font-bold">{t('businessTours')}</h3>
-              </Link>
-            </div>
-          </div>
-        </ResponsiveContainer>
+          <OtherServicesSection excludeService="/services/delivery" />
+        </div>
       </div>
       <Footer />
     </div>
