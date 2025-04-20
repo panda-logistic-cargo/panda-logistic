@@ -106,7 +106,7 @@ const CargoConsolidation = () => {
                   Окончательная стоимость зависит от объема груза, количества поставщиков и дополнительных услуг (упаковка, страхование и т.д.)
                 </p>
                 <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full mb-4">
-                  {t('orderService')}
+                  Рассчитать стоимость доставки
                 </Button>
                 <Button variant="outline" className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full">
                   {t('requestConsultation')}

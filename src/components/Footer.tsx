@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
@@ -68,7 +67,7 @@ const Footer: React.FC = () => {
           
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Быстрые ссылки</h3>
+            <h3 className="text-lg font-bold mb-4">Навигация</h3>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>

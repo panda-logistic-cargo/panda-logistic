@@ -53,8 +53,11 @@ const SupplierSearch = () => {
         <div className="container mx-auto px-4 mt-10">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
             <div>
-              <Link to="/services" className="text-cargo-red hover:underline mb-2 inline-block">
-                &larr; {t('allServices')}
+              <Link to="/services">
+                <Button variant="outline" className="mb-8">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  {t('allServices')}
+                </Button>
               </Link>
               <h1 className="text-3xl md:text-4xl font-bold">{t('supplierSearch')}</h1>
             </div>
@@ -65,7 +68,7 @@ const SupplierSearch = () => {
               <p className="text-lg text-cargo-gray-700 mb-6">
                 Поиск надежных поставщиков — ключевой этап при импорте товаров из Китая. 
                 Наши специалисты помогут найти проверенных производителей, соответствующих вашим требованиям 
-                по качеству, цене и объемам производства, защищая вас от рисков работы с ненадежными контрагентами.
+                по качеству, цене и объемам производства, защищая вас от рисков работы с ��енадежными контрагентами.
               </p>
 
               <h2 className="text-2xl font-bold mb-4">Преимущества услуги</h2>
@@ -103,7 +106,7 @@ const SupplierSearch = () => {
                   Окончательная стоимость зависит от сложности поиска, категории товара и количества требуемых поставщиков
                 </p>
                 <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full mb-4">
-                  {t('orderService')}
+                  Рассчитать стоимость доставки
                 </Button>
                 <Button variant="outline" className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full">
                   {t('requestConsultation')}
