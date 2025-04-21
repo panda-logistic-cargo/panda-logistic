@@ -66,18 +66,9 @@ const BusinessTours = () => {
                   </li>)}
               </ul>
 
-              <h2 className="text-2xl font-bold mb-4">Ближайшие выставки</h2>
+              
               <div className="space-y-4 mb-8">
-                {upcomingEvents.map((event, index) => <div key={index} className="bg-cargo-gray-100 p-4 rounded-lg">
-                    <div className="flex items-start">
-                      <Calendar className="h-5 w-5 text-cargo-red mr-2 flex-shrink-0 mt-1" />
-                      <div>
-                        <h3 className="font-bold">{event.name}</h3>
-                        <p className="text-sm text-cargo-gray-700">{event.date} | {event.location}</p>
-                        <p className="text-sm text-cargo-gray-600">{event.description}</p>
-                      </div>
-                    </div>
-                  </div>)}
+                {upcomingEvents.map((event, index) => {})}
               </div>
             </div>
 
@@ -95,7 +86,7 @@ const BusinessTours = () => {
                 </Button>
               </div>
 
-              <div className="bg-white border border-cargo-gray-200 rounded-lg p-6 mt-6">
+              <div className="bg-white border border-cargo-gray-200 rounded-lg p-6 mt-6 py-[20px]">
                 <h3 className="font-bold text-xl mb-4">Популярные направления</h3>
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center justify-between">
