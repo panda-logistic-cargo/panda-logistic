@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -6,29 +7,52 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle2, Phone, Mail, Calendar } from "lucide-react";
 import OtherServicesSection from "@/components/OtherServicesSection";
+
 const BusinessTours = () => {
-  const {
-    t
-  } = useLanguage();
-  const benefits = ["Посещение крупнейших выставок и торговых центров Китая", "Встречи с потенциальными поставщиками и производителями", "Посещение фабрик и производств для оценки качества", "Переговоры о сотрудничестве с профессиональным переводчиком", "Заключение контрактов напрямую с производителями", "Полное сопровождение и организация логистики внутри Китая"];
-  const tourIncludes = ["Встреча в аэропорту и трансфер в отель", "Проживание в комфортабельном отеле 4*", "Транспортное обслуживание по программе тура", "Услуги профессионального переводчика", "Организация посещения выставок и фабрик", "Помощь в переговорах и заключении контрактов", "Консультации по вопросам импорта и логистики"];
-  const upcomingEvents = [{
-    name: "Canton Fair (Кантонская ярмарка)",
-    date: "15 октября - 4 ноября 2025",
-    location: "Гуанчжоу",
-    description: "Крупнейшая международная торговая выставка в Китае"
-  }, {
-    name: "Yiwu Fair",
-    date: "21-25 октября 2025",
-    location: "Иу",
-    description: "Выставка потребительских товаров и товаров для дома"
-  }, {
-    name: "China Import and Export Fair",
-    date: "5-10 ноября 2025",
-    location: "Шанхай",
-    description: "Международная выставка импорта и экспорта"
-  }];
-  return <div className="min-h-screen">
+  const { t } = useLanguage();
+  
+  const benefits = [
+    "Посещение крупнейших выставок и торговых центров Китая",
+    "Встречи с потенциальными поставщиками и производителями",
+    "Посещение фабрик и производств для оценки качества",
+    "Переговоры о сотрудничестве с профессиональным переводчиком",
+    "Заключение контрактов напрямую с производителями",
+    "Полное сопровождение и организация логистики внутри Китая"
+  ];
+  
+  const tourIncludes = [
+    "Встреча в аэропорту и трансфер в отель",
+    "Проживание в комфортабельном отеле 4*",
+    "Транспортное обслуживание по программе тура",
+    "Услуги профессионального переводчика",
+    "Организация посещения выставок и фабрик",
+    "Помощь в переговорах и заключении контрактов",
+    "Консультации по вопросам импорта и логистики"
+  ];
+  
+  const upcomingEvents = [
+    {
+      name: "Canton Fair (Кантонская ярмарка)",
+      date: "15 октября - 4 ноября 2025",
+      location: "Гуанчжоу",
+      description: "Крупнейшая международная торговая выставка в Китае"
+    },
+    {
+      name: "Yiwu Fair",
+      date: "21-25 октября 2025",
+      location: "Иу",
+      description: "Выставка потребительских товаров и товаров для дома"
+    },
+    {
+      name: "China Import and Export Fair",
+      date: "5-10 ноября 2025",
+      location: "Шанхай",
+      description: "Международная выставка импорта и экспорта"
+    }
+  ];
+  
+  return (
+    <div className="min-h-screen">
       <Navbar />
       <div className="pt-20 pb-16">
         <div className="container mx-auto px-4">
@@ -52,23 +76,37 @@ const BusinessTours = () => {
 
               <h2 className="text-2xl font-bold mb-4">Преимущества бизнес-туров</h2>
               <ul className="space-y-3 mb-8">
-                {benefits.map((benefit, index) => <li key={index} className="flex items-start">
+                {benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start">
                     <CheckCircle2 className="h-5 w-5 text-cargo-red mr-2 flex-shrink-0 mt-1" />
                     <span>{benefit}</span>
-                  </li>)}
+                  </li>
+                ))}
               </ul>
 
               <h2 className="text-2xl font-bold mb-4">В стоимость тура включено</h2>
               <ul className="space-y-3 mb-8">
-                {tourIncludes.map((item, index) => <li key={index} className="flex items-start">
+                {tourIncludes.map((item, index) => (
+                  <li key={index} className="flex items-start">
                     <CheckCircle2 className="h-5 w-5 text-cargo-red mr-2 flex-shrink-0 mt-1" />
                     <span>{item}</span>
-                  </li>)}
+                  </li>
+                ))}
               </ul>
 
-              
               <div className="space-y-4 mb-8">
-                {upcomingEvents.map((event, index) => {})}
+                {upcomingEvents.map((event, index) => (
+                  <div key={index} className="border border-cargo-gray-200 p-4 rounded-lg">
+                    <h3 className="font-bold">{event.name}</h3>
+                    <div className="flex items-center text-cargo-gray-600 mt-2">
+                      <Calendar className="h-4 w-4 mr-2" />
+                      <span>{event.date}</span>
+                    </div>
+                    <div className="mt-1 text-cargo-gray-700">
+                      <span className="font-medium">{event.location}</span> - {event.description}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -130,6 +168,8 @@ const BusinessTours = () => {
         </div>
       </div>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default BusinessTours;

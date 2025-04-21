@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Clock, Whatsapp } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const Contacts = () => {
@@ -75,7 +75,7 @@ const Contacts = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Whatsapp className="mr-2 w-4 h-4" />
+                    <Phone className="mr-2 w-4 h-4" />
                     Написать в WhatsApp
                   </a>
                 </Button>
@@ -203,7 +203,7 @@ const Contacts = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Открыть в Google Картах
+                      Открыть в Google Картах
                     </a>
                   </Button>
                   <div className="aspect-video w-full mt-2 rounded-lg overflow-hidden border border-cargo-gray-200">
