@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -31,12 +30,6 @@ const BusinessTours = () => {
   ];
   
   const upcomingEvents = [
-    {
-      name: "Canton Fair (Кантонская ярмарка)",
-      date: "15 октября - 4 ноября 2025",
-      location: "Гуанчжоу",
-      description: "Крупнейшая международная торговая выставка в Китае"
-    },
     {
       name: "Yiwu Fair",
       date: "21-25 октября 2025",
