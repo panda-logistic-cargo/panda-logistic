@@ -116,18 +116,20 @@ const Blog = () => {
                 key={article.id}
                 className="border border-cargo-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
               >
-                <div className="h-48 bg-cargo-gray-200">
+                <div className="h-48 bg-cargo-gray-200 relative">
                   <img
                     src={article.image}
                     alt={article.title}
                     className="w-full h-full object-cover"
                   />
+                  <span className="absolute top-3 right-3 z-10 bg-cargo-red text-white text-xs px-3 py-1 rounded-full font-medium shadow">
+                    {article.category}
+                  </span>
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm text-cargo-red font-medium">
-                      {article.category}
-                    </span>
+                    {/* Убрана категория отсюда, оставлена только дата */}
+                    <span></span>
                     <span className="text-sm text-cargo-gray-500">
                       {article.date}
                     </span>

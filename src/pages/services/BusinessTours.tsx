@@ -30,20 +30,9 @@ const BusinessTours = () => {
   ];
   
   const upcomingEvents = [
-    {
-      name: "Yiwu Fair",
-      date: "21-25 октября 2025",
-      location: "Иу",
-      description: "Выставка потребительских товаров и товаров для дома"
-    },
-    {
-      name: "China Import and Export Fair",
-      date: "5-10 ноября 2025",
-      location: "Шанхай",
-      description: "Международная выставка импорта и экспорта"
-    }
+    // Все события удалены по просьбе пользователя
   ];
-  
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -88,18 +77,7 @@ const BusinessTours = () => {
               </ul>
 
               <div className="space-y-4 mb-8">
-                {upcomingEvents.map((event, index) => (
-                  <div key={index} className="border border-cargo-gray-200 p-4 rounded-lg">
-                    <h3 className="font-bold">{event.name}</h3>
-                    <div className="flex items-center text-cargo-gray-600 mt-2">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      <span>{event.date}</span>
-                    </div>
-                    <div className="mt-1 text-cargo-gray-700">
-                      <span className="font-medium">{event.location}</span> - {event.description}
-                    </div>
-                  </div>
-                ))}
+                {/* Нет событий для отображения */}
               </div>
             </div>
 
