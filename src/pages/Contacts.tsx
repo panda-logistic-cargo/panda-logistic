@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -5,7 +6,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Whatsapp } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const Contacts = () => {
@@ -19,7 +20,9 @@ const Contacts = () => {
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -40,176 +43,185 @@ const Contacts = () => {
     });
   };
 
-  const contactInfo = [
-    {
-      icon: <Phone className="h-5 w-5" />,
-      title: t("phoneNumber"),
-      content: "+7 (495) 123-45-67",
-      content2: "+7 (925) 987-65-43",
-    },
-    {
-      icon: <Mail className="h-5 w-5" />,
-      title: t("email"),
-      content: "info@cargoa71.com",
-      content2: "support@cargoa71.com",
-    },
-    {
-      icon: <MapPin className="h-5 w-5" />,
-      title: t("address"),
-      content: "Россия, г. Москва,",
-      content2: "ул. Примерная, д. 123, офис 45",
-    },
-    {
-      icon: <Clock className="h-5 w-5" />,
-      title: t("workingHours"),
-      content: "Пн-Пт: 9:00 - 18:00",
-      content2: "Сб-Вс: Выходной",
-    },
-  ];
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
-      <div className="pt-20 pb-16">
-        <div className="container mx-auto px-4 mt-10">
-          <div className="text-center mb-12 my-[25px] bg-cargo-gray-100 p-8 rounded-lg">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('contacts')}</h1>
-            <p className="text-lg text-cargo-gray-700 max-w-3xl mx-auto">
-              Свяжитесь с нами любым удобным способом или оставьте заявку, и мы перезвоним вам в ближайшее время.
-            </p>
-          </div>
+      <div className="flex-1">
+        <div className="pt-20 pb-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-8 bg-cargo-gray-100 p-8 rounded-lg">
+              <h1 className="text-3xl md:text-4xl font-bold mb-4">{t("contacts")}</h1>
+              <p className="text-lg text-cargo-gray-700 max-w-3xl mx-auto">
+                Свяжитесь с нами любым удобным способом или оставьте заявку, и мы перезвоним вам в ближайшее время.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="md:col-span-1">
-              <div className="space-y-6">
-                {contactInfo.map((item, index) => (
-                  <div key={index} className="flex items-start">
-                    <div className="w-12 h-12 rounded-full bg-cargo-red/10 text-cargo-red flex items-center justify-center mr-4">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-bold mb-1">{item.title}</h3>
-                      <p className="text-cargo-gray-700">{item.content}</p>
-                      <p className="text-cargo-gray-700">{item.content2}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8">
-                <h3 className="font-bold mb-3">Мы в мессенджерах</h3>
-                <div className="flex space-x-3">
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-cargo-gray-800 flex items-center justify-center text-white hover:bg-cargo-red transition-colors"
-                  >
-                    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path></svg>
-                  </a>
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-cargo-gray-800 flex items-center justify-center text-white hover:bg-cargo-red transition-colors"
-                  >
-                    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"></path></svg>
-                  </a>
-                  <a
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-cargo-gray-800 flex items-center justify-center text-white hover:bg-cargo-red transition-colors"
-                  >
-                    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
-                  </a>
+            {/* ТРИ ПЛИТОЧКИ */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+              {/* Телефон */}
+              <div className="bg-white border border-cargo-gray-100 rounded-xl p-6 flex flex-col items-center shadow group hover:border-cargo-red/30 hover:shadow-md transition-all">
+                <div className="mb-3 flex items-center justify-center w-12 h-12 rounded-lg bg-cargo-red/10 text-cargo-red group-hover:bg-cargo-red/20">
+                  <Phone className="w-6 h-6" />
                 </div>
+                <div className="mb-1 text-cargo-gray-600 text-sm">Телефон для связи</div>
+                <div className="font-bold text-xl mb-2">8 999 999 99 99</div>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white"
+                >
+                  <a
+                    href="https://wa.me/79999999999"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Whatsapp className="mr-2 w-4 h-4" />
+                    Написать в WhatsApp
+                  </a>
+                </Button>
+              </div>
+              {/* Почта */}
+              <div className="bg-white border border-cargo-gray-100 rounded-xl p-6 flex flex-col items-center shadow group hover:border-cargo-red/30 hover:shadow-md transition-all">
+                <div className="mb-3 flex items-center justify-center w-12 h-12 rounded-lg bg-cargo-red/10 text-cargo-red group-hover:bg-cargo-red/20">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div className="mb-1 text-cargo-gray-600 text-sm">Электронная почта</div>
+                <div className="font-bold text-base mb-1">
+                  <a href="mailto:granit-svg@mail.ru" className="hover:text-cargo-red transition-all">granit-svg@mail.ru</a>
+                </div>
+                <div className="text-xs text-cargo-gray-500 mt-1">Среднее время ответа: <span className="font-semibold">24 часа</span></div>
+              </div>
+              {/* Адрес */}
+              <div className="bg-white border border-cargo-gray-100 rounded-xl p-6 flex flex-col items-center shadow group hover:border-cargo-red/30 hover:shadow-md transition-all">
+                <div className="mb-3 flex items-center justify-center w-12 h-12 rounded-lg bg-cargo-red/10 text-cargo-red group-hover:bg-cargo-red/20">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div className="mb-1 text-cargo-gray-600 text-sm">Адрес офиса</div>
+                <div className="font-bold text-base mb-2 text-center">
+                  г. Хабаровск <br /> ул. Строительная 28
+                </div>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white"
+                >
+                  <a
+                    href="https://www.google.com/maps?q=ул.+Строительная+28,+Хабаровск"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Открыть на карте
+                  </a>
+                </Button>
               </div>
             </div>
 
-            <div className="md:col-span-2">
-              <div className="bg-white shadow-md rounded-lg p-8">
-                <h2 className="text-2xl font-bold mb-6">Отправить сообщение</h2>
-                <form onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            {/* Форма и карта-с колонками */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+              {/* Левая колонка: Форма обратной связи */}
+              <div className="bg-cargo-gray-100 rounded-xl p-8 shadow">
+                <h2 className="text-2xl font-bold mb-4">Обратная связь</h2>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-cargo-gray-700 mb-1">
-                        Ваше имя
-                      </label>
+                      <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="name">Ваше имя</label>
                       <Input
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
+                        placeholder="Иван"
                         required
-                        placeholder="Иван Иванов"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-cargo-gray-700 mb-1">
-                        Email
-                      </label>
+                      <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="email">Электронная почта</label>
                       <Input
                         id="email"
-                        name="email"
                         type="email"
+                        name="email"
                         value={formData.email}
                         onChange={handleChange}
+                        placeholder="you@email.com"
                         required
-                        placeholder="ivan@example.com"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-cargo-gray-700 mb-1">
-                        Телефон
-                      </label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        placeholder="+7 (___) ___-__-__"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-cargo-gray-700 mb-1">
-                        Тема
-                      </label>
-                      <Input
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                        placeholder="Тема сообщения"
                       />
                     </div>
                   </div>
-                  <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-medium text-cargo-gray-700 mb-1">
-                      Сообщение
-                    </label>
+                  <div>
+                    <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="phone">Телефон</label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+7 900 000-00-00"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="subject">Тема</label>
+                    <Input
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="Уточнить сроки доставки"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="message">Сообщение</label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
+                      placeholder="Опишите суть вашего вопроса или запроса"
+                      rows={4}
                       required
-                      placeholder="Опишите ваш вопрос или запрос"
-                      rows={5}
                     />
                   </div>
-                  <Button type="submit" className="bg-cargo-red hover:bg-cargo-red/90 w-full md:w-auto">
+                  <Button
+                    type="submit"
+                    className="w-full bg-cargo-red hover:bg-cargo-red/90 transition-all"
+                  >
                     Отправить сообщение
                   </Button>
                 </form>
               </div>
-            </div>
-          </div>
-
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-4">Наш офис на карте</h2>
-            <div className="h-96 bg-cargo-gray-200 rounded-lg">
-              {/* Здесь будет карта */}
-              <div className="w-full h-full flex items-center justify-center">
-                <p className="text-cargo-gray-600">Карта будет добавлена позже</p>
+              {/* Правая колонка: Адрес + карта */}
+              <div className="flex flex-col rounded-xl p-0 lg:p-2">
+                <div className="bg-cargo-gray-100 rounded-xl p-8 mb-4 shadow">
+                  <h2 className="text-2xl font-bold mb-2">Расположение офиса</h2>
+                  <div className="text-cargo-gray-700 mb-2">г. Хабаровск, ул. Строительная 28</div>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="mb-4 border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full"
+                  >
+                    <a
+                      href="https://www.google.com/maps?q=ул.+Строительная+28,+Хабаровск"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Открыть в Google Картах
+                    </a>
+                  </Button>
+                  <div className="aspect-video w-full mt-2 rounded-lg overflow-hidden border border-cargo-gray-200">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2464.5589479199303!2d135.05884367745338!3d48.488796926470664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5efafc2d83e4767b%3A0x75d6679e765d3e14!2z0L_RgNC-0YHQvy4g0KHRg9C80L7QutGB0LrQsNGPLCAyOCwg0JrQvtCz0L7RgNC90YvQuSDQo9C60YDQsNC80YHQutCw0Y8sINCU0L3QuNC6LCDRgNCw0YHRgdC40Y8sIDY4MDAwMg!5e0!3m2!1sru!2sru!4v1713682418897!5m2!1sru!2sru"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Офис на карте"
+                    ></iframe>
+                  </div>
+                </div>
               </div>
             </div>
+            {/* END форма+карта */}
           </div>
         </div>
       </div>
