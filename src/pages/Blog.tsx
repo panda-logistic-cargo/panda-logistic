@@ -75,6 +75,14 @@ const articles = [
   }
 ];
 
+// Функция для расчёта времени чтения (средняя скорость чтения 200 слов в минуту)
+const calculateReadingTime = (text: string) => {
+  const wordsPerMinute = 200;
+  const words = text.trim().split(/\s+/).length;
+  const time = Math.ceil(words / wordsPerMinute);
+  return time;
+}
+
 const Blog = () => {
   const { t } = useLanguage();
 
@@ -135,12 +143,15 @@ const Blog = () => {
                     </span>
                   </div>
                   <h3 className="font-bold text-xl mb-2">{article.title}</h3>
-                  <p className="text-cargo-gray-600 mb-4">{article.excerpt}</p>
+                  <p className="text-cargo-gray-600 mb-2">{article.excerpt}</p>
+                  <p className="text-sm text-cargo-gray-500 mb-4">
+                    Время чтения: {calculateReadingTime(article.excerpt)} мин
+                  </p>
                   <Button
                     variant="outline"
                     className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white"
                   >
-                    Читать далее <ArrowRight className="ml-2 h-4 w-4" />
+                    Подробнее <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
               </div>
@@ -160,3 +171,4 @@ const Blog = () => {
 };
 
 export default Blog;
+
