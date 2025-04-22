@@ -40,7 +40,7 @@ export const DeliveryMethod: React.FC<DeliveryMethodProps> = ({ value, onValueCh
   return (
     <div className="space-y-4">
       <Label>Способ доставки</Label>
-      <RadioGroup value={value} onValueChange={onValueChange} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <RadioGroup value={value} onValueChange={onValueChange} className="space-y-2">
         {deliveryMethods.map((method) => {
           const Icon = method.icon;
           return (
@@ -52,10 +52,10 @@ export const DeliveryMethod: React.FC<DeliveryMethodProps> = ({ value, onValueCh
               />
               <Label
                 htmlFor={method.id}
-                className="flex items-start gap-4 rounded-lg border p-4 hover:bg-gray-50 peer-data-[state=checked]:border-cargo-red peer-data-[state=checked]:bg-cargo-red/5"
+                className="flex items-center gap-4 rounded-lg border p-3 hover:bg-gray-50 peer-data-[state=checked]:border-cargo-red peer-data-[state=checked]:bg-cargo-red/5"
               >
-                <Icon className="mt-1 h-5 w-5 text-cargo-red shrink-0" />
-                <div className="space-y-1">
+                <Icon className="h-5 w-5 text-cargo-red shrink-0" />
+                <div>
                   <p className="font-medium leading-none">{method.title}</p>
                   <p className="text-sm text-gray-500">{method.description}</p>
                 </div>

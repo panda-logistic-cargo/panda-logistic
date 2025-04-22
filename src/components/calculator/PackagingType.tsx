@@ -36,7 +36,7 @@ export const PackagingType: React.FC<PackagingTypeProps> = ({ value, onValueChan
   return (
     <div className="space-y-4">
       <Label>Тип упаковки</Label>
-      <RadioGroup value={value} onValueChange={onValueChange} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <RadioGroup value={value} onValueChange={onValueChange} className="space-y-2">
         {packagingTypes.map((type) => (
           <div key={type.id} className="relative">
             <RadioGroupItem
@@ -46,10 +46,10 @@ export const PackagingType: React.FC<PackagingTypeProps> = ({ value, onValueChan
             />
             <Label
               htmlFor={`packaging-${type.id}`}
-              className="flex items-start gap-4 rounded-lg border p-4 hover:bg-gray-50 peer-data-[state=checked]:border-cargo-red peer-data-[state=checked]:bg-cargo-red/5"
+              className="flex items-center gap-4 rounded-lg border p-3 hover:bg-gray-50 peer-data-[state=checked]:border-cargo-red peer-data-[state=checked]:bg-cargo-red/5"
             >
-              <Package className="mt-1 h-5 w-5 text-cargo-red shrink-0" />
-              <div className="space-y-1">
+              <Package className="h-5 w-5 text-cargo-red shrink-0" />
+              <div>
                 <p className="font-medium leading-none">{type.title}</p>
                 <p className="text-sm text-gray-500">{type.description}</p>
               </div>

@@ -1,18 +1,15 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { FileText, Import, Truck, Shield, Users, ShoppingCart, Briefcase } from "lucide-react";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
 
 interface BlogCategory {
   name: string;
   icon: React.ComponentType<{ className?: string }>;
 }
 
-// Define the categories array
 const categories: BlogCategory[] = [
   { name: "Все статьи", icon: FileText },
   { name: "Импорт из Китая", icon: Import },
@@ -23,7 +20,6 @@ const categories: BlogCategory[] = [
   { name: "Бизнес с Китаем", icon: Briefcase }
 ];
 
-// Define the articles array
 const articles = [
   {
     id: 1,
@@ -75,7 +71,6 @@ const articles = [
   }
 ];
 
-// Функция для расчёта времени чтения (средняя скорость чтения 200 слов в минуту)
 const calculateReadingTime = (text: string) => {
   const wordsPerMinute = 200;
   const words = text.trim().split(/\s+/).length;
@@ -136,15 +131,15 @@ const Blog = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-2">
-                    {/* Убрана категория отсюда, оставлена только дата */}
-                    <span></span>
-                    <span className="text-sm text-cargo-gray-500">
+                    <div className="flex items-center text-sm text-cargo-gray-500">
+                      <Calendar className="h-4 w-4 mr-1" />
                       {article.date}
-                    </span>
+                    </div>
                   </div>
                   <h3 className="font-bold text-xl mb-2">{article.title}</h3>
                   <p className="text-cargo-gray-600 mb-2">{article.excerpt}</p>
-                  <p className="text-sm text-cargo-gray-500 mb-4">
+                  <p className="text-sm text-cargo-gray-500 mb-4 flex items-center">
+                    <Clock className="h-4 w-4 mr-1" />
                     Время чтения: {calculateReadingTime(article.excerpt)} мин
                   </p>
                   <Button
@@ -171,4 +166,3 @@ const Blog = () => {
 };
 
 export default Blog;
-
