@@ -2,7 +2,8 @@
 import React from 'react';
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Package } from "lucide-react";
+import { Package, CircleAlert } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface PackagingTypeProps {
   value: string;
@@ -46,6 +47,16 @@ export const PackagingType: React.FC<PackagingTypeProps> = ({ value, onValueChan
               <div className="flex items-center gap-2">
                 <Package className="h-4 w-4 text-cargo-red" />
                 <span>{type.title}</span>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <CircleAlert className="h-4 w-4 text-cargo-red cursor-help" />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p className="max-w-[200px]">{type.description}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
             </SelectItem>
           ))}
@@ -54,3 +65,4 @@ export const PackagingType: React.FC<PackagingTypeProps> = ({ value, onValueChan
     </div>
   );
 };
+
