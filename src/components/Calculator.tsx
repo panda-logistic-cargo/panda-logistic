@@ -1,42 +1,14 @@
-
 import React, { useState } from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Calculator as CalculatorIcon } from "lucide-react";
+import { DeliveryMethod } from './calculator/DeliveryMethod';
+import { PackagingType } from './calculator/PackagingType';
 
-/**
- * Калькулятор стоимости доставки.
- * 
- * Логика работы:
- * 1. Пользователь вводит вес, объем, выбирает направление и категорию товара
- * 2. При нажатии на кнопку "Рассчитать" происходит:
- *    - Валидация полей (проверка на заполненность и корректность значений)
- *    - Расчет объемного веса (объем * 167)
- *    - Определение расчетного веса (максимум между фактическим и объемным весом)
- *    - Применение базовой ставки (10 USD за кг)
- *    - Расчет предварительной стоимости (расчетный вес * базовая ставка)
- *    - Отображение результата и уведомление пользователя через toast
- * 
- * Формулы расчета:
- * - Объемный вес (кг) = Объем (м³) * 167
- * - Расчетный вес (кг) = max(Физический вес, Объемный вес)
- * - Стоимость ($) = Расчетный вес * Базовая ставка
- * 
- * Ограничения текущей реализации:
- * - Фиксированная базовая ставка 10 USD/кг (в реальности зависит от направления, типа товара и т.д.)
- * - Не учитываются дополнительные сборы, страховка и т.п.
- * - Не учитывается специфика разных видов транспорта
- */
 const Calculator: React.FC = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
@@ -46,17 +18,14 @@ const Calculator: React.FC = () => {
   const [weight, setWeight] = useState('');
   const [volume, setVolume] = useState('');
   const [category, setCategory] = useState('');
+  const [deliveryMethod, setDeliveryMethod] = useState('standard');
+  const [packagingType, setPackagingType] = useState('standard');
   const [result, setResult] = useState<number | null>(null);
-  
-  /**
-   * Обработчик отправки формы калькулятора
-   * Выполняет валидацию и расчет стоимости доставки
-   */
+
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Валидация обязательных полей
-    if (!weight || !volume) {
+    if (!weight || !volume || !deliveryMethod || !packagingType) {
       toast({
         title: "Ошибка",
         description: "Пожалуйста, заполните все обязательные поля",
@@ -65,7 +34,6 @@ const Calculator: React.FC = () => {
       return;
     }
     
-    // Проверка корректности числовых значений
     const weightNum = parseFloat(weight);
     const volumeNum = parseFloat(volume);
     
@@ -78,23 +46,13 @@ const Calculator: React.FC = () => {
       return;
     }
     
-    // Расчет стоимости доставки
-    // 1. Вычисляем объемный вес (коэффициент 167 кг/м³)
     const volumetricWeight = volumeNum * 167;
-    
-    // 2. Определяем расчетный вес (максимальный из фактического и объемного)
     const chargeableWeight = Math.max(weightNum, volumetricWeight);
-    
-    // 3. Применяем базовую ставку (10 USD за кг)
-    const baseRate = 10; // USD per kg
-    
-    // 4. Рассчитываем предварительную стоимость и округляем до целого числа
+    const baseRate = 10;
     const calculatedPrice = Math.round(chargeableWeight * baseRate);
     
-    // Обновляем состояние и отображаем результат
     setResult(calculatedPrice);
     
-    // Показываем уведомление с результатом
     toast({
       title: "Расчет выполнен",
       description: `Предварительная стоимость доставки: $${calculatedPrice}`,
@@ -103,7 +61,6 @@ const Calculator: React.FC = () => {
   
   return (
     <section className="py-20 bg-white relative overflow-hidden">
-      {/* Background elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-cargo-gray-100 transform skew-x-12 -translate-x-20 z-0"></div>
       <div className="absolute bottom-20 left-10 w-64 h-64 rounded-full bg-cargo-red/10"></div>
       
@@ -129,7 +86,7 @@ const Calculator: React.FC = () => {
             </div>
             
             <div className="md:w-1/2 p-8">
-              <form onSubmit={handleCalculate} className="space-y-4">
+              <form onSubmit={handleCalculate} className="space-y-6">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="origin">{t('origin')}</Label>
@@ -205,6 +162,16 @@ const Calculator: React.FC = () => {
                     </SelectContent>
                   </Select>
                 </div>
+                
+                <DeliveryMethod 
+                  value={deliveryMethod}
+                  onValueChange={setDeliveryMethod}
+                />
+                
+                <PackagingType
+                  value={packagingType}
+                  onValueChange={setPackagingType}
+                />
                 
                 <Button 
                   type="submit" 
