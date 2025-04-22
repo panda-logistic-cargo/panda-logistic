@@ -1,9 +1,10 @@
+
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { ArrowRight, Calendar, Clock, FileText, Import, Truck, Shield, Users, ShoppingCart, Briefcase } from "lucide-react";
 
 interface BlogCategory {
   name: string;
