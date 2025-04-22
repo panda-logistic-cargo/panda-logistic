@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Package } from "lucide-react";
 
 interface PackagingTypeProps {
@@ -34,29 +34,23 @@ const packagingTypes = [
 
 export const PackagingType: React.FC<PackagingTypeProps> = ({ value, onValueChange }) => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-2">
       <Label>Тип упаковки</Label>
-      <RadioGroup value={value} onValueChange={onValueChange} className="space-y-2">
-        {packagingTypes.map((type) => (
-          <div key={type.id} className="relative">
-            <RadioGroupItem
-              value={type.id}
-              id={`packaging-${type.id}`}
-              className="peer sr-only"
-            />
-            <Label
-              htmlFor={`packaging-${type.id}`}
-              className="flex items-center gap-4 rounded-lg border p-3 hover:bg-gray-50 peer-data-[state=checked]:border-cargo-red peer-data-[state=checked]:bg-cargo-red/5"
-            >
-              <Package className="h-5 w-5 text-cargo-red shrink-0" />
-              <div>
-                <p className="font-medium leading-none">{type.title}</p>
-                <p className="text-sm text-gray-500">{type.description}</p>
+      <Select value={value} onValueChange={onValueChange}>
+        <SelectTrigger>
+          <SelectValue placeholder="Выберите тип упаковки" />
+        </SelectTrigger>
+        <SelectContent>
+          {packagingTypes.map((type) => (
+            <SelectItem key={type.id} value={type.id}>
+              <div className="flex items-center gap-2">
+                <Package className="h-4 w-4 text-cargo-red" />
+                <span>{type.title}</span>
               </div>
-            </Label>
-          </div>
-        ))}
-      </RadioGroup>
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </div>
   );
 };

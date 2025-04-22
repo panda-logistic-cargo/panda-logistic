@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Ship, TrainFront, Truck, Plane } from "lucide-react";
 
 interface DeliveryMethodProps {
@@ -38,32 +38,26 @@ const deliveryMethods = [
 
 export const DeliveryMethod: React.FC<DeliveryMethodProps> = ({ value, onValueChange }) => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-2">
       <Label>Способ доставки</Label>
-      <RadioGroup value={value} onValueChange={onValueChange} className="space-y-2">
-        {deliveryMethods.map((method) => {
-          const Icon = method.icon;
-          return (
-            <div key={method.id} className="relative">
-              <RadioGroupItem
-                value={method.id}
-                id={method.id}
-                className="peer sr-only"
-              />
-              <Label
-                htmlFor={method.id}
-                className="flex items-center gap-4 rounded-lg border p-3 hover:bg-gray-50 peer-data-[state=checked]:border-cargo-red peer-data-[state=checked]:bg-cargo-red/5"
-              >
-                <Icon className="h-5 w-5 text-cargo-red shrink-0" />
-                <div>
-                  <p className="font-medium leading-none">{method.title}</p>
-                  <p className="text-sm text-gray-500">{method.description}</p>
+      <Select value={value} onValueChange={onValueChange}>
+        <SelectTrigger>
+          <SelectValue placeholder="Выберите способ доставки" />
+        </SelectTrigger>
+        <SelectContent>
+          {deliveryMethods.map((method) => {
+            const Icon = method.icon;
+            return (
+              <SelectItem key={method.id} value={method.id}>
+                <div className="flex items-center gap-2">
+                  <Icon className="h-4 w-4 text-cargo-red" />
+                  <span>{method.title}</span>
                 </div>
-              </Label>
-            </div>
-          );
-        })}
-      </RadioGroup>
+              </SelectItem>
+            );
+          })}
+        </SelectContent>
+      </Select>
     </div>
   );
 };

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -131,18 +130,20 @@ const Blog = () => {
                   </span>
                 </div>
                 <div className="p-6">
-                  <div className="flex justify-between items-center mb-2">
-                    <div className="flex items-center text-sm text-cargo-gray-500">
-                      <Calendar className="h-4 w-4 mr-1" />
-                      {article.date}
+                  <div className="flex items-center justify-between text-sm text-cargo-gray-500 mb-2">
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        {article.date}
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="h-4 w-4 mr-1" />
+                        {calculateReadingTime(article.excerpt)} мин
+                      </div>
                     </div>
                   </div>
                   <h3 className="font-bold text-xl mb-2">{article.title}</h3>
-                  <p className="text-cargo-gray-600 mb-2">{article.excerpt}</p>
-                  <p className="text-sm text-cargo-gray-500 mb-4 flex items-center">
-                    <Clock className="h-4 w-4 mr-1" />
-                    Время чтения: {calculateReadingTime(article.excerpt)} мин
-                  </p>
+                  <p className="text-cargo-gray-600 mb-4">{article.excerpt}</p>
                   <Button
                     variant="outline"
                     className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white"

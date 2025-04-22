@@ -13,7 +13,7 @@ const Calculator: React.FC = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
   
-  const [origin, setOrigin] = useState('China');
+  const [origin, setOrigin] = useState('guangzhou');
   const [destination, setDestination] = useState('');
   const [weight, setWeight] = useState('');
   const [volume, setVolume] = useState('');
@@ -90,12 +90,16 @@ const Calculator: React.FC = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="origin">{t('origin')}</Label>
-                    <Select value={origin} onValueChange={setOrigin} disabled>
+                    <Select value={origin} onValueChange={setOrigin}>
                       <SelectTrigger>
                         <SelectValue placeholder={t('origin')} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="China">China</SelectItem>
+                        <SelectItem value="guangzhou">Гуанчжоу</SelectItem>
+                        <SelectItem value="shenzhen">Шеньчжень</SelectItem>
+                        <SelectItem value="yiwu">Иу</SelectItem>
+                        <SelectItem value="shanghai">Шанхай</SelectItem>
+                        <SelectItem value="beijing">Пекин</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
