@@ -82,52 +82,23 @@ const Auth = () => {
           description: "Registration successful. Please confirm your email if required.",
         });
       } else {
-        try {
-          // First try regular sign in
-          const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-          
-          if (error) {
-            // If error is "Email not confirmed", try a different approach
-            if (error.message.includes("Email not confirmed")) {
-              // We can't use getUserByEmail as it doesn't exist
-              // Instead, we'll try a direct approach for the specific test user
-              if (email === 'panda-logistic@mail.ru' && password === '682449qwerty') {
-                // Try signing in with a specific approach for this user
-                const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({ 
-                  email, 
-                  password 
-                });
-                
-                if (!signInError) {
-                  toast({
-                    title: "Success",
-                    description: "Test user logged in successfully.",
-                  });
-                  return;
-                }
-              }
-              
-              throw new Error("Email not confirmed. Please check your email for confirmation link or contact support.");
-            } else {
-              throw error;
-            }
-          } else {
-            toast({
-              title: "Success",
-              description: "You have been logged in successfully.",
-            });
-          }
-        } catch (loginError: any) {
-          // Final fallback - try one more approach for the specific test user
+        // Handle sign-in
+        // First try regular sign in
+        const { error } = await supabase.auth.signInWithPassword({ 
+          email, 
+          password 
+        });
+        
+        if (error) {
+          // Special handling for test user
           if (email === 'panda-logistic@mail.ru' && password === '682449qwerty') {
-            // Direct authentication bypass for the test user
-            const { data: adminAuthData, error: adminAuthError } = await supabase.auth.signInWithPassword({
-              email,
-              password,
-              // Removing the data property as it's not allowed in the type definition
+            // Try one more time with the test credentials
+            const { error: testUserError } = await supabase.auth.signInWithPassword({ 
+              email, 
+              password 
             });
             
-            if (!adminAuthError) {
+            if (!testUserError) {
               toast({
                 title: "Success",
                 description: "Test user logged in successfully.",
@@ -136,11 +107,16 @@ const Auth = () => {
             }
           }
           
-          // If all attempts fail, show the error
+          // If any other error, show the error message
           toast({
             title: "Error",
-            description: loginError.message || "An error occurred during login.",
+            description: error.message || "An error occurred during login.",
             variant: "destructive"
+          });
+        } else {
+          toast({
+            title: "Success",
+            description: "You have been logged in successfully.",
           });
         }
       }
