@@ -1,13 +1,25 @@
 
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useAuth } from "@/context/AuthContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Clock, FileText, Import, Truck, Shield, Users, ShoppingCart, Briefcase } from "lucide-react";
+import { ArrowRight, Calendar, Clock, FileText, Import, Truck, Shield, Users, ShoppingCart, Briefcase, Edit, Trash2, Plus } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { useToast } from "@/hooks/use-toast";
+import { 
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { useNavigate } from "react-router-dom";
 
 interface BlogCategory {
   name: string;
@@ -54,11 +66,15 @@ const formatDate = (dateString: string) => {
 
 const Blog = () => {
   const { t } = useLanguage();
+  const { user } = useAuth();
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [articles, setArticles] = useState<BlogArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("Все статьи");
   const [currentPage, setCurrentPage] = useState(1);
+  const [deleteArticleId, setDeleteArticleId] = useState<string | null>(null);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const articlesPerPage = 6;
 
   useEffect(() => {
@@ -116,6 +132,44 @@ const Blog = () => {
     }
   };
 
+  const handleEditArticle = (id: string) => {
+    navigate(`/blog/edit/${id}`);
+  };
+
+  const handleDeleteArticle = async () => {
+    if (!deleteArticleId) return;
+
+    try {
+      const { error } = await supabase
+        .from('blog_articles')
+        .delete()
+        .eq('id', deleteArticleId);
+
+      if (error) throw error;
+
+      toast({
+        title: "Статья удалена",
+        description: "Статья была успешно удалена",
+      });
+
+      setDeleteArticleId(null);
+      setIsDeleteDialogOpen(false);
+      fetchArticles();
+    } catch (error: any) {
+      console.error('Error deleting article:', error);
+      toast({
+        title: "Ошибка при удалении статьи",
+        description: error.message || "Пожалуйста, попробуйте позже",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const confirmDeleteArticle = (id: string) => {
+    setDeleteArticleId(id);
+    setIsDeleteDialogOpen(true);
+  };
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -129,24 +183,35 @@ const Blog = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2 mb-8">
-            {categories.map((category, index) => {
-              const Icon = category.icon;
-              return (
-                <button
-                  key={index}
-                  onClick={() => handleCategoryChange(category.name)}
-                  className={`px-4 py-2 rounded-full text-sm flex items-center gap-2 ${
-                    selectedCategory === category.name
-                      ? "bg-cargo-red text-white"
-                      : "bg-cargo-gray-100 text-cargo-gray-700 hover:bg-cargo-gray-200"
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  {category.name}
-                </button>
-              );
-            })}
+          <div className="flex flex-wrap justify-between items-center gap-2 mb-8">
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category, index) => {
+                const Icon = category.icon;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => handleCategoryChange(category.name)}
+                    className={`px-4 py-2 rounded-full text-sm flex items-center gap-2 ${
+                      selectedCategory === category.name
+                        ? "bg-cargo-red text-white"
+                        : "bg-cargo-gray-100 text-cargo-gray-700 hover:bg-cargo-gray-200"
+                    }`}
+                  >
+                    <Icon className="h-4 w-4" />
+                    {category.name}
+                  </button>
+                );
+              })}
+            </div>
+            
+            {user && (
+              <Button 
+                onClick={() => navigate('/blog/create')}
+                className="bg-cargo-red hover:bg-cargo-red/90"
+              >
+                <Plus className="mr-1 h-4 w-4" /> Создать статью
+              </Button>
+            )}
           </div>
 
           {loading ? (
@@ -194,12 +259,37 @@ const Blog = () => {
                         </div>
                         <h3 className="font-bold text-xl mb-2">{article.title}</h3>
                         <p className="text-cargo-gray-600 mb-4">{article.excerpt}</p>
-                        <Button
-                          variant="outline"
-                          className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white"
-                        >
-                          Подробнее <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
+                        <div className="flex justify-between items-center">
+                          <Button
+                            variant="outline"
+                            className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white"
+                            onClick={() => navigate(`/blog/${article.id}`)}
+                          >
+                            Подробнее <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
+                          
+                          {user && (
+                            <div className="flex gap-2">
+                              <Button
+                                variant="outline"
+                                size="icon"
+                                className="border-cargo-gray-300 hover:bg-cargo-gray-100"
+                                onClick={() => handleEditArticle(article.id)}
+                              >
+                                <Edit className="h-4 w-4 text-cargo-gray-700" />
+                              </Button>
+                              
+                              <Button
+                                variant="outline"
+                                size="icon"
+                                className="border-cargo-gray-300 hover:bg-cargo-gray-100"
+                                onClick={() => confirmDeleteArticle(article.id)}
+                              >
+                                <Trash2 className="h-4 w-4 text-cargo-red" />
+                              </Button>
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -241,6 +331,28 @@ const Blog = () => {
           )}
         </div>
       </div>
+
+      {/* Delete Confirmation Dialog */}
+      <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Удалить статью?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Это действие нельзя отменить. Статья будет удалена навсегда.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Отмена</AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={handleDeleteArticle}
+              className="bg-cargo-red hover:bg-cargo-red/90"
+            >
+              Удалить
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
       <Footer />
     </div>
   );

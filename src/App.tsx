@@ -14,6 +14,9 @@ import About from "./pages/About2";
 import Services from "./pages/Services";
 import Calculator from "./pages/Calculator";
 import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
+import BlogCreate from "./pages/BlogCreate";
+import BlogEdit from "./pages/BlogEdit";
 import Contacts from "./pages/Contacts";
 import Auth from "./pages/Auth";
 import SupplierSearch from "./pages/services/SupplierSearch";
@@ -51,6 +54,9 @@ const App = () => (
                 <Route path="/services" element={<Services />} />
                 <Route path="/calculator" element={<Calculator />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:id" element={<BlogArticle />} />
+                <Route path="/blog/create" element={<BlogCreate />} />
+                <Route path="/blog/edit/:id" element={<BlogEdit />} />
                 <Route path="/contacts" element={<Contacts />} />
                 <Route path="/auth" element={<Auth />} />
                 
