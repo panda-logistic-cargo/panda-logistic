@@ -7,6 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useLanguage } from "@/context/LanguageContext";
+import { useAuth } from "@/context/AuthContext";
 import { NavLink } from "./NavLink";
 
 interface MobileMenuProps {
@@ -16,6 +17,7 @@ interface MobileMenuProps {
 
 export const MobileMenu = ({ navLinks, textColorClass }: MobileMenuProps) => {
   const { t } = useLanguage();
+  const { user, signOut } = useAuth();
 
   return (
     <Sheet>
@@ -40,12 +42,33 @@ export const MobileMenu = ({ navLinks, textColorClass }: MobileMenuProps) => {
                   {link.name}
                 </NavLink>
               ))}
-              <Button 
-                variant="default" 
-                className="mt-4 bg-cargo-red hover:bg-cargo-red/90 transition-colors w-full"
-              >
-                {t('contactUs')}
-              </Button>
+              
+              {user ? (
+                <Button 
+                  variant="outline" 
+                  className="mt-4 border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-colors"
+                  onClick={signOut}
+                >
+                  Выйти
+                </Button>
+              ) : (
+                <>
+                  <Button 
+                    variant="outline" 
+                    className="mt-4 border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-colors w-full"
+                    onClick={() => window.location.href = '/auth'}
+                  >
+                    Вход
+                  </Button>
+                  <Button 
+                    variant="default" 
+                    className="mt-2 bg-cargo-red hover:bg-cargo-red/90 transition-colors w-full"
+                    onClick={() => window.location.href = '/contacts'}
+                  >
+                    {t('contactUs')}
+                  </Button>
+                </>
+              )}
             </nav>
           </div>
           <div className="p-6 border-t border-gray-200">

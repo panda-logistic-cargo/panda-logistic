@@ -1,3 +1,4 @@
+
 export const enTranslations = {
   // Navbar
   home: 'Home',
@@ -94,5 +95,22 @@ export const enTranslations = {
   workingHours: 'Working Hours',
   allServices: 'All Services',
   orderService: 'Order Service',
-  requestConsultation: 'Request Consultation'
+  requestConsultation: 'Request Consultation',
+  
+  // Authentication
+  signIn: 'Sign In',
+  signUp: 'Sign Up',
+  signOut: 'Sign Out',
+  email: 'Email',
+  password: 'Password',
+  confirmPassword: 'Confirm Password',
+  username: 'Username',
+  fullName: 'Full Name',
+  loading: 'Loading...',
+  noAccount: 'Don\'t have an account? Sign Up',
+  haveAccount: 'Already have an account? Sign In',
+  authSuccess: 'You have been logged in successfully.',
+  registerSuccess: 'Registration successful. Please confirm your email if required.',
+  logoutSuccess: 'You have been logged out successfully.',
+  passwordsNotMatch: 'Passwords do not match.'
 };
