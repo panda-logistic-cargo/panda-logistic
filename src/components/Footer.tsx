@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
@@ -32,7 +33,7 @@ const Footer: React.FC = () => {
           <div>
             <Link to="/" className="inline-block mb-6">
               <span className="text-2xl font-bold">
-                CARGO <span className="text-cargo-red">A71</span>
+                PANDA <span className="text-cargo-red">LOGISTIC</span>
               </span>
             </Link>
             <p className="text-cargo-gray-300 mb-4">
@@ -105,7 +106,7 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-cargo-gray-800 py-8 flex flex-col md:flex-row items-center justify-between">
           <div className="text-cargo-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Cargo A71. {t('allRightsReserved')}
+            © {new Date().getFullYear()} Panda Logistic. {t('allRightsReserved')}
           </div>
           <div className="flex items-center space-x-4">
             <Link to="/privacy-policy" className="text-cargo-gray-400 hover:text-cargo-red text-sm">
