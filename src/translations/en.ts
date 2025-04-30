@@ -90,7 +90,7 @@ export const enTranslations = {
   ourTeam: 'Our Team',
   director: 'Director',
   phoneNumber: 'Phone Number',
-  email: 'Email',
+  emailAddress: 'Email',
   address: 'Address',
   workingHours: 'Working Hours',
   allServices: 'All Services',
