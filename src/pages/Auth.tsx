@@ -82,43 +82,13 @@ const Auth = () => {
           description: "Registration successful. Please confirm your email if required.",
         });
       } else {
-        // Handle sign-in
-        // First try regular sign in
-        const { error } = await supabase.auth.signInWithPassword({ 
-          email, 
-          password 
-        });
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error) throw error;
         
-        if (error) {
-          // Special handling for test user
-          if (email === 'panda-logistic@mail.ru' && password === '682449qwerty') {
-            // Try one more time with the test credentials
-            const { error: testUserError } = await supabase.auth.signInWithPassword({ 
-              email, 
-              password 
-            });
-            
-            if (!testUserError) {
-              toast({
-                title: "Success",
-                description: "Test user logged in successfully.",
-              });
-              return;
-            }
-          }
-          
-          // If any other error, show the error message
-          toast({
-            title: "Error",
-            description: error.message || "An error occurred during login.",
-            variant: "destructive"
-          });
-        } else {
-          toast({
-            title: "Success",
-            description: "You have been logged in successfully.",
-          });
-        }
+        toast({
+          title: "Success",
+          description: "You have been logged in successfully.",
+        });
       }
     } catch (error: any) {
       toast({

@@ -90,7 +90,7 @@ export const enTranslations = {
   ourTeam: 'Our Team',
   director: 'Director',
   phoneNumber: 'Phone Number',
-  emailAddress: 'Email', // Changed from duplicate 'email' to 'emailAddress'
+  email: 'Email',
   address: 'Address',
   workingHours: 'Working Hours',
   allServices: 'All Services',
