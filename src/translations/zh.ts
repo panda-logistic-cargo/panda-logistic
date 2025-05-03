@@ -1,4 +1,3 @@
-
 export const zhTranslations = {
   // Navbar
   home: '首页',
@@ -66,6 +65,50 @@ export const zhTranslations = {
   
   // Testimonials
   testimonialsTitle: '客户评价',
+  testimonial1Name: '亚历克斯 史密斯',
+  testimonial1Position: '首席执行官',
+  testimonial1Company: 'TechImport LLC',
+  testimonial1Content: '我们已经与Panda Logistic合作了3年。他们始终提供快速交付和优质服务。我们特别重视他们的个性化方法和在线跟踪货物状态的能力。',
+  
+  testimonial2Name: '艾琳娜 约翰逊',
+  testimonial2Position: '进口经理',
+  testimonial2Company: 'FashionRetail',
+  testimonial2Content: '非常满意与Panda Logistic的合作。我们公司定期从中国订购服装，多亏了他们，这个过程变得更加容易。我们特别喜欢他们的效率和透明定价。',
+  
+  testimonial3Name: '迈克尔 彼得森',
+  testimonial3Position: '总监',
+  testimonial3Company: 'GadgetMarket',
+  testimonial3Content: 'Panda Logistic帮助我们商店建立了来自中国的电子产品稳定供应。他们在寻找供应商和采购商品方面提供了出色的服务。我向所有与中国合作伙伴合作的人推荐他们。',
+  
+  testimonial4Name: '奥利维亚 威尔逊',
+  testimonial4Position: '所有者',
+  testimonial4Company: 'KidsStore',
+  testimonial4Content: '我们在寻找可靠的公司来递送儿童产品，而Panda Logistic正是我们所需要的。我很欣赏他们对细节的关注和对易碎物品的优质包装。',
+  
+  testimonial5Name: '大卫 布朗',
+  testimonial5Position: '采购主管',
+  testimonial5Company: 'HomeDecor Plus',
+  testimonial5Content: '我们已经合作了2年多。我特别欣赏团队的专业精神和他们解决复杂物流问题的意愿。他们总是找到最佳的交付路线。',
+  
+  testimonial6Name: '安娜 威廉姆斯',
+  testimonial6Position: '商务总监',
+  testimonial6Company: 'BeautyMarket',
+  testimonial6Content: '我们感谢Panda Logistic团队在组织化妆品供应方面的帮助。他们对与中国制造商合作的特殊知识为我们节省了大量时间和资源。',
+  
+  testimonial7Name: '伊戈尔 泰勒',
+  testimonial7Position: '创始人',
+  testimonial7Company: 'SportGear',
+  testimonial7Content: '很棒的公司！他们帮助建立了体育器材的供应。他们在发货前检查商品质量时对细节的关注尤为宝贵。',
+  
+  testimonial8Name: '玛丽娜 克拉克',
+  testimonial8Position: '发展总监',
+  testimonial8Company: 'FurniturePro',
+  testimonial8Content: 'Panda Logistic已成为中国家具供应的可靠合作伙伴。他们在组织合并货物和处理超大型商品方面的经验令人印象深刻。',
+  
+  testimonial9Name: '谢尔盖 戴维斯',
+  testimonial9Position: '首席执行官',
+  testimonial9Company: 'AutoParts Ltd',
+  testimonial9Content: '我要感谢他们在组织汽车零部件供应方面的专业态度。他们总是遵守期限并让我们了解交付状态。',
   
   // Contact
   contactTitle: '联系我们',

@@ -1,4 +1,3 @@
-
 export const ruTranslations = {
   // Navbar
   home: 'Главная',
@@ -66,6 +65,50 @@ export const ruTranslations = {
   
   // Testimonials
   testimonialsTitle: 'Отзывы клиентов',
+  testimonial1Name: 'Алексей Иванов',
+  testimonial1Position: 'CEO',
+  testimonial1Company: 'TechImport LLC',
+  testimonial1Content: 'Работаем с Panda Logistic уже 3 года. Всегда оперативная доставка и отличный сервис. Особенно ценим персональный подход и возможность отслеживать статус груза онлайн.',
+  
+  testimonial2Name: 'Елена Сидорова',
+  testimonial2Position: 'Импорт-менеджер',
+  testimonial2Company: 'FashionRetail',
+  testimonial2Content: 'Очень довольны сотрудничеством с Panda Logistic. Наша компания регулярно заказывает одежду из Китая, и благодаря им процесс стал намного проще. Особенно нравится оперативность и прозрачное ценообразование.',
+  
+  testimonial3Name: 'Михаил Петров',
+  testimonial3Position: 'Директор',
+  testimonial3Company: 'GadgetMarket',
+  testimonial3Content: 'Panda Logistic помогли наладить стабильные поставки электроники из Китая для нашего магазина. Отличный сервис по поиску поставщиков и выкупу товара. Рекомендую всем, кто работает с китайскими партнерами.',
+  
+  testimonial4Name: 'Ольга Смирнова',
+  testimonial4Position: 'Владелец',
+  testimonial4Company: 'KidsStore',
+  testimonial4Content: 'Искали надежную компанию для доставки детских товаров, и Panda Logistic оказались именно тем, что нам нужно. Ценю их внимание к деталям и качественную упаковку хрупких товаров.',
+  
+  testimonial5Name: 'Дмитрий Козлов',
+  testimonial5Position: 'Руководитель отдела закупок',
+  testimonial5Company: 'HomeDecor Plus',
+  testimonial5Content: 'Сотрудничаем более 2 лет. Особенно радует профессионализм команды и их готовность решать сложные логистические задачи. Всегда находят оптимальные маршруты доставки.',
+  
+  testimonial6Name: 'Анна Морозова',
+  testimonial6Position: 'Коммерческий директор',
+  testimonial6Company: 'BeautyMarket',
+  testimonial6Content: 'Благодарны команде Panda Logistic за помощь в организации поставок косметики. Их знание специфики работы с китайскими производителями сэкономило нам много времени и ресурсов.',
+  
+  testimonial7Name: 'Игорь Соколов',
+  testimonial7Position: 'Основатель',
+  testimonial7Company: 'SportGear',
+  testimonial7Content: 'Отличная компания! Помогли наладить поставки спортивного оборудования. Особенно ценно их внимание к деталям при проверке качества товаров перед отправкой.',
+  
+  testimonial8Name: 'Марина Волкова',
+  testimonial8Position: 'Директор по развитию',
+  testimonial8Company: 'FurniturePro',
+  testimonial8Content: 'Panda Logistic стали надежным партнером в поставках мебели из Китая. Их опыт в организации сборных грузов и работе с крупногабаритными товарами впечатляет.',
+  
+  testimonial9Name: 'Сергей Новиков',
+  testimonial9Position: 'Генеральный директор',
+  testimonial9Company: 'AutoParts Ltd',
+  testimonial9Content: 'Выражаю благодарность за профессиональный подход к организации поставок автозапчастей. Всегда соблюдают сроки и держат нас в курсе статуса доставки.',
   
   // Contact
   contactTitle: 'Свяжитесь с нами',

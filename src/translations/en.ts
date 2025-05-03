@@ -1,4 +1,3 @@
-
 export const enTranslations = {
   // Navbar
   home: 'Home',
@@ -66,6 +65,50 @@ export const enTranslations = {
   
   // Testimonials
   testimonialsTitle: 'Client Testimonials',
+  testimonial1Name: 'Alex Smith',
+  testimonial1Position: 'CEO',
+  testimonial1Company: 'TechImport LLC',
+  testimonial1Content: 'We have been working with Panda Logistic for 3 years. They always provide prompt delivery and excellent service. We especially value their personal approach and the ability to track cargo status online.',
+  
+  testimonial2Name: 'Elena Johnson',
+  testimonial2Position: 'Import Manager',
+  testimonial2Company: 'FashionRetail',
+  testimonial2Content: 'Very pleased with our cooperation with Panda Logistic. Our company regularly orders clothing from China, and thanks to them, the process has become much easier. We especially like the efficiency and transparent pricing.',
+  
+  testimonial3Name: 'Michael Peterson',
+  testimonial3Position: 'Director',
+  testimonial3Company: 'GadgetMarket',
+  testimonial3Content: 'Panda Logistic helped establish stable supplies of electronics from China for our store. Excellent service for finding suppliers and purchasing goods. I recommend them to everyone who works with Chinese partners.',
+  
+  testimonial4Name: 'Olivia Wilson',
+  testimonial4Position: 'Owner',
+  testimonial4Company: 'KidsStore',
+  testimonial4Content: 'We were looking for a reliable company to deliver children\'s products, and Panda Logistic turned out to be exactly what we needed. I appreciate their attention to detail and quality packaging of fragile items.',
+  
+  testimonial5Name: 'David Brown',
+  testimonial5Position: 'Head of Procurement',
+  testimonial5Company: 'HomeDecor Plus',
+  testimonial5Content: 'We have been cooperating for more than 2 years. I am especially pleased with the professionalism of the team and their willingness to solve complex logistics problems. They always find the optimal delivery routes.',
+  
+  testimonial6Name: 'Anna Williams',
+  testimonial6Position: 'Commercial Director',
+  testimonial6Company: 'BeautyMarket',
+  testimonial6Content: 'We are grateful to the Panda Logistic team for their help in organizing cosmetics supplies. Their knowledge of the specifics of working with Chinese manufacturers has saved us a lot of time and resources.',
+  
+  testimonial7Name: 'Igor Taylor',
+  testimonial7Position: 'Founder',
+  testimonial7Company: 'SportGear',
+  testimonial7Content: 'Great company! They helped establish supplies of sports equipment. Their attention to detail when checking the quality of goods before shipment is especially valuable.',
+  
+  testimonial8Name: 'Marina Clark',
+  testimonial8Position: 'Development Director',
+  testimonial8Company: 'FurniturePro',
+  testimonial8Content: 'Panda Logistic has become a reliable partner in furniture supplies from China. Their experience in organizing consolidated cargo and working with oversized goods is impressive.',
+  
+  testimonial9Name: 'Sergey Davis',
+  testimonial9Position: 'CEO',
+  testimonial9Company: 'AutoParts Ltd',
+  testimonial9Content: 'I would like to express my gratitude for the professional approach to organizing the supply of auto parts. They always meet deadlines and keep us informed of the delivery status.',
   
   // Contact
   contactTitle: 'Contact Us',

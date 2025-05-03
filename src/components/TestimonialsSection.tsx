@@ -65,66 +65,66 @@ const TestimonialsSection: React.FC = () => {
   
   const testimonials = [
     {
-      name: "Алексей Иванов",
-      position: "CEO",
-      company: "TechImport LLC",
-      content: "Работаем с Panda Logistic уже 3 года. Всегда оперативная доставка и отличный сервис. Особенно ценим персональный подход и возможность отслеживать статус груза онлайн.",
+      name: t('testimonial1Name'),
+      position: t('testimonial1Position'),
+      company: t('testimonial1Company'),
+      content: t('testimonial1Content'),
       rating: 5
     },
     {
-      name: "Елена Сидорова",
-      position: "Импорт-менеджер",
-      company: "FashionRetail",
-      content: "Очень довольны сотрудничеством с Panda Logistic. Наша компания регулярно заказывает одежду из Китая, и благодаря им процесс стал намного проще. Особенно нравится оперативность и прозрачное ценообразование.",
+      name: t('testimonial2Name'),
+      position: t('testimonial2Position'),
+      company: t('testimonial2Company'),
+      content: t('testimonial2Content'),
       rating: 5
     },
     {
-      name: "Михаил Петров",
-      position: "Директор",
-      company: "GadgetMarket",
-      content: "Panda Logistic помогли наладить стабильные поставки электроники из Китая для нашего магазина. Отличный сервис по поиску поставщиков и выкупу товара. Рекомендую всем, кто работает с китайскими партнерами.",
+      name: t('testimonial3Name'),
+      position: t('testimonial3Position'),
+      company: t('testimonial3Company'),
+      content: t('testimonial3Content'),
       rating: 4
     },
     {
-      name: "Ольга Смирнова",
-      position: "Владелец",
-      company: "KidsStore",
-      content: "Искали надежную компанию для доставки детских товаров, и Panda Logistic оказались именно тем, что нам нужно. Ценю их внимание к деталям и качественную упаковку хрупких товаров.",
+      name: t('testimonial4Name'),
+      position: t('testimonial4Position'),
+      company: t('testimonial4Company'),
+      content: t('testimonial4Content'),
       rating: 5
     },
     {
-      name: "Дмитрий Козлов",
-      position: "Руководитель отдела закупок",
-      company: "HomeDecor Plus",
-      content: "Сотрудничаем более 2 лет. Особенно радует профессионализм команды и их готовность решать сложные логистические задачи. Всегда находят оптимальные маршруты доставки.",
+      name: t('testimonial5Name'),
+      position: t('testimonial5Position'),
+      company: t('testimonial5Company'),
+      content: t('testimonial5Content'),
       rating: 5
     },
     {
-      name: "Анна Морозова",
-      position: "Коммерческий директор",
-      company: "BeautyMarket",
-      content: "Благодарны команде Panda Logistic за помощь в организации поставок косметики. Их знание специфики работы с китайскими производителями сэкономило нам много времени и ресурсов.",
+      name: t('testimonial6Name'),
+      position: t('testimonial6Position'),
+      company: t('testimonial6Company'),
+      content: t('testimonial6Content'),
       rating: 5
     },
     {
-      name: "Игорь Соколов",
-      position: "Основатель",
-      company: "SportGear",
-      content: "Отличная компания! Помогли наладить поставки спортивного оборудования. Особенно ценно их внимание к деталям при проверке качества товаров перед отправкой.",
+      name: t('testimonial7Name'),
+      position: t('testimonial7Position'),
+      company: t('testimonial7Company'),
+      content: t('testimonial7Content'),
       rating: 4
     },
     {
-      name: "Марина Волкова",
-      position: "Директор по развитию",
-      company: "FurniturePro",
-      content: "Panda Logistic стали надежным партнером в поставках мебели из Китая. Их опыт в организации сборных грузов и работе с крупногабаритными товарами впечатляет.",
+      name: t('testimonial8Name'),
+      position: t('testimonial8Position'),
+      company: t('testimonial8Company'),
+      content: t('testimonial8Content'),
       rating: 5
     },
     {
-      name: "Сергей Новиков",
-      position: "Генеральный директор",
-      company: "AutoParts Ltd",
-      content: "Выражаю благодарность за профессиональный подход к организации поставок автозапчастей. Всегда соблюдают сроки и держат нас в курсе статуса доставки.",
+      name: t('testimonial9Name'),
+      position: t('testimonial9Position'),
+      company: t('testimonial9Company'),
+      content: t('testimonial9Content'),
       rating: 5
     }
   ];
