@@ -1,3 +1,4 @@
+
 export const enTranslations = {
   // Navbar
   home: 'Home',
@@ -121,6 +122,9 @@ export const enTranslations = {
   offices: 'Our Offices',
   
   // Footer
+  navigation: 'Navigation',
+  footerCompanyDescription: 'International logistics company with years of experience in delivering goods from China to Russia.',
+  customsClearance: 'Customs Clearance',
   allRightsReserved: 'All Rights Reserved',
   privacyPolicy: 'Privacy Policy',
   termsOfService: 'Terms of Service',

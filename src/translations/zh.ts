@@ -1,3 +1,4 @@
+
 export const zhTranslations = {
   // Navbar
   home: '首页',
@@ -121,6 +122,9 @@ export const zhTranslations = {
   offices: '我们的办事处',
   
   // Footer
+  navigation: '导航',
+  footerCompanyDescription: '一家拥有多年从中国向俄罗斯运送货物经验的国际物流公司。',
+  customsClearance: '海关清关',
   allRightsReserved: '版权所有',
   privacyPolicy: '隐私政策',
   termsOfService: '服务条款',

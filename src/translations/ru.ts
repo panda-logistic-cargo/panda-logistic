@@ -1,3 +1,4 @@
+
 export const ruTranslations = {
   // Navbar
   home: 'Главная',
@@ -121,6 +122,9 @@ export const ruTranslations = {
   offices: 'Наши офисы',
   
   // Footer
+  navigation: 'Навигация',
+  footerCompanyDescription: 'Международная логистическая компания с многолетним опытом доставки грузов из Китая в Россию.',
+  customsClearance: 'Таможенное оформление',
   allRightsReserved: 'Все права защищены',
   privacyPolicy: 'Политика конфиденциальности',
   termsOfService: 'Условия использования',
