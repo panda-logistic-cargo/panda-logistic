@@ -52,28 +52,19 @@ export const MobileMenu = ({ navLinks, textColorClass }: MobileMenuProps) => {
                   Выйти
                 </Button>
               ) : (
-                <>
-                  <Button 
-                    variant="outline" 
-                    className="mt-4 border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-colors w-full"
-                    onClick={() => window.location.href = '/auth'}
-                  >
-                    Вход
-                  </Button>
-                  <Button 
-                    variant="default" 
-                    className="mt-2 bg-cargo-red hover:bg-cargo-red/90 transition-colors w-full"
-                    onClick={() => window.location.href = '/contacts'}
-                  >
-                    {t('contactUs')}
-                  </Button>
-                </>
+                <Button 
+                  variant="default" 
+                  className="mt-4 bg-cargo-red hover:bg-cargo-red/90 transition-colors w-full"
+                  onClick={() => window.location.href = '/contacts'}
+                >
+                  {t('contactUs')}
+                </Button>
               )}
             </nav>
           </div>
           <div className="p-6 border-t border-gray-200">
             <p className="text-sm text-cargo-gray-500 text-center">
-              © 2025 CARGO A71
+              © {new Date().getFullYear()} CARGO A71
             </p>
           </div>
         </div>

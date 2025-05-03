@@ -39,22 +39,13 @@ export const DesktopNav = ({ navLinks, textColorClass, contactButtonText }: Desk
             Выйти
           </Button>
         ) : (
-          <>
-            <Button 
-              variant="outline" 
-              className="ml-4 border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-colors"
-              onClick={() => window.location.href = '/auth'}
-            >
-              Вход
-            </Button>
-            <Button 
-              variant="default" 
-              className="ml-2 bg-cargo-red hover:bg-cargo-red/90 transition-colors"
-              onClick={() => window.location.href = '/contacts'}
-            >
-              {contactButtonText}
-            </Button>
-          </>
+          <Button 
+            variant="default" 
+            className="ml-4 bg-cargo-red hover:bg-cargo-red/90 transition-colors"
+            onClick={() => window.location.href = '/contacts'}
+          >
+            {contactButtonText}
+          </Button>
         )}
       </div>
     </>
