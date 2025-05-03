@@ -147,5 +147,40 @@ export const zhTranslations = {
   workingHours: '工作时间',
   allServices: '所有服务',
   orderService: '订购服务',
-  requestConsultation: '请求咨询'
+  requestConsultation: '请求咨询',
+  
+  // Privacy Policy
+  privacyPolicyTitle: '隐私政策',
+  privacyPolicyIntro: '本隐私政策（以下简称"政策"）适用于公司在用户使用 pandalogist.ru 网站期间可能获取的所有信息。',
+  privacyPolicyConsent: '使用 pandalogist.ru 网站意味着用户无条件同意本政策及其中指定的个人信息处理条件。如果不同意这些条件，用户应避免使用本网站。',
+  privacyPolicySection1Title: '1. 公司接收和处理的用户个人信息',
+  privacyPolicySection1_1Title: '1.1. 在本政策框架内，"用户个人信息"是指：',
+  privacyPolicySection1_1Item1: '用户通过网站上的注册表格或反馈提供的姓名、姓氏、电子邮件、电话号码。',
+  privacyPolicySection1_2: '1.2. 本政策仅适用于公司网站 pandalogist.ru。公司不控制也不对用户可能通过网站上可用链接访问的第三方网站负责。',
+  privacyPolicySection1_3: '1.3. 公司假设用户在注册表格中提供的个人信息是可靠和充分的，并保持这些信息的更新。',
+  privacyPolicySection2Title: '2. 收集和处理用户个人信息的目的',
+  privacyPolicySection2Text1: '公司仅���集和存储提高服务质量和与用户互动所必需的个人数据。',
+  privacyPolicySection2Text2: '公司可将用户个人信息用于以下目的：',
+  privacyPolicySection2Item1: '提高网站和公司服务的质量。',
+  privacyPolicySection2Item2: '与用户沟通，包括发送通知、请求和信息。',
+  privacyPolicySection2Item3: '处理用户的申请和请求。',
+  privacyPolicySection3Title: '3. 处理个人信息的条件',
+  privacyPolicySection3_1: '3.1. 除非俄罗斯联邦法律另有规定，公司在与用户的互动完成后仍存储用户的个人信息。',
+  privacyPolicySection3_2: '3.2. 用户个人信息的机密性得到维护。',
+  privacyPolicyLastUpdated: '最后更新日期',
+  
+  // Terms of Use
+  backToHome: '返回首页',
+  termsOfUseTitle: '使用条款',
+  termsOfUseIntro: '这些使用条款（以下简称"条款"）规定了对公司拥有的 pandalogist.ru 网站的使用。使用网站表示用户无条件同意这些条款。',
+  termsSection1Title: '1. 一般规定',
+  termsSection1_1: '1.1. pandalogist.ru 网站旨在提供有关活动的信息，包括供应商搜索服务、市场购买、货物集运以及用户请求处理。',
+  termsSection1_2: '1.2. 这些条款适用于网站的所有访问者和用户。',
+  termsSection1_3: '1.3. 使用网站意味着用户同意隐私政策，这是这些条款的组成部分。',
+  termsSection2Title: '2. 用户权利和义务',
+  termsSection2_1Title: '2.1. 用户承诺：',
+  termsSection2_1Item1: '在填写表格时提供可靠信息。',
+  termsSection2_1Item2: '不将网站用于非法目的。',
+  termsSection2_1Item3: '不侵犯其他用户或第三方的权利。',
+  termsLastUpdated: '最后更新日期'
 };

@@ -164,5 +164,40 @@ export const enTranslations = {
   authSuccess: 'You have been logged in successfully.',
   registerSuccess: 'Registration successful. Please confirm your email if required.',
   logoutSuccess: 'You have been logged out successfully.',
-  passwordsNotMatch: 'Passwords do not match.'
+  passwordsNotMatch: 'Passwords do not match.',
+  
+  // Privacy Policy
+  privacyPolicyTitle: 'Privacy Policy',
+  privacyPolicyIntro: 'This Privacy Policy (hereinafter - the Policy) applies to all information that the Company may obtain about the user during the use of the pandalogist.ru website.',
+  privacyPolicyConsent: 'Using the pandalogist.ru website means the user\'s unconditional consent to this Policy and the conditions for processing their personal information specified in it. If you do not agree with these conditions, the user must refrain from using the site.',
+  privacyPolicySection1Title: '1. Personal information of users that the Company receives and processes',
+  privacyPolicySection1_1Title: '1.1. Within the framework of this Policy, "personal user information" means:',
+  privacyPolicySection1_1Item1: 'Name, surname, email, phone number, which the user provides about themselves through registration forms or feedback on the site.',
+  privacyPolicySection1_2: '1.2. This Policy is only applicable to the Company\'s website pandalogist.ru. The company does not control and is not responsible for third-party sites that the user may access via links available on the site.',
+  privacyPolicySection1_3: '1.3. The Company assumes that the user provides reliable and sufficient personal information on the issues offered in the registration forms, and keeps this information up to date.',
+  privacyPolicySection2Title: '2. Purposes of collecting and processing personal information of users',
+  privacyPolicySection2Text1: 'The Company collects and stores only those personal data that are necessary to improve the quality of service and interaction with users.',
+  privacyPolicySection2Text2: 'The Company may use the user\'s personal information for the following purposes:',
+  privacyPolicySection2Item1: 'Improving the quality of the website and Company services.',
+  privacyPolicySection2Item2: 'Communication with the user, including sending notifications, requests and information.',
+  privacyPolicySection2Item3: 'Processing applications and requests from the user.',
+  privacyPolicySection3Title: '3. Conditions for processing personal information',
+  privacyPolicySection3_1: '3.1. The Company stores users\' personal information until the interaction with the user is completed, unless otherwise provided by the legislation of the Russian Federation.',
+  privacyPolicySection3_2: '3.2. The confidentiality of the user\'s personal information is maintained.',
+  privacyPolicyLastUpdated: 'Last update date',
+  
+  // Terms of Use
+  backToHome: 'Back to Home',
+  termsOfUseTitle: 'Terms of Use',
+  termsOfUseIntro: 'These Terms of Use (hereinafter - Terms) govern the use of the pandalogist.ru website owned by the Company. Using the website means the user\'s unconditional consent to these Terms.',
+  termsSection1Title: '1. General Provisions',
+  termsSection1_1: '1.1. The pandalogist.ru website is designed to provide information about activities, including supplier search services, marketplace purchases, cargo consolidation, and user request processing.',
+  termsSection1_2: '1.2. These Terms apply to all visitors and users of the website.',
+  termsSection1_3: '1.3. The use of the website implies the user\'s consent to the Privacy Policy, which is an integral part of these Terms.',
+  termsSection2Title: '2. Rights and obligations of the user',
+  termsSection2_1Title: '2.1. The user undertakes:',
+  termsSection2_1Item1: 'Provide reliable information when filling out forms.',
+  termsSection2_1Item2: 'Not to use the site for illegal purposes.',
+  termsSection2_1Item3: 'Not to violate the rights of other users or third parties.',
+  termsLastUpdated: 'Last update date'
 };
