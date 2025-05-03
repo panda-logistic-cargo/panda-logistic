@@ -31,6 +31,14 @@ export const enTranslations = {
   delivery: 'Delivery',
   businessTours: 'China Business Tours',
   viewAllServices: 'View All Services',
+  // Services descriptions
+  supplierSearchDesc: 'We help find reliable suppliers in China that meet your requirements and budget.',
+  marketplacePurchaseDesc: 'Purchase products from popular Chinese marketplaces like Taobao, 1688, Alibaba and others.',
+  supplierPaymentDesc: 'Secure payments to Chinese suppliers in any currency with minimal commission.',
+  cargoConsolidationDesc: 'Combine multiple shipments at our warehouse to optimize costs.',
+  inspectionDesc: 'Inspection of quality, quantity, and completeness of goods before shipping.',
+  deliveryDesc: 'Delivery by any method: air, rail, sea, road transport to your warehouse.',
+  businessToursDesc: 'Organization of trips to China to visit exhibitions and meet with suppliers.',
   
   // Advantages
   advantagesTitle: 'Why Choose Us',
@@ -42,6 +50,7 @@ export const enTranslations = {
   advantage3Text: 'Order support at all stages',
   advantage4Title: 'Cargo Insurance',
   advantage4Text: 'Your cargo is protected throughout the journey',
+  advantagesSubtitle: 'We provide a full range of cargo delivery services from China',
   
   // Calculator
   calculatorTitle: 'Calculate Delivery Cost',

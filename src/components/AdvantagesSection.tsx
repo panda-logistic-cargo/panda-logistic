@@ -77,7 +77,7 @@ const AdvantagesSection: React.FC = () => {
             </span>
           </h2>
           <p className="text-cargo-gray-600 max-w-2xl mx-auto">
-            Мы предоставляем полный спектр услуг по доставке грузов из Китая
+            {t('advantagesSubtitle')}
           </p>
         </div>
         
@@ -98,4 +98,3 @@ const AdvantagesSection: React.FC = () => {
 };
 
 export default AdvantagesSection;
-

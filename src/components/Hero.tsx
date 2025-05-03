@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-2xl animate-slide-up">
-            Надежные грузоперевозки из Китая в Россию
+            {t('heroSubtitle')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">

@@ -1,3 +1,4 @@
+
 export const zhTranslations = {
   // Navbar
   home: '首页',
@@ -9,7 +10,7 @@ export const zhTranslations = {
   
   // Hero
   heroTitle: '来自中国的国际物流',
-  heroSubtitle: '可靠的货物运输到俄罗斯和独联体国家',
+  heroSubtitle: '从中国到俄罗斯的可靠货运',
   getQuote: '计算成本',
   contactUs: '联系我们',
   
@@ -30,6 +31,14 @@ export const zhTranslations = {
   delivery: '配送',
   businessTours: '中国商务考察',
   viewAllServices: '查看所有服务',
+  // Services descriptions
+  supplierSearchDesc: '我们帮助寻找符合您要求和预算的可靠中国供应商。',
+  marketplacePurchaseDesc: '从淘宝、1688、阿里巴巴等流行的中国市场购买产品。',
+  supplierPaymentDesc: '以任何货币安全支付中国供应商，佣金最低。',
+  cargoConsolidationDesc: '在我们的仓库合并多批货物以优化成本。',
+  inspectionDesc: '在发货前检查货物的质量、数量和完整性。',
+  deliveryDesc: '通过任何方式交付：空运、铁路、海运、公路运输到您的仓库。',
+  businessToursDesc: '组织前往中国参观展览会和与供应商会面的旅行。',
   
   // Advantages
   advantagesTitle: '为什么选择我们',
@@ -41,6 +50,7 @@ export const zhTranslations = {
   advantage3Text: '全程订单支持',
   advantage4Title: '货物保险',
   advantage4Text: '全程货物受保护',
+  advantagesSubtitle: '我们提供从中国发货的全方位货运服务',
   
   // Calculator
   calculatorTitle: '计算运输成本',

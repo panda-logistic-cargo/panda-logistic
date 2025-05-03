@@ -1,3 +1,4 @@
+
 export const ruTranslations = {
   // Navbar
   home: 'Главная',
@@ -9,7 +10,7 @@ export const ruTranslations = {
   
   // Hero
   heroTitle: 'Международная логистика из Китая',
-  heroSubtitle: 'Надежная доставка грузов в Россию и страны СНГ',
+  heroSubtitle: 'Надежные грузоперевозки из Китая в Россию',
   getQuote: 'Рассчитать стоимость',
   contactUs: 'Связаться с нами',
   
@@ -30,6 +31,14 @@ export const ruTranslations = {
   delivery: 'Доставка',
   businessTours: 'Бизнес-туры в Китай',
   viewAllServices: 'Все услуги',
+  // Services descriptions
+  supplierSearchDesc: 'Поможем найти надежных поставщиков в Китае под ваши требования и бюджет.',
+  marketplacePurchaseDesc: 'Выкуп товаров с популярных китайских площадок Taobao, 1688, Alibaba и других.',
+  supplierPaymentDesc: 'Безопасные платежи китайским поставщикам в любой валюте с минимальной комиссией.',
+  cargoConsolidationDesc: 'Объединение нескольких поставок на нашем складе для оптимизации расходов.',
+  inspectionDesc: 'Проверка качества, количества и комплектности товара перед отправкой.',
+  deliveryDesc: 'Доставка любым способом: авиа, жд, морем, автотранспортом до вашего склада.',
+  businessToursDesc: 'Организация поездок в Китай для посещения выставок и встреч с поставщиками.',
   
   // Advantages
   advantagesTitle: 'Преимущества работы с нами',
@@ -41,6 +50,7 @@ export const ruTranslations = {
   advantage3Text: 'Сопровождение заказа на всех этапах',
   advantage4Title: 'Страхование груза',
   advantage4Text: 'Ваш груз под защитой на всем пути',
+  advantagesSubtitle: 'Мы предоставляем полный спектр услуг по доставке грузов из Китая',
   
   // Calculator
   calculatorTitle: 'Рассчитать стоимость доставки',

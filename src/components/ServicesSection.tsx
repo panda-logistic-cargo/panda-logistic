@@ -29,37 +29,37 @@ const ServicesSection: React.FC = () => {
   const services = [
     {
       title: t('supplierSearch'),
-      description: 'Поможем найти надежных поставщиков в Китае под ваши требования и бюджет.',
+      description: t('supplierSearchDesc'),
       icon: <Search className="h-6 w-6" />
     },
     {
       title: t('marketplacePurchase'),
-      description: 'Выкуп товаров с популярных китайских площадок Taobao, 1688, Alibaba и других.',
+      description: t('marketplacePurchaseDesc'),
       icon: <ShoppingCart className="h-6 w-6" />
     },
     {
       title: t('supplierPayment'),
-      description: 'Безопасные платежи китайским поставщикам в любой валюте с минимальной комиссией.',
+      description: t('supplierPaymentDesc'),
       icon: <CreditCard className="h-6 w-6" />
     },
     {
       title: t('cargoConsolidation'),
-      description: 'Объединение нескольких поставок на нашем складе для оптимизации расходов.',
+      description: t('cargoConsolidationDesc'),
       icon: <Package className="h-6 w-6" />
     },
     {
       title: t('inspection'),
-      description: 'Проверка качества, количества и комплектности товара перед отправкой.',
+      description: t('inspectionDesc'),
       icon: <CheckCircle className="h-6 w-6" />
     },
     {
       title: t('delivery'),
-      description: 'Доставка любым способом: авиа, жд, морем, автотранспортом до вашего склада.',
+      description: t('deliveryDesc'),
       icon: <Truck className="h-6 w-6" />
     },
     {
       title: t('businessTours'),
-      description: 'Организация поездок в Китай для посещения выставок и встреч с поставщиками.',
+      description: t('businessToursDesc'),
       icon: <Plane className="h-6 w-6" />
     }
   ];
