@@ -1,4 +1,3 @@
-
 export const zhTranslations = {
   // Navbar
   home: '首页',
@@ -84,7 +83,7 @@ export const zhTranslations = {
   testimonial4Name: '奥利维亚 威尔逊',
   testimonial4Position: '所有者',
   testimonial4Company: 'KidsStore',
-  testimonial4Content: '我们在寻找可靠的公司来递送儿童产品，而Panda Logistic正是我们所需要的。我很欣赏他们对细节的关注和对易碎物品的优质包装。',
+  testimonial4Content: '我们在寻找可靠的公司来��送儿童产品，而Panda Logistic正是我们所需要的。我很欣赏他们对细节的关注和对易碎物品的优质包装。',
   
   testimonial5Name: '大卫 布朗',
   testimonial5Position: '采购主管',
@@ -186,5 +185,9 @@ export const zhTranslations = {
   termsSection2_1Item1: '在填写表格时提供可靠信息。',
   termsSection2_1Item2: '不将网站用于非法目的。',
   termsSection2_1Item3: '不侵犯其他用户或第三方的权利。',
-  termsLastUpdated: '最后更新日期'
+  termsLastUpdated: '最后更新日期',
+  
+  // Pagination
+  previous: '上一页',
+  next: '下一页',
 };

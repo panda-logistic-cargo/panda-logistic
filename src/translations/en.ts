@@ -1,4 +1,3 @@
-
 export const enTranslations = {
   // Navbar
   home: 'Home',
@@ -203,5 +202,9 @@ export const enTranslations = {
   termsSection2_1Item1: 'Provide reliable information when filling out forms.',
   termsSection2_1Item2: 'Not to use the site for illegal purposes.',
   termsSection2_1Item3: 'Not to violate the rights of other users or third parties.',
-  termsLastUpdated: 'Last update date'
+  termsLastUpdated: 'Last update date',
+  
+  // Pagination
+  previous: 'Previous',
+  next: 'Next',
 };

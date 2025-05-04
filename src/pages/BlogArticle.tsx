@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
+import { useLanguage } from "@/context/LanguageContext"; // Add this import
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -10,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import SharingButtons from "@/components/SharingButtons";
 import { calculateReadingTime, generateHashtags } from "@/utils/blogUtils";
 import BlogArticleSkeleton from "@/components/BlogArticleSkeleton";
+import RelatedArticles from "@/components/RelatedArticles"; // Add this import
 
 interface BlogArticle {
   id: string;
@@ -40,6 +43,7 @@ const BlogArticle = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { t } = useLanguage(); // Add this line
   const { toast } = useToast();
   const [article, setArticle] = useState<BlogArticle | null>(null);
   const [loading, setLoading] = useState(true);
@@ -234,6 +238,14 @@ const BlogArticle = () => {
                 />
               </div>
             </article>
+            
+            {/* Related Articles section */}
+            {article.id && article.category && (
+              <RelatedArticles 
+                currentArticleId={article.id} 
+                category={article.category}
+              />
+            )}
           </div>
         </div>
       </div>

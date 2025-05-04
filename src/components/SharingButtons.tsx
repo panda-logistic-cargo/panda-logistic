@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Copy } from 'lucide-react';
+import { Copy, Facebook, Telegram, Loader2, MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface SharingButtonsProps {
@@ -20,16 +20,19 @@ const SharingButtons: React.FC<SharingButtonsProps> = ({ url, title }) => {
       name: 'ВКонтакте',
       url: `https://vk.com/share.php?url=${encodedUrl}&title=${encodedTitle}`,
       className: 'bg-blue-600 hover:bg-blue-700',
+      icon: <Facebook className="mr-2 h-4 w-4" />
     },
     {
       name: 'Telegram',
       url: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`,
       className: 'bg-[#0088cc] hover:bg-[#0077b5]',
+      icon: <Telegram className="mr-2 h-4 w-4" />
     },
     {
       name: 'WhatsApp',
       url: `https://api.whatsapp.com/send?text=${encodedTitle} ${encodedUrl}`,
       className: 'bg-[#25D366] hover:bg-[#20bd5c]',
+      icon: <MessageCircle className="mr-2 h-4 w-4" />
     },
   ];
   
@@ -67,6 +70,7 @@ const SharingButtons: React.FC<SharingButtonsProps> = ({ url, title }) => {
             rel="noopener noreferrer"
             className="flex items-center"
           >
+            {link.icon}
             {link.name}
           </a>
         </Button>

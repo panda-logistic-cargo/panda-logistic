@@ -1,9 +1,10 @@
+
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Calculator from "@/components/Calculator";
-import { Plane, TrainFront, Ship } from "lucide-react";
+import { Plane, TrainFront, Ship, Info } from "lucide-react";
 const CalculatorPage = () => {
   const {
     t
@@ -58,7 +59,10 @@ const CalculatorPage = () => {
           </div>
           
           <div className="bg-cargo-red/5 border border-cargo-red/20 p-6 rounded-lg">
-            <h3 className="font-bold text-lg mb-2">Важная информация</h3>
+            <h3 className="font-bold text-lg mb-2 flex items-center">
+              <Info className="h-5 w-5 mr-2 text-cargo-red" />
+              Важная информация
+            </h3>
             <p className="text-cargo-gray-700">Калькулятор предоставляет ориентировочную стоимость. На финальную цену влияют дополнительные факторы: характер груза, сезонность, необходимость специальной упаковки и т.д. Для точного расчета рекомендуем обратиться к нашим специалистам.</p>
           </div>
         </div>
