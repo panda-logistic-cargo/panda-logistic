@@ -5,9 +5,11 @@ import { useAuth } from "@/context/AuthContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Calendar, Edit, ArrowLeft } from "lucide-react";
+import { Calendar, Edit, ArrowLeft, Clock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import SharingButtons from "@/components/SharingButtons";
+import { calculateReadingTime, generateHashtags } from "@/utils/blogUtils";
 
 interface BlogArticle {
   id: string;
@@ -40,11 +42,17 @@ const BlogArticle = () => {
   const { toast } = useToast();
   const [article, setArticle] = useState<BlogArticle | null>(null);
   const [loading, setLoading] = useState(true);
+  const [hashtags, setHashtags] = useState<string[]>([]);
+  const [readingTime, setReadingTime] = useState<number>(0);
+  const [articleUrl, setArticleUrl] = useState("");
 
   useEffect(() => {
     if (id) {
       fetchArticle(id);
     }
+    
+    // Set current article URL for sharing
+    setArticleUrl(window.location.href);
   }, [id]);
 
   const fetchArticle = async (articleId: string) => {
@@ -69,6 +77,14 @@ const BlogArticle = () => {
       }
 
       setArticle(data);
+      
+      // Calculate reading time
+      const time = calculateReadingTime(data.content);
+      setReadingTime(time);
+      
+      // Generate hashtags
+      const tags = generateHashtags(data.title, data.content, data.category);
+      setHashtags(tags);
     } catch (error: any) {
       console.error('Error fetching article:', error);
       toast({
@@ -136,10 +152,21 @@ const BlogArticle = () => {
             <article className="prose prose-lg max-w-none">
               <h1 className="text-3xl md:text-4xl font-bold mb-4">{article.title}</h1>
               
-              <div className="flex items-center text-cargo-gray-500 mb-6">
-                <Calendar className="h-5 w-5 mr-2" />
-                <span>{formatDate(article.published_at || article.created_at)}</span>
-                <span className="mx-2">•</span>
+              <div className="flex flex-wrap items-center text-cargo-gray-500 mb-6 gap-3">
+                <div className="flex items-center">
+                  <Calendar className="h-5 w-5 mr-2" />
+                  <span>{formatDate(article.published_at || article.created_at)}</span>
+                </div>
+                
+                <span className="hidden sm:inline">•</span>
+                
+                <div className="flex items-center">
+                  <Clock className="h-5 w-5 mr-2" />
+                  <span>{readingTime} мин. чтения</span>
+                </div>
+                
+                <span className="hidden sm:inline">•</span>
+                
                 <span className="bg-cargo-red text-white text-sm px-3 py-1 rounded-full">
                   {article.category}
                 </span>
@@ -159,6 +186,32 @@ const BlogArticle = () => {
               
               <div className="text-cargo-gray-800 whitespace-pre-line">
                 {article.content}
+              </div>
+              
+              {/* Hashtags section */}
+              {hashtags.length > 0 && (
+                <div className="mt-10 pt-4 border-t border-gray-200">
+                  <h3 className="text-xl font-semibold mb-3">Теги</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {hashtags.map((tag, index) => (
+                      <span 
+                        key={index}
+                        className="bg-cargo-gray-100 text-cargo-gray-700 rounded-full px-3 py-1 text-sm hover:bg-cargo-gray-200 cursor-pointer transition-colors"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {/* Share section */}
+              <div className="mt-8 pt-4 border-t border-gray-200">
+                <h3 className="text-xl font-semibold mb-3">Поделиться</h3>
+                <SharingButtons 
+                  url={articleUrl}
+                  title={article.title}
+                />
               </div>
             </article>
           </div>

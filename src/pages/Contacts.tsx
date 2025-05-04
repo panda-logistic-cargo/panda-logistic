@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -6,6 +5,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import PhoneInput from "@/components/PhoneInput";
 import { 
   Select,
   SelectContent,
@@ -26,7 +26,7 @@ import {
   FileText, 
   HelpCircle 
 } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 
 type ServiceOption = {
   value: string;
@@ -113,6 +113,10 @@ const Contacts = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handlePhoneChange = (value: string) => {
+    setFormData((prev) => ({ ...prev, phone: value }));
   };
 
   const handleSelectChange = (value: string) => {
@@ -270,12 +274,11 @@ const Contacts = () => {
                   </div>
                   <div>
                     <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="phone">Телефон</label>
-                    <Input
+                    <PhoneInput
                       id="phone"
                       name="phone"
                       value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="+7 900 000-00-00"
+                      onChange={handlePhoneChange}
                       required
                     />
                   </div>

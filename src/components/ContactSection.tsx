@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import PhoneInput from "@/components/PhoneInput";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { 
@@ -272,11 +272,10 @@ const ContactSection: React.FC = () => {
                   
                   <div>
                     <Label htmlFor="phone">{t('yourPhone')}</Label>
-                    <Input
+                    <PhoneInput
                       id="phone"
-                      placeholder="+7 (999) 123-45-67"
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={setPhone}
                       required
                     />
                   </div>
