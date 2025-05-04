@@ -1,12 +1,38 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Send, 
+  Loader2, 
+  Search, 
+  ShoppingCart, 
+  Package, 
+  Truck, 
+  Plane, 
+  FileText, 
+  HelpCircle 
+} from "lucide-react";
+
+type ServiceOption = {
+  value: string;
+  label: string;
+  icon: React.ReactNode;
+};
 
 const ContactSection: React.FC = () => {
   const { t } = useLanguage();
@@ -16,10 +42,78 @@ const ContactSection: React.FC = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
+  const [serviceType, setServiceType] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaAnswer, setCaptchaAnswer] = useState('');
+  
+  // Math CAPTCHA state
+  const [captcha, setCaptcha] = useState({
+    num1: 0,
+    num2: 0,
+    operator: "+",
+    correctAnswer: 0
+  });
+
+  // Generate math captcha
+  const generateCaptcha = () => {
+    const operators = ["+", "-", "*"];
+    const randomOperator = operators[Math.floor(Math.random() * operators.length)];
+    
+    // Generate appropriate numbers for the operator
+    let num1, num2, result;
+    
+    switch (randomOperator) {
+      case "+":
+        num1 = Math.floor(Math.random() * 10) + 1;
+        num2 = Math.floor(Math.random() * 10) + 1;
+        result = num1 + num2;
+        break;
+      case "-":
+        num1 = Math.floor(Math.random() * 10) + 5;
+        num2 = Math.floor(Math.random() * 5) + 1;
+        result = num1 - num2;
+        break;
+      case "*":
+        num1 = Math.floor(Math.random() * 5) + 1;
+        num2 = Math.floor(Math.random() * 5) + 1;
+        result = num1 * num2;
+        break;
+      default:
+        num1 = Math.floor(Math.random() * 10) + 1;
+        num2 = Math.floor(Math.random() * 10) + 1;
+        result = num1 + num2;
+    }
+    
+    setCaptcha({
+      num1,
+      num2,
+      operator: randomOperator,
+      correctAnswer: result
+    });
+  };
+
+  // Initialize captcha on component mount
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Check if captcha is correct
+    const userAnswer = parseInt(captchaAnswer);
+    
+    if (isNaN(userAnswer) || userAnswer !== captcha.correctAnswer) {
+      toast({
+        title: "Ошибка проверки",
+        description: "Неправильный ответ на математическую задачу. Пожалуйста, попробуйте еще раз.",
+        variant: "destructive"
+      });
+      generateCaptcha(); // Generate a new captcha
+      setCaptchaAnswer("");
+      return;
+    }
+    
     setIsSubmitting(true);
     
     // Simulate form submission
@@ -33,10 +127,33 @@ const ContactSection: React.FC = () => {
       setName('');
       setEmail('');
       setPhone('');
+      setServiceType('');
       setMessage('');
+      setCaptchaAnswer('');
       setIsSubmitting(false);
+      
+      // Generate new captcha
+      generateCaptcha();
     }, 1500);
   };
+  
+  // Format operator for display
+  const formatOperator = (op: string) => {
+    switch (op) {
+      case "*": return "×";
+      default: return op;
+    }
+  };
+  
+  const serviceOptions: ServiceOption[] = [
+    { value: "supplier-search", label: "Поиск поставщиков", icon: <Search className="h-4 w-4" /> },
+    { value: "marketplace-purchase", label: "Выкуп с маркетплейсов", icon: <ShoppingCart className="h-4 w-4" /> },
+    { value: "cargo-consolidation", label: "Консолидация груза", icon: <Package className="h-4 w-4" /> },
+    { value: "delivery", label: "Доставка", icon: <Truck className="h-4 w-4" /> },
+    { value: "business-tours", label: "Бизнес-туры в Китай", icon: <Plane className="h-4 w-4" /> },
+    { value: "customs-clearance", label: "Таможенное оформление", icon: <FileText className="h-4 w-4" /> },
+    { value: "other", label: "Другое", icon: <HelpCircle className="h-4 w-4" /> }
+  ];
   
   const contactInfo = [
     {
@@ -166,6 +283,29 @@ const ContactSection: React.FC = () => {
                 </div>
                 
                 <div>
+                  <Label htmlFor="serviceType">Какой тип услуги наиболее соответствует вашим потребностям?</Label>
+                  <Select 
+                    value={serviceType} 
+                    onValueChange={setServiceType}
+                    required
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Выберите тип услуги" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {serviceOptions.map(option => (
+                        <SelectItem key={option.value} value={option.value} className="flex items-center">
+                          <div className="flex items-center gap-2">
+                            {option.icon}
+                            <span>{option.label}</span>
+                          </div>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <div>
                   <Label htmlFor="message">{t('message')}</Label>
                   <Textarea
                     id="message"
@@ -175,6 +315,39 @@ const ContactSection: React.FC = () => {
                     onChange={(e) => setMessage(e.target.value)}
                     required
                   />
+                </div>
+                
+                {/* Math CAPTCHA */}
+                <div className="border border-cargo-gray-200 rounded-lg p-4 bg-gray-50">
+                  <Label htmlFor="captcha" className="mb-2">Подтверждение</Label>
+                  <div className="flex flex-col space-y-2">
+                    <p className="text-sm text-cargo-gray-600">
+                      Решите пример: <span className="font-medium">{captcha.num1} {formatOperator(captcha.operator)} {captcha.num2} = ?</span>
+                    </p>
+                    <div className="flex items-center">
+                      <Input
+                        id="captchaAnswer"
+                        value={captchaAnswer}
+                        onChange={(e) => setCaptchaAnswer(e.target.value)}
+                        placeholder="Введите ответ"
+                        className="max-w-[120px]"
+                        type="number"
+                        required
+                      />
+                      <Button 
+                        type="button" 
+                        variant="outline" 
+                        size="sm"
+                        className="ml-2 text-xs"
+                        onClick={() => {
+                          generateCaptcha();
+                          setCaptchaAnswer("");
+                        }}
+                      >
+                        Обновить
+                      </Button>
+                    </div>
+                  </div>
                 </div>
                 
                 <Button 
