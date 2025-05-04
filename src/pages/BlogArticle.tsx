@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
@@ -10,6 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import SharingButtons from "@/components/SharingButtons";
 import { calculateReadingTime, generateHashtags } from "@/utils/blogUtils";
+import BlogArticleSkeleton from "@/components/BlogArticleSkeleton";
 
 interface BlogArticle {
   id: string;
@@ -131,13 +131,8 @@ const BlogArticle = () => {
     return (
       <div className="min-h-screen">
         <Navbar />
-        <div className="pt-20 pb-16 flex justify-center items-center">
-          <div className="text-center">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-cargo-red border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
-              <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
-            </div>
-            <p className="mt-4 text-cargo-gray-600">Загрузка статьи...</p>
-          </div>
+        <div className="pt-20 pb-16">
+          <BlogArticleSkeleton />
         </div>
         <Footer />
       </div>

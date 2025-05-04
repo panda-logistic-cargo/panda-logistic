@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAuth } from "@/context/AuthContext";
@@ -21,6 +20,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { useNavigate } from "react-router-dom";
 import { calculateReadingTime } from "@/utils/blogUtils";
+import BlogCardSkeleton from "@/components/BlogCardSkeleton";
 
 interface BlogCategory {
   name: string;
@@ -110,6 +110,8 @@ const Blog = () => {
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     setCurrentPage(1);
+    setLoading(true);
+    fetchArticles();
   };
 
   const getTotalPages = async () => {
@@ -171,6 +173,11 @@ const Blog = () => {
     navigate(path);
   };
 
+  // Create an array of skeleton cards for loading state
+  const skeletonCards = Array(articlesPerPage).fill(0).map((_, index) => (
+    <BlogCardSkeleton key={`skeleton-${index}`} />
+  ));
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -216,11 +223,8 @@ const Blog = () => {
           </div>
 
           {loading ? (
-            <div className="text-center py-12">
-              <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-cargo-red border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
-                <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
-              </div>
-              <p className="mt-4 text-cargo-gray-600">Загрузка статей...</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {skeletonCards}
             </div>
           ) : (
             <>
