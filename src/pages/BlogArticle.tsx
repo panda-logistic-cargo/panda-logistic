@@ -17,6 +17,7 @@ interface BlogArticle {
   category: string;
   image_url: string;
   created_at: string;
+  published_at: string;
   updated_at: string;
 }
 
@@ -137,7 +138,7 @@ const BlogArticle = () => {
               
               <div className="flex items-center text-cargo-gray-500 mb-6">
                 <Calendar className="h-5 w-5 mr-2" />
-                <span>{formatDate(article.created_at)}</span>
+                <span>{formatDate(article.published_at || article.created_at)}</span>
                 <span className="mx-2">•</span>
                 <span className="bg-cargo-red text-white text-sm px-3 py-1 rounded-full">
                   {article.category}

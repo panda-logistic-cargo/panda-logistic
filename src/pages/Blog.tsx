@@ -33,6 +33,7 @@ interface BlogArticle {
   category: string;
   image_url: string;
   created_at: string;
+  published_at: string;
 }
 
 const categories: BlogCategory[] = [
@@ -86,8 +87,8 @@ const Blog = () => {
     try {
       let query = supabase
         .from('blog_articles')
-        .select('id, title, excerpt, category, image_url, created_at')
-        .order('created_at', { ascending: false })
+        .select('id, title, excerpt, category, image_url, created_at, published_at')
+        .order('published_at', { ascending: false })
         .range((currentPage - 1) * articlesPerPage, currentPage * articlesPerPage - 1);
       
       if (selectedCategory !== "Все статьи") {
@@ -249,7 +250,7 @@ const Blog = () => {
                           <div className="flex items-center gap-4">
                             <div className="flex items-center">
                               <Calendar className="h-4 w-4 mr-1" />
-                              {formatDate(article.created_at)}
+                              {formatDate(article.published_at || article.created_at)}
                             </div>
                             <div className="flex items-center">
                               <Clock className="h-4 w-4 mr-1" />
