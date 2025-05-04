@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
@@ -32,6 +31,7 @@ import { CalendarIcon, Loader2, Upload } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
+import { createSlug } from "@/utils/blogUtils";
 
 const BlogCreate = () => {
   const navigate = useNavigate();
@@ -166,12 +166,16 @@ const BlogCreate = () => {
         }
       }
 
+      // Generate slug from title
+      const slug = createSlug(formData.title);
+
       const { error } = await supabase
         .from('blog_articles')
         .insert([{
           ...formData,
           image_url: imageUrl,
-          published_at: formData.published_at.toISOString()
+          published_at: formData.published_at.toISOString(),
+          slug: slug
         }]);
 
       if (error) throw error;

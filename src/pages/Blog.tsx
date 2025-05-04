@@ -35,7 +35,7 @@ interface BlogArticle {
   image_url: string;
   created_at: string;
   published_at: string;
-  slug: string;
+  slug: string | null;
 }
 
 const categories: BlogCategory[] = [

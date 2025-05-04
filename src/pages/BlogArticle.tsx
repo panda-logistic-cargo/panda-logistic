@@ -19,9 +19,9 @@ interface BlogArticle {
   category: string;
   image_url: string;
   created_at: string;
-  published_at: string;
+  published_at: string | null;
   updated_at: string;
-  slug: string;
+  slug: string | null;
 }
 
 const formatDate = (dateString: string) => {
@@ -56,13 +56,14 @@ const BlogArticle = () => {
     setArticleUrl(window.location.href);
   }, [slug]);
 
-  const fetchArticle = async (articleSlug: string) => {
+  const fetchArticle = async (articleSlugOrId: string) => {
     setLoading(true);
     try {
+      // First try by slug
       const { data, error } = await supabase
         .from('blog_articles')
         .select('*')
-        .eq('slug', articleSlug)
+        .eq('slug', articleSlugOrId)
         .single();
 
       if (error) {
@@ -70,7 +71,7 @@ const BlogArticle = () => {
         const { data: dataById, error: errorById } = await supabase
           .from('blog_articles')
           .select('*')
-          .eq('id', articleSlug)
+          .eq('id', articleSlugOrId)
           .single();
           
         if (errorById) {
@@ -79,8 +80,8 @@ const BlogArticle = () => {
         
         setArticle(dataById);
         
-        // Redirect to the slug URL if found by ID
-        if (dataById.slug) {
+        // Redirect to the slug URL if found by ID and has a slug
+        if (dataById && dataById.slug) {
           navigate(`/blog/${dataById.slug}`, { replace: true });
           return;
         }
