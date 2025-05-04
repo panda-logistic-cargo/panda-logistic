@@ -21,6 +21,7 @@ interface BlogArticle {
   created_at: string;
   published_at: string;
   updated_at: string;
+  slug: string;
 }
 
 const formatDate = (dateString: string) => {
@@ -36,7 +37,7 @@ const formatDate = (dateString: string) => {
 }
 
 const BlogArticle = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
   const { toast } = useToast();
@@ -47,26 +48,47 @@ const BlogArticle = () => {
   const [articleUrl, setArticleUrl] = useState("");
 
   useEffect(() => {
-    if (id) {
-      fetchArticle(id);
+    if (slug) {
+      fetchArticle(slug);
     }
     
     // Set current article URL for sharing
     setArticleUrl(window.location.href);
-  }, [id]);
+  }, [slug]);
 
-  const fetchArticle = async (articleId: string) => {
+  const fetchArticle = async (articleSlug: string) => {
     setLoading(true);
     try {
       const { data, error } = await supabase
         .from('blog_articles')
         .select('*')
-        .eq('id', articleId)
+        .eq('slug', articleSlug)
         .single();
 
-      if (error) throw error;
+      if (error) {
+        // If not found by slug, try to find by id (for backward compatibility)
+        const { data: dataById, error: errorById } = await supabase
+          .from('blog_articles')
+          .select('*')
+          .eq('id', articleSlug)
+          .single();
+          
+        if (errorById) {
+          throw new Error("Статья не найдена");
+        }
+        
+        setArticle(dataById);
+        
+        // Redirect to the slug URL if found by ID
+        if (dataById.slug) {
+          navigate(`/blog/${dataById.slug}`, { replace: true });
+          return;
+        }
+      } else {
+        setArticle(data);
+      }
       
-      if (!data) {
+      if (!data && !article) {
         toast({
           title: "Статья не найдена",
           description: "Запрашиваемая статья не существует",
@@ -75,15 +97,15 @@ const BlogArticle = () => {
         navigate('/blog');
         return;
       }
-
-      setArticle(data);
+      
+      const articleData = data || article;
       
       // Calculate reading time
-      const time = calculateReadingTime(data.content);
+      const time = calculateReadingTime(articleData.content);
       setReadingTime(time);
       
       // Generate hashtags
-      const tags = generateHashtags(data.title, data.content, data.category);
+      const tags = generateHashtags(articleData.title, articleData.content, articleData.category);
       setHashtags(tags);
     } catch (error: any) {
       console.error('Error fetching article:', error);
@@ -99,7 +121,9 @@ const BlogArticle = () => {
   };
 
   const handleEdit = () => {
-    navigate(`/blog/edit/${id}`);
+    if (article) {
+      navigate(`/blog/edit/${article.id}`);
+    }
   };
 
   if (loading) {

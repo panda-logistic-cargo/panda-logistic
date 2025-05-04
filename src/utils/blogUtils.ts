@@ -47,3 +47,34 @@ export const generateHashtags = (title: string, content: string, category: strin
   // Format tags with # prefix and return
   return allTags.map(tag => `#${tag}`);
 };
+
+/**
+ * Create a URL slug from a string
+ * @param text Text to convert to slug
+ * @returns URL-friendly slug
+ */
+export const createSlug = (text: string): string => {
+  // Transliteration map for Cyrillic characters
+  const translitMap: Record<string, string> = {
+    'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e',
+    'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm',
+    'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
+    'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'sch', 'ъ': '',
+    'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'
+  };
+
+  return text
+    .toLowerCase()
+    // Transliterate Cyrillic characters
+    .split('')
+    .map(char => translitMap[char] || char)
+    .join('')
+    // Replace special characters with hyphens
+    .replace(/[^\w\s-]/g, '')
+    // Replace spaces with hyphens
+    .replace(/[\s_-]+/g, '-')
+    // Remove leading/trailing hyphens
+    .replace(/^-+|-+$/g, '')
+    // Limit length to avoid very long URLs
+    .substring(0, 60);
+};

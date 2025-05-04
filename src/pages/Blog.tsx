@@ -20,6 +20,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { useNavigate } from "react-router-dom";
+import { calculateReadingTime } from "@/utils/blogUtils";
 
 interface BlogCategory {
   name: string;
@@ -34,6 +35,7 @@ interface BlogArticle {
   image_url: string;
   created_at: string;
   published_at: string;
+  slug: string;
 }
 
 const categories: BlogCategory[] = [
@@ -45,13 +47,6 @@ const categories: BlogCategory[] = [
   { name: "Маркетплейсы", icon: ShoppingCart },
   { name: "Бизнес с Китаем", icon: Briefcase }
 ];
-
-const calculateReadingTime = (text: string) => {
-  const wordsPerMinute = 200;
-  const words = text.trim().split(/\s+/).length;
-  const time = Math.ceil(words / wordsPerMinute);
-  return time;
-}
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
@@ -87,7 +82,7 @@ const Blog = () => {
     try {
       let query = supabase
         .from('blog_articles')
-        .select('id, title, excerpt, category, image_url, created_at, published_at')
+        .select('id, title, excerpt, category, image_url, created_at, published_at, slug')
         .order('published_at', { ascending: false })
         .range((currentPage - 1) * articlesPerPage, currentPage * articlesPerPage - 1);
       
@@ -169,6 +164,11 @@ const Blog = () => {
   const confirmDeleteArticle = (id: string) => {
     setDeleteArticleId(id);
     setIsDeleteDialogOpen(true);
+  };
+  
+  const navigateToArticle = (article: BlogArticle) => {
+    const path = article.slug ? `/blog/${article.slug}` : `/blog/${article.id}`;
+    navigate(path);
   };
 
   return (
@@ -264,7 +264,7 @@ const Blog = () => {
                           <Button
                             variant="outline"
                             className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white"
-                            onClick={() => navigate(`/blog/${article.id}`)}
+                            onClick={() => navigateToArticle(article)}
                           >
                             Подробнее <ArrowRight className="ml-2 h-4 w-4" />
                           </Button>
