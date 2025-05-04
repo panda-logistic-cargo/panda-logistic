@@ -17,6 +17,23 @@ export const calculateReadingTime = (text: string, wordsPerMinute: number = 200)
 };
 
 /**
+ * Format a date string into a readable format (DD month YYYY)
+ * @param dateString Date string to format
+ * @returns Formatted date string
+ */
+export const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const monthNames = [
+    "января", "февраля", "марта", "апреля", "мая", "июня",
+    "июля", "августа", "сентября", "октября", "ноября", "декабря"
+  ];
+  const month = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+  return `${day} ${month} ${year}`;
+};
+
+/**
  * Generate hashtags based on article content
  * @param title Article title
  * @param content Article content

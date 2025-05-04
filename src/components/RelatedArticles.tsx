@@ -12,7 +12,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
-import { formatDate, calculateReadingTime } from "@/utils/blogUtils";
+import { calculateReadingTime, formatDate } from "@/utils/blogUtils";
 import { Clock, Calendar } from "lucide-react";
 
 interface RelatedArticlesProps {
