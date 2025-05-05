@@ -3,6 +3,13 @@ import React from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { Search, ShoppingCart, Package, Truck, Plane } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from "@/components/ui/carousel";
 
 interface ServiceCardProps {
   title: string;
@@ -13,13 +20,13 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, link, icon }) => {
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-cargo-red/20 transition-all group">
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-cargo-red/20 transition-all group h-full flex flex-col">
       <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-lg bg-cargo-red/10 text-cargo-red group-hover:bg-cargo-red group-hover:text-white transition-colors">
         {icon}
       </div>
-      <Link to={link}>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-cargo-gray-500">{description}</p>
+      <Link to={link} className="flex flex-col h-full">
+        <h3 className="text-xl font-semibold mb-2 line-clamp-2 break-words">{title}</h3>
+        <p className="text-cargo-gray-500 line-clamp-2 break-words">{description}</p>
       </Link>
     </div>
   );
@@ -69,17 +76,24 @@ const OtherServicesSection = ({ excludeService }: { excludeService: string }) =>
           <div className="w-20 h-1 bg-cargo-red mx-auto"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredServices.map((service, index) => (
-            <ServiceCard
-              key={index}
-              title={service.title}
-              description={service.description}
-              link={service.link}
-              icon={service.icon}
-            />
-          ))}
-        </div>
+        <Carousel className="w-full max-w-5xl mx-auto">
+          <CarouselContent>
+            {filteredServices.map((service, index) => (
+              <CarouselItem key={index} className="sm:basis-1/1 md:basis-1/3 lg:basis-1/3 p-2">
+                <ServiceCard
+                  title={service.title}
+                  description={service.description}
+                  link={service.link}
+                  icon={service.icon}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="flex justify-center gap-4 mt-6">
+            <CarouselPrevious className="relative static translate-y-0 left-0" />
+            <CarouselNext className="relative static translate-y-0 right-0" />
+          </div>
+        </Carousel>
       </div>
     </section>
   );
