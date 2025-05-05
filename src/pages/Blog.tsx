@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAuth } from "@/context/AuthContext";
@@ -237,7 +238,7 @@ const Blog = () => {
                   {articles.map((article) => (
                     <div
                       key={article.id}
-                      className="border border-cargo-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+                      className="border border-cargo-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow h-full flex flex-col"
                     >
                       <div className="h-48 bg-cargo-gray-200 relative">
                         <img
@@ -249,7 +250,7 @@ const Blog = () => {
                           {article.category}
                         </span>
                       </div>
-                      <div className="p-6">
+                      <div className="p-6 flex flex-col h-full">
                         <div className="flex items-center justify-between text-sm text-cargo-gray-500 mb-2">
                           <div className="flex items-center gap-4">
                             <div className="flex items-center">
@@ -262,9 +263,9 @@ const Blog = () => {
                             </div>
                           </div>
                         </div>
-                        <h3 className="font-bold text-xl mb-2">{article.title}</h3>
-                        <p className="text-cargo-gray-600 mb-4">{article.excerpt}</p>
-                        <div className="flex justify-between items-center">
+                        <h3 className="font-bold text-xl mb-2 line-clamp-2 break-words">{article.title}</h3>
+                        <p className="text-cargo-gray-600 mb-4 line-clamp-2 break-words">{article.excerpt}</p>
+                        <div className="mt-auto flex justify-between items-center">
                           <Button
                             variant="outline"
                             className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white"
