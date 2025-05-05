@@ -90,9 +90,11 @@ const BusinessTours = () => {
                   Точная стоимость зависит от города посещения, длительности поездки, необходимости 
                   посещения определенных фабрик и выставок, а также класса отеля.
                 </p>
-                <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full">
-                  Запросить консультацию
-                </Button>
+                <Link to="/contacts">
+                  <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full">
+                    Запросить консультацию
+                  </Button>
+                </Link>
               </div>
 
               <div className="bg-white border border-cargo-gray-200 rounded-lg p-6 mt-6 py-[20px]">

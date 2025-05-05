@@ -64,7 +64,7 @@ export const MobileMenu = ({ navLinks, textColorClass }: MobileMenuProps) => {
           </div>
           <div className="p-6 border-t border-gray-200">
             <p className="text-sm text-cargo-gray-500 text-center">
-              © {new Date().getFullYear()} CARGO A71
+              © {new Date().getFullYear()} Panda Logistic
             </p>
           </div>
         </div>
