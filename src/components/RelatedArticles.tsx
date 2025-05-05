@@ -12,7 +12,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
-import { calculateReadingTime, formatDate } from "@/utils/blogUtils";
+import { calculateReadingTime } from "@/utils/blogUtils";
+import { formatDate } from "@/utils/blogUtils";
 import { Clock, Calendar } from "lucide-react";
 
 interface RelatedArticlesProps {
@@ -149,8 +150,8 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, onClick }) => {
             <span>{readingTime} мин.</span>
           </div>
         </div>
-        <h3 className="font-bold text-lg mb-2 line-clamp-2">{article.title}</h3>
-        <p className="text-cargo-gray-600 mb-4 line-clamp-2">{article.excerpt}</p>
+        <h3 className="font-bold text-lg mb-2 line-clamp-2 break-words">{article.title}</h3>
+        <p className="text-cargo-gray-600 mb-4 line-clamp-2 break-words">{article.excerpt}</p>
         <div className="mt-auto">
           <Button variant="outline" className="w-full">
             Читать статью

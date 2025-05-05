@@ -152,9 +152,18 @@ const BlogCreate = () => {
     setLoading(true);
 
     try {
-      // Validate required fields
+      // Validate required fields and content length
       if (!formData.title || !formData.excerpt || !formData.content || !formData.category) {
         throw new Error("Все поля обязательны для заполнения");
+      }
+      
+      // Validate text lengths
+      if (formData.title.length > 100) {
+        throw new Error("Заголовок не должен превышать 100 символов");
+      }
+      
+      if (formData.excerpt.length > 300) {
+        throw new Error("Краткое описание не должно превышать 300 символов");
       }
       
       // Upload image if selected
@@ -225,7 +234,11 @@ const BlogCreate = () => {
                   onChange={handleChange}
                   placeholder="Введите заголовок статьи" 
                   required
+                  maxLength={100}
                 />
+                <p className="text-xs text-gray-500">
+                  {formData.title.length}/100 символов
+                </p>
               </div>
               
               <div className="space-y-2">
@@ -238,7 +251,11 @@ const BlogCreate = () => {
                   placeholder="Введите краткое описание статьи (150-200 символов)" 
                   required
                   rows={3}
+                  maxLength={300}
                 />
+                <p className="text-xs text-gray-500">
+                  {formData.excerpt.length}/300 символов
+                </p>
               </div>
               
               <div className="space-y-2">
@@ -251,6 +268,7 @@ const BlogCreate = () => {
                   placeholder="Введите полный текст статьи" 
                   required
                   rows={10}
+                  className="whitespace-pre-wrap"
                 />
               </div>
               

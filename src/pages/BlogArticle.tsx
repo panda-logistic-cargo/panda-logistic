@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
-import { useLanguage } from "@/context/LanguageContext"; // Add this import
+import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -12,7 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import SharingButtons from "@/components/SharingButtons";
 import { calculateReadingTime, generateHashtags } from "@/utils/blogUtils";
 import BlogArticleSkeleton from "@/components/BlogArticleSkeleton";
-import RelatedArticles from "@/components/RelatedArticles"; // Add this import
+import RelatedArticles from "@/components/RelatedArticles";
 
 interface BlogArticle {
   id: string;
@@ -43,7 +42,7 @@ const BlogArticle = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
-  const { t } = useLanguage(); // Add this line
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [article, setArticle] = useState<BlogArticle | null>(null);
   const [loading, setLoading] = useState(true);
@@ -174,7 +173,7 @@ const BlogArticle = () => {
             </div>
             
             <article className="prose prose-lg max-w-none">
-              <h1 className="text-3xl md:text-4xl font-bold mb-4">{article.title}</h1>
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 break-words">{article.title}</h1>
               
               <div className="flex flex-wrap items-center text-cargo-gray-500 mb-6 gap-3">
                 <div className="flex items-center">
@@ -204,11 +203,11 @@ const BlogArticle = () => {
                 />
               </div>
               
-              <div className="text-lg text-cargo-gray-700 mb-6 font-semibold italic">
+              <div className="text-lg text-cargo-gray-700 mb-6 font-semibold italic break-words">
                 {article.excerpt}
               </div>
               
-              <div className="text-cargo-gray-800 whitespace-pre-line">
+              <div className="text-cargo-gray-800 whitespace-pre-line break-words">
                 {article.content}
               </div>
               
