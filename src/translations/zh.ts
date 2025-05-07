@@ -204,4 +204,10 @@ export const zhTranslations = {
   // Pagination
   previous: '上一页',
   next: '下一页',
+  
+  // New translations for subheadings
+  blogSubtitle: '关于物流、从中国进口和与中国合作伙伴开展业务的最新文章。',
+  contactsSubtitle: '通过任何方便的方式与我们联系，或者留下请求，我们会尽快与您联系。',
+  servicesSubtitle: '我们为从中国进口商品的企业提供全方位服务。从寻找供应商到送货上门。',
+  aboutSubtitle: '我们通过提供全面的供应商搜索和物流服务，帮助企业与中国高效合作。',
 };
