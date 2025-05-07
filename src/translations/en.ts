@@ -1,3 +1,4 @@
+
 export const enTranslations = {
   // Navbar
   home: 'Home',
@@ -55,6 +56,19 @@ export const enTranslations = {
   calculatorTitle: 'Calculate Delivery Cost',
   calculatorSubtitle: 'Fill out the form for a quick calculation',
   calculatorDisclaimer: '*This calculation is preliminary. For an accurate quote, contact our manager.',
+  calculatorDescription: 'Calculate the approximate cost of delivering your cargo from China. For accurate information, please contact us.',
+  calculatorFormSubtitle: 'Fill out the form for a quick calculation',
+  calculatorImportantInfo: 'Important Information',
+  calculatorImportantDetails: 'The calculator provides an approximate cost. The final price is affected by additional factors: the nature of the cargo, seasonality, the need for special packaging, etc. For an accurate calculation, we recommend contacting our specialists.',
+  airDelivery: 'Air Delivery',
+  airDeliveryDesc: 'The fastest delivery method.',
+  airDeliveryTime: '7-12 days',
+  railDelivery: 'Rail Delivery',
+  railDeliveryDesc: 'Optimal balance of price and speed.',
+  railDeliveryTime: '18-25 days',
+  seaDelivery: 'Sea Delivery',
+  seaDeliveryDesc: 'Economical option for large cargo.',
+  seaDeliveryTime: '35-45 days',
   origin: 'Origin',
   destination: 'Destination',
   weight: 'Weight (kg)',

@@ -67,7 +67,7 @@ const Calculator: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('calculatorTitle')}</h2>
-          <p className="text-cargo-gray-500 max-w-2xl mx-auto">{t('calculatorSubtitle')}</p>
+          <p className="text-cargo-gray-500 max-w-2xl mx-auto">{t('calculatorFormSubtitle')}</p>
           <div className="w-20 h-1 bg-cargo-red mx-auto mt-4"></div>
         </div>
         
@@ -78,8 +78,7 @@ const Calculator: React.FC = () => {
                 <CalculatorIcon className="text-white h-16 w-16 mb-6 opacity-80" />
                 <h3 className="text-2xl font-bold text-white mb-4">{t('calculatorTitle')}</h3>
                 <p className="text-white/80">
-                  Получите предварительный расчет стоимости доставки вашего груза из Китая. 
-                  Для более точного расчета свяжитесь с нашими менеджерами.
+                  {t('calculatorDescription')}
                 </p>
                 <div className="mt-6 text-xs text-white/70">{t('calculatorDisclaimer')}</div>
               </div>
