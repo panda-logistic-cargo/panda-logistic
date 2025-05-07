@@ -1,3 +1,4 @@
+
 export const zhTranslations = {
   // Navbar
   home: '首页',
@@ -55,6 +56,19 @@ export const zhTranslations = {
   calculatorTitle: '计算运输成本',
   calculatorSubtitle: '填写表格快速计算',
   calculatorDisclaimer: '*这是初步计算。要获得准确报价，请联系我们的经理。',
+  calculatorDescription: '计算从中国运输货物的大致成本。如需准确信息，请联系我们。',
+  calculatorFormSubtitle: '填写表格快速计算',
+  calculatorImportantInfo: '重要信息',
+  calculatorImportantDetails: '计算器提供大致成本。最终价格受额外因素影响：货物性质、季节性、特殊包装需求等。为了获得准确计算，我们建议联系我们的专家。',
+  airDelivery: '空运',
+  airDeliveryDesc: '最快的配送方式。',
+  airDeliveryTime: '7-12天',
+  railDelivery: '铁路运输',
+  railDeliveryDesc: '价格和速度的最佳平衡。',
+  railDeliveryTime: '18-25天',
+  seaDelivery: '海运',
+  seaDeliveryDesc: '大型货物的经济选择。',
+  seaDeliveryTime: '35-45天',
   origin: '始发地',
   destination: '目的地',
   weight: '重量（公斤）',

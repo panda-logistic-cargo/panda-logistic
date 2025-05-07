@@ -1,3 +1,4 @@
+
 export const ruTranslations = {
   // Navbar
   home: 'Главная',
@@ -55,6 +56,19 @@ export const ruTranslations = {
   calculatorTitle: 'Рассчитать стоимость доставки',
   calculatorSubtitle: 'Заполните форму для быстрого расчета',
   calculatorDisclaimer: '*Расчет является предварительным. Для точной оценки свяжитесь с менеджером.',
+  calculatorDescription: 'Рассчитайте приблизительную стоимость доставки вашего груза из Китая. Для получения точной информации свяжитесь с нами.',
+  calculatorFormSubtitle: 'Заполните форму для быстрого расчета',
+  calculatorImportantInfo: 'Важная информация',
+  calculatorImportantDetails: 'Калькулятор предоставляет ориентировочную стоимость. На финальную цену влияют дополнительные факторы: характер груза, сезонность, необходимость специальной упаковки и т.д. Для точного расчета рекомендуем обратиться к нашим специалистам.',
+  airDelivery: 'Авиадоставка',
+  airDeliveryDesc: 'Самый быстрый способ доставки.',
+  airDeliveryTime: '7-12 дней',
+  railDelivery: 'Железнодорожная доставка',
+  railDeliveryDesc: 'Оптимальное соотношение цены и скорости.',
+  railDeliveryTime: '18-25 дней',
+  seaDelivery: 'Морская доставка',
+  seaDeliveryDesc: 'Экономичный вариант для крупных грузов.',
+  seaDeliveryTime: '35-45 дней',
   origin: 'Откуда',
   destination: 'Куда',
   weight: 'Вес (кг)',
