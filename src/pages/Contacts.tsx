@@ -311,7 +311,7 @@ const Contacts = () => {
               <div className="flex flex-col rounded-xl p-0 lg:p-2">
                 <div className="bg-cargo-gray-100 rounded-xl p-8 mb-4 shadow">
                   <h2 className="text-2xl font-bold mb-2">Расположение офиса</h2>
-                  <div className="text-cargo-gray-700 mb-2">г. Хабаровск, ул. Строительная 28</div>
+                  <div className="text-cargo-gray-700 mb-2">г. Хабаровск, ул. Ленина 28</div>
                   <Button asChild variant="outline" className="mb-4 border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full">
                     <a href="https://www.google.com/maps?q=ул.+Строительная+28,+Хабаровск" target="_blank" rel="noopener noreferrer">
                       Открыть в Google Картах
