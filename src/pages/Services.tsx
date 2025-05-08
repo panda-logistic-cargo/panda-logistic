@@ -33,21 +33,21 @@ const servicesList = [
     id: 4,
     title: "Доставка грузов",
     description: "Организуем доставку из Китая в Россию всеми видами транспорта: авиа, авто, жд, море.",
-    image: "https://images.unsplash.com/photo-1635361645067-4238795ab284?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop",
     link: "/services/delivery"
   },
   {
     id: 5,
     title: "Бизнес-туры в Китай",
     description: "Организуем поездки на фабрики и оптовые рынки Китая с опытным сопровождающим.",
-    image: "https://images.unsplash.com/photo-1494905998402-395d579af36f?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop",
     link: "/services/business-tours"
   },
   {
     id: 6,
     title: "Таможенное оформление",
     description: "Помощь в подготовке документов и прохождении таможенных процедур при импорте товаров.",
-    image: "https://images.unsplash.com/photo-1590502593747-42a996133562?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1568234928966-359c35dd8327?q=80&w=800&auto=format&fit=crop",
     link: "/services"
   }
 ];
