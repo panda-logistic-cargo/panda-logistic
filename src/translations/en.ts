@@ -51,6 +51,10 @@ export const enTranslations = {
   advantage4Text: 'Your cargo is protected throughout the journey',
   advantagesSubtitle: 'We provide a full range of cargo delivery services from China',
   
+  // Consultation block
+  needConsultation: 'Need Consultation?',
+  consultationDescription: 'Contact our specialists for detailed information about our services and to calculate the cost of your project.',
+  
   // Calculator
   calculatorTitle: 'Calculate Delivery Cost',
   calculatorSubtitle: 'Fill out the form for a quick calculation',

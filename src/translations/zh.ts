@@ -51,6 +51,10 @@ export const zhTranslations = {
   advantage4Text: '全程货物受保护',
   advantagesSubtitle: '我们提供从中国发货的全方位货运服务',
   
+  // Consultation block
+  needConsultation: '需要咨询？',
+  consultationDescription: '联系我们的专家，获取有关我们服务的详细信息以及项目成本计算。',
+  
   // Calculator
   calculatorTitle: '计算运输成本',
   calculatorSubtitle: '填写表格快速计算',
@@ -96,7 +100,7 @@ export const zhTranslations = {
   testimonial4Name: '奥利维亚 威尔逊',
   testimonial4Position: '所有者',
   testimonial4Company: 'KidsStore',
-  testimonial4Content: '我们在寻找可靠的公司来��送儿童产品，而Panda Logistic正是我们所需要的。我很欣赏他们对细节的关注和对易碎物品的优质包装。',
+  testimonial4Content: '我们在寻找可靠的公司来送儿童产品，而Panda Logistic正是我们所需要的。我很欣赏他们对细节的关注和对易碎物品的优质包装。',
   
   testimonial5Name: '大卫 布朗',
   testimonial5Position: '采购主管',
@@ -168,14 +172,14 @@ export const zhTranslations = {
   // Privacy Policy
   privacyPolicyTitle: '隐私政策',
   privacyPolicyIntro: '本隐私政策（以下简称"政策"）适用于公司在用户使用 pandalogist.ru 网站期间可能获取的所有信息。',
-  privacyPolicyConsent: '使用 pandalogist.ru 网站意味着用户无条件同意本政���及其中指定的个人信息处理条件。如果不同意这些条件，用户应避免使用本网站。',
+  privacyPolicyConsent: '使用 pandalogist.ru 网站意味着用户无条件同意本政及其中指定的个人信息处理条件。如果不同意这些条件，用户应避免使用本网站。',
   privacyPolicySection1Title: '1. 公司接收和处理的用户个人信息',
   privacyPolicySection1_1Title: '1.1. 在本政策框架内，"用户个人信息"是指：',
   privacyPolicySection1_1Item1: '用户通过网站上的注册表格或反馈提供的姓名、姓氏、电子邮件、电话号码。',
   privacyPolicySection1_2: '1.2. 本政策仅适用于公司网站 pandalogist.ru。公司不控制也不对用户可能通过网站上可用链接访问的第三方网站负责。',
   privacyPolicySection1_3: '1.3. 公司假设用户在注册表格中提供的个人信息是可靠和充分的，并保持这些信息的更新。',
   privacyPolicySection2Title: '2. 收集和处理用户个人信息的目的',
-  privacyPolicySection2Text1: '公司仅���集和存储提高服务质量和与用户互动所必需的个人数据。',
+  privacyPolicySection2Text1: '公司仅集和存储提高服务质量和与用户互动所必需的个人数据。',
   privacyPolicySection2Text2: '公司可将用户个人信息用于以下目的：',
   privacyPolicySection2Item1: '提高网站和公司服务的质量。',
   privacyPolicySection2Item2: '与用户沟通，包括发送通知、请求和信息。',

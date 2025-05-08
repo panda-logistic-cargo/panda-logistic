@@ -1,10 +1,11 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageSquare } from "lucide-react";
 
 const servicesList = [
   {
@@ -90,14 +91,13 @@ const Services = () => {
           </div>
 
           <div className="bg-cargo-gray-100 p-8 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Нужна консультация?</h2>
+            <h2 className="text-2xl font-bold mb-4">{t('needConsultation')}</h2>
             <p className="text-cargo-gray-700 mb-4">
-              Свяжитесь с нашими специалистами для получения подробной информации о наших услугах
-              и расчета стоимости вашего проекта.
+              {t('consultationDescription')}
             </p>
             <Link to="/contacts">
               <Button className="bg-cargo-red hover:bg-cargo-red/90">
-                Связаться с нами
+                {t('contactUs')} <MessageSquare className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
