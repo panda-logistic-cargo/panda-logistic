@@ -10,7 +10,7 @@ export const translations = {
 } as const;
 
 export type Language = keyof typeof translations;
-export type TranslationKey = keyof typeof ruTranslations;
+export type TranslationKey = keyof typeof translations.ru;
 
 // This ensures all language files have the same keys
 // TypeScript will error if any language is missing keys

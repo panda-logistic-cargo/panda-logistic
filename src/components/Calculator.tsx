@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -5,9 +6,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Calculator as CalculatorIcon } from "lucide-react";
+import { Calculator as CalculatorIcon, Smartphone, ShoppingBag, Sofa, Puzzle, Package } from "lucide-react";
 import { DeliveryMethod } from './calculator/DeliveryMethod';
 import { PackagingType } from './calculator/PackagingType';
+import { ProductCategory } from './calculator/ProductCategory';
 
 const Calculator: React.FC = () => {
   const { t } = useLanguage();
@@ -17,7 +19,7 @@ const Calculator: React.FC = () => {
   const [destination, setDestination] = useState('');
   const [weight, setWeight] = useState('');
   const [volume, setVolume] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('electronics');
   const [deliveryMethod, setDeliveryMethod] = useState('standard');
   const [packagingType, setPackagingType] = useState('standard');
   const [result, setResult] = useState<number | null>(null);
@@ -150,21 +152,10 @@ const Calculator: React.FC = () => {
                   </div>
                 </div>
                 
-                <div>
-                  <Label htmlFor="category">{t('category')}</Label>
-                  <Select value={category} onValueChange={setCategory}>
-                    <SelectTrigger>
-                      <SelectValue placeholder={t('category')} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="electronics">Electronics</SelectItem>
-                      <SelectItem value="clothing">Clothing</SelectItem>
-                      <SelectItem value="furniture">Furniture</SelectItem>
-                      <SelectItem value="toys">Toys</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+                <ProductCategory 
+                  value={category}
+                  onValueChange={setCategory}
+                />
                 
                 <DeliveryMethod 
                   value={deliveryMethod}

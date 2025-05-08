@@ -77,6 +77,12 @@ export const enTranslations = {
   weight: 'Weight (kg)',
   volume: 'Volume (m³)',
   category: 'Product Category',
+  // Product categories
+  electronicsCategory: 'Electronics',
+  clothingCategory: 'Clothing',
+  furnitureCategory: 'Furniture',
+  toysCategory: 'Toys',
+  otherCategory: 'Other',
   calculate: 'Calculate',
   calculateDeliveryCost: 'Calculate Delivery Cost',
   

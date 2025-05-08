@@ -77,6 +77,12 @@ export const zhTranslations = {
   weight: '重量（公斤）',
   volume: '体积（立方米）',
   category: '产品类别',
+  // Product categories
+  electronicsCategory: '电子产品',
+  clothingCategory: '服装',
+  furnitureCategory: '家具',
+  toysCategory: '玩具',
+  otherCategory: '其他',
   calculate: '计算',
   calculateDeliveryCost: '计算运输成本',
   
