@@ -221,10 +221,4 @@ export const enTranslations = {
   // Pagination
   previous: 'Previous',
   next: 'Next',
-  
-  // New translations for subheadings
-  blogSubtitle: 'Current articles about logistics, importing from China, and conducting business with Chinese partners.',
-  contactsSubtitle: 'Contact us in any convenient way or leave a request, and we will call you back as soon as possible.',
-  servicesSubtitle: 'We offer a full range of services for businesses importing goods from China. From finding suppliers to delivering cargo to your door.',
-  aboutSubtitle: 'We help businesses work effectively with China by providing a full range of supplier search and logistics services.',
 };
