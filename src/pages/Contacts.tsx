@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -177,7 +178,7 @@ const Contacts = () => {
             <div className="text-center mb-8 bg-cargo-gray-100 p-8 rounded-lg">
               <h1 className="text-3xl md:text-4xl font-bold mb-4">{t("contacts")}</h1>
               <p className="text-lg text-cargo-gray-700 max-w-3xl mx-auto">
-                Свяжитесь с нами любым удобным способом или оставьте заявку, и мы перезвоним вам в ближайшее время.
+                {t("contactsSubtitle")}
               </p>
             </div>
 

@@ -1,4 +1,3 @@
-
 export const enTranslations = {
   // Navbar
   home: 'Home',
@@ -123,6 +122,12 @@ export const enTranslations = {
   testimonial9Position: 'CEO',
   testimonial9Company: 'AutoParts Ltd',
   testimonial9Content: 'I would like to express my gratitude for the professional approach to organizing the supply of auto parts. They always meet deadlines and keep us informed of the delivery status.',
+  
+  // Page subtitles
+  blogSubtitle: 'Current articles on logistics, imports from China, and doing business with Chinese partners.',
+  servicesSubtitle: 'We offer a full range of services for businesses importing goods from China. From finding suppliers to delivering cargo to your door.',
+  contactsSubtitle: 'Contact us in any convenient way or leave a request, and we will call you back shortly.',
+  aboutSubtitle: 'We help businesses work effectively with China, providing a full range of supplier search and logistics services.',
   
   // Contact
   contactTitle: 'Contact Us',

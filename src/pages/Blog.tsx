@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAuth } from "@/context/AuthContext";
@@ -209,8 +208,7 @@ const Blog = () => {
           <div className="text-center mb-12 my-[25px] bg-cargo-gray-100 p-8 rounded-lg">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('blog')}</h1>
             <p className="text-lg text-cargo-gray-700 max-w-3xl mx-auto">
-              Актуальные статьи о логистике, импорте из Китая и ведении бизнеса 
-              с китайскими партнерами.
+              {t('blogSubtitle')}
             </p>
           </div>
 

@@ -1,9 +1,11 @@
+
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
 const About2 = () => {
   const {
     t
@@ -36,7 +38,7 @@ const About2 = () => {
           <div className="text-center mb-12 my-[25px] bg-cargo-gray-100 p-8 rounded-lg">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('aboutUs')}</h1>
             <p className="text-lg text-cargo-gray-700 max-w-3xl mx-auto">
-              Мы помогаем бизнесу эффективно работать с Китаем, предоставляя полный спектр услуг по поиску поставщиков и логистике.
+              {t('aboutSubtitle')}
             </p>
           </div>
 

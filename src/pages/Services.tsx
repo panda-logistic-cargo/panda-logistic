@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
@@ -63,8 +62,7 @@ const Services = () => {
           <div className="text-center mb-12 my-[25px] bg-cargo-gray-100 p-8 rounded-lg">
             <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('services')}</h1>
             <p className="text-lg text-cargo-gray-700 max-w-3xl mx-auto">
-              Мы предлагаем полный спектр услуг для бизнеса по импорту товаров из Китая.
-              От поиска поставщиков до доставки груза до двери.
+              {t('servicesSubtitle')}
             </p>
           </div>
 

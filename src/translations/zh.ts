@@ -1,4 +1,3 @@
-
 export const zhTranslations = {
   // Navbar
   home: '首页',
@@ -38,7 +37,7 @@ export const zhTranslations = {
   cargoConsolidationDesc: '在我们的仓库合并多批货物以优化成本。',
   inspectionDesc: '在发货前检查货物的质量、数量和完整性。',
   deliveryDesc: '通过任何方式交付：空运、铁路、海运、公路运输到您的仓库。',
-  businessToursDesc: '组织前往中国参观展览会和与供应商会面的旅行。',
+  businessToursDesc: '组织前往中国参观展览会和与供应商会面的旅行.',
   
   // Advantages
   advantagesTitle: '为什么选择我们',
@@ -169,7 +168,7 @@ export const zhTranslations = {
   // Privacy Policy
   privacyPolicyTitle: '隐私政策',
   privacyPolicyIntro: '本隐私政策（以下简称"政策"）适用于公司在用户使用 pandalogist.ru 网站期间可能获取的所有信息。',
-  privacyPolicyConsent: '使用 pandalogist.ru 网站意味着用户无条件同意本政策及其中指定的个人信息处理条件。如果不同意这些条件，用户应避免使用本网站。',
+  privacyPolicyConsent: '使用 pandalogist.ru 网站意味着用户无条件同意本政���及其中指定的个人信息处理条件。如果不同意这些条件，用户应避免使用本网站。',
   privacyPolicySection1Title: '1. 公司接收和处理的用户个人信息',
   privacyPolicySection1_1Title: '1.1. 在本政策框架内，"用户个人信息"是指：',
   privacyPolicySection1_1Item1: '用户通过网站上的注册表格或反馈提供的姓名、姓氏、电子邮件、电话号码。',
@@ -204,4 +203,10 @@ export const zhTranslations = {
   // Pagination
   previous: '上一页',
   next: '下一页',
+  
+  // Page subtitles
+  blogSubtitle: '有关物流、从中国进口和与中国合作伙伴开展业务的当前文章。',
+  servicesSubtitle: '我们为从中国进口商品的企业提供全方位服务。从寻找供应商到将货物送到您的门口。',
+  contactsSubtitle: '通过任何方便的方式联系我们或留下请求，我们将很快给您回电。',
+  aboutSubtitle: '我们帮助企业与中国有效合作，提供全方位的供应商搜索和物流服务。',
 };
