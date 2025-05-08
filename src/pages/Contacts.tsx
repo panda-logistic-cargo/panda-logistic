@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -7,37 +6,21 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import PhoneInput from "@/components/PhoneInput";
-import { 
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Search, 
-  ShoppingCart, 
-  Package, 
-  Truck, 
-  Plane, 
-  FileText, 
-  HelpCircle 
-} from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Phone, Mail, MapPin, Clock, Search, ShoppingCart, Package, Truck, Plane, FileText, HelpCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
 type ServiceOption = {
   value: string;
   label: string;
   icon: React.ReactNode;
 };
-
 const Contacts = () => {
-  const { t } = useLanguage();
-  const { toast } = useToast();
+  const {
+    t
+  } = useLanguage();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -45,9 +28,9 @@ const Contacts = () => {
     subject: "",
     serviceType: "",
     message: "",
-    captchaAnswer: "",
+    captchaAnswer: ""
   });
-  
+
   // Math CAPTCHA state
   const [captcha, setCaptcha] = useState({
     num1: 0,
@@ -60,10 +43,9 @@ const Contacts = () => {
   const generateCaptcha = () => {
     const operators = ["+", "-", "*"];
     const randomOperator = operators[Math.floor(Math.random() * operators.length)];
-    
+
     // Generate appropriate numbers for the operator
     let num1, num2, result;
-    
     switch (randomOperator) {
       case "+":
         num1 = Math.floor(Math.random() * 10) + 1;
@@ -85,7 +67,6 @@ const Contacts = () => {
         num2 = Math.floor(Math.random() * 10) + 1;
         result = num1 + num2;
     }
-    
     setCaptcha({
       num1,
       num2,
@@ -98,38 +79,62 @@ const Contacts = () => {
   useEffect(() => {
     generateCaptcha();
   }, []);
-
-  const serviceOptions: ServiceOption[] = [
-    { value: "supplier-search", label: "Поиск поставщиков", icon: <Search className="h-4 w-4" /> },
-    { value: "marketplace-purchase", label: "Выкуп с маркетплейсов", icon: <ShoppingCart className="h-4 w-4" /> },
-    { value: "cargo-consolidation", label: "Консолидация груза", icon: <Package className="h-4 w-4" /> },
-    { value: "delivery", label: "Доставка", icon: <Truck className="h-4 w-4" /> },
-    { value: "business-tours", label: "Бизнес-туры в Китай", icon: <Plane className="h-4 w-4" /> },
-    { value: "customs-clearance", label: "Таможенное оформление", icon: <FileText className="h-4 w-4" /> },
-    { value: "other", label: "Другое", icon: <HelpCircle className="h-4 w-4" /> }
-  ];
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const serviceOptions: ServiceOption[] = [{
+    value: "supplier-search",
+    label: "Поиск поставщиков",
+    icon: <Search className="h-4 w-4" />
+  }, {
+    value: "marketplace-purchase",
+    label: "Выкуп с маркетплейсов",
+    icon: <ShoppingCart className="h-4 w-4" />
+  }, {
+    value: "cargo-consolidation",
+    label: "Консолидация груза",
+    icon: <Package className="h-4 w-4" />
+  }, {
+    value: "delivery",
+    label: "Доставка",
+    icon: <Truck className="h-4 w-4" />
+  }, {
+    value: "business-tours",
+    label: "Бизнес-туры в Китай",
+    icon: <Plane className="h-4 w-4" />
+  }, {
+    value: "customs-clearance",
+    label: "Таможенное оформление",
+    icon: <FileText className="h-4 w-4" />
+  }, {
+    value: "other",
+    label: "Другое",
+    icon: <HelpCircle className="h-4 w-4" />
+  }];
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handlePhoneChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, phone: value }));
+    setFormData(prev => ({
+      ...prev,
+      phone: value
+    }));
   };
-
   const handleSelectChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, serviceType: value }));
+    setFormData(prev => ({
+      ...prev,
+      serviceType: value
+    }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Check if captcha is correct
     const userAnswer = parseInt(formData.captchaAnswer);
-    
     if (isNaN(userAnswer) || userAnswer !== captcha.correctAnswer) {
       toast({
         title: "Ошибка проверки",
@@ -137,16 +142,18 @@ const Contacts = () => {
         variant: "destructive"
       });
       generateCaptcha(); // Generate a new captcha
-      setFormData(prev => ({ ...prev, captchaAnswer: "" }));
+      setFormData(prev => ({
+        ...prev,
+        captchaAnswer: ""
+      }));
       return;
     }
-    
     console.log("Form submitted with service type:", formData.serviceType);
     toast({
       title: "Сообщение отправлено",
-      description: "Мы свяжемся с вами в ближайшее время.",
+      description: "Мы свяжемся с вами в ближайшее время."
     });
-    
+
     // Reset form and generate new captcha
     setFormData({
       name: "",
@@ -155,22 +162,21 @@ const Contacts = () => {
       subject: "",
       serviceType: "",
       message: "",
-      captchaAnswer: "",
+      captchaAnswer: ""
     });
-    
     generateCaptcha();
   };
 
   // Format operator for display
   const formatOperator = (op: string) => {
     switch (op) {
-      case "*": return "×";
-      default: return op;
+      case "*":
+        return "×";
+      default:
+        return op;
     }
   };
-
-  return (
-    <div className="min-h-screen bg-white flex flex-col">
+  return <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
       <div className="flex-1">
         <div className="pt-20 pb-16">
@@ -191,16 +197,8 @@ const Contacts = () => {
                 </div>
                 <div className="mb-1 text-cargo-gray-600 text-sm">Телефон для связи</div>
                 <div className="font-bold text-xl mb-2">8 999 999 99 99</div>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white"
-                >
-                  <a
-                    href="https://wa.me/79999999999"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                <Button asChild variant="outline" className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white">
+                  <a href="https://wa.me/79999999999" target="_blank" rel="noopener noreferrer">
                     <Phone className="mr-2 w-4 h-4" />
                     Написать в WhatsApp
                   </a>
@@ -213,7 +211,7 @@ const Contacts = () => {
                 </div>
                 <div className="mb-1 text-cargo-gray-600 text-sm">Электронная почта</div>
                 <div className="font-bold text-base mb-1">
-                  <a href="mailto:granit-svg@mail.ru" className="hover:text-cargo-red transition-all">granit-svg@mail.ru</a>
+                  <a href="mailto:granit-svg@mail.ru" className="hover:text-cargo-red transition-all">example@mail.ru</a>
                 </div>
                 <div className="text-xs text-cargo-gray-500 mt-1">Среднее время ответа: <span className="font-semibold">24 часа</span></div>
               </div>
@@ -226,16 +224,8 @@ const Contacts = () => {
                 <div className="font-bold text-base mb-2 text-center">
                   г. Хабаровск <br /> ул. Строительная 28
                 </div>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white"
-                >
-                  <a
-                    href="https://www.google.com/maps?q=ул.+Строительная+28,+Хабаровск"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                <Button asChild variant="outline" className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white">
+                  <a href="https://www.google.com/maps?q=ул.+Строительная+28,+Хабаровск" target="_blank" rel="noopener noreferrer">
                     Открыть на карте
                   </a>
                 </Button>
@@ -251,83 +241,42 @@ const Contacts = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="name">Ваше имя</label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Иван"
-                        required
-                      />
+                      <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Иван" required />
                     </div>
                     <div>
                       <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="email">Электронная почта</label>
-                      <Input
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="you@email.com"
-                        required
-                      />
+                      <Input id="email" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="you@email.com" required />
                     </div>
                   </div>
                   <div>
                     <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="phone">Телефон</label>
-                    <PhoneInput
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handlePhoneChange}
-                      required
-                    />
+                    <PhoneInput id="phone" name="phone" value={formData.phone} onChange={handlePhoneChange} required />
                   </div>
                   <div>
                     <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="subject">Тема</label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="Уточнить сроки доставки"
-                    />
+                    <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder="Уточнить сроки доставки" />
                   </div>
                   <div>
                     <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="serviceType">
                       Какой тип услуги наиболее соответствует вашим потребностям?
                     </label>
-                    <Select 
-                      value={formData.serviceType} 
-                      onValueChange={handleSelectChange}
-                      required
-                    >
+                    <Select value={formData.serviceType} onValueChange={handleSelectChange} required>
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="Выберите тип услуги" />
                       </SelectTrigger>
                       <SelectContent>
-                        {serviceOptions.map(option => (
-                          <SelectItem key={option.value} value={option.value} className="flex items-center">
+                        {serviceOptions.map(option => <SelectItem key={option.value} value={option.value} className="flex items-center">
                             <div className="flex items-center gap-2">
                               {option.icon}
                               <span>{option.label}</span>
                             </div>
-                          </SelectItem>
-                        ))}
+                          </SelectItem>)}
                       </SelectContent>
                     </Select>
                   </div>
                   <div>
                     <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="message">Сообщение</label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Опишите суть вашего вопроса или запроса"
-                      rows={4}
-                      required
-                    />
+                    <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Опишите суть вашего вопроса или запроса" rows={4} required />
                   </div>
                   
                   {/* Math CAPTCHA */}
@@ -338,36 +287,21 @@ const Contacts = () => {
                         Решите пример: <span className="font-medium">{captcha.num1} {formatOperator(captcha.operator)} {captcha.num2} = ?</span>
                       </p>
                       <div className="flex items-center">
-                        <Input
-                          id="captchaAnswer"
-                          name="captchaAnswer"
-                          value={formData.captchaAnswer}
-                          onChange={handleChange}
-                          placeholder="Введите ответ"
-                          className="max-w-[120px]"
-                          type="number"
-                          required
-                        />
-                        <Button 
-                          type="button" 
-                          variant="outline" 
-                          size="sm"
-                          className="ml-2 text-xs"
-                          onClick={() => {
-                            generateCaptcha();
-                            setFormData(prev => ({ ...prev, captchaAnswer: "" }));
-                          }}
-                        >
+                        <Input id="captchaAnswer" name="captchaAnswer" value={formData.captchaAnswer} onChange={handleChange} placeholder="Введите ответ" className="max-w-[120px]" type="number" required />
+                        <Button type="button" variant="outline" size="sm" className="ml-2 text-xs" onClick={() => {
+                        generateCaptcha();
+                        setFormData(prev => ({
+                          ...prev,
+                          captchaAnswer: ""
+                        }));
+                      }}>
                           Обновить
                         </Button>
                       </div>
                     </div>
                   </div>
                   
-                  <Button
-                    type="submit"
-                    className="w-full bg-cargo-red hover:bg-cargo-red/90 transition-all"
-                  >
+                  <Button type="submit" className="w-full bg-cargo-red hover:bg-cargo-red/90 transition-all">
                     Отправить сообщение
                   </Button>
                 </form>
@@ -378,30 +312,15 @@ const Contacts = () => {
                 <div className="bg-cargo-gray-100 rounded-xl p-8 mb-4 shadow">
                   <h2 className="text-2xl font-bold mb-2">Расположение офиса</h2>
                   <div className="text-cargo-gray-700 mb-2">г. Хабаровск, ул. Строительная 28</div>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="mb-4 border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full"
-                  >
-                    <a
-                      href="https://www.google.com/maps?q=ул.+Строительная+28,+Хабаровск"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                  <Button asChild variant="outline" className="mb-4 border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full">
+                    <a href="https://www.google.com/maps?q=ул.+Строительная+28,+Хабаровск" target="_blank" rel="noopener noreferrer">
                       Открыть в Google Картах
                     </a>
                   </Button>
                   <div className="aspect-video w-full mt-2 rounded-lg overflow-hidden border border-cargo-gray-200">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2464.5589479199303!2d135.05884367745338!3d48.488796926470664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5efafc2d83e4767b%3A0x75d6679e765d3e14!2z0L_RgNC-0YHQvy4g0KHRg9C80L7QutGB0LrQsNGPLCAyOCwg0JrQvtCz0L7RgNC90YvQuSDQo9C60YDQsNC80YHQutCw0Y8sINCU0L3QuNC6LCDRgNCw0YHRgdC40Y8sIDY4MDAwMg!5e0!3m2!1sru!2sru!4v1713682418897!5m2!1sru!2sru"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Офис на карте"
-                    ></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2464.5589479199303!2d135.05884367745338!3d48.488796926470664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5efafc2d83e4767b%3A0x75d6679e765d3e14!2z0L_RgNC-0YHQvy4g0KHRg9C80L7QutGB0LrQsNGPLCAyOCwg0JrQvtCz0L7RgNC90YvQuSDQo9C60YDQsNC80YHQutCw0Y8sINCU0L3QuNC6LCDRgNCw0YHRgdC40Y8sIDY4MDAwMg!5e0!3m2!1sru!2sru!4v1713682418897!5m2!1sru!2sru" width="100%" height="100%" style={{
+                    border: 0
+                  }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Офис на карте"></iframe>
                   </div>
                 </div>
               </div>
@@ -411,8 +330,6 @@ const Contacts = () => {
         </div>
       </div>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Contacts;
