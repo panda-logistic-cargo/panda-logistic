@@ -1,4 +1,3 @@
-
 export const zhTranslations = {
   // Navbar
   home: '首页',
@@ -152,7 +151,7 @@ export const zhTranslations = {
   faq3Question: '从中国运送货物时应该投保吗？',
   faq3Answer: '我们强烈建议为货物投保，特别是贵重或易碎物品。保险可以覆盖运输过程中货物损坏或丢失的风险。',
   faq4Question: '如何跟踪我的货物位置？',
-  faq4Answer: '我们为所有客户提供在线跟踪。您会收到一个唯一的跟踪号码，可以通过我们的网站或联系您的经理随时查看货物的状态和位置。',
+  faq4Answer: '我们为所有客户提供在线跟踪。您会收到一个唯一的跟踪号码，可以通过我们的网站或联系您的经理��时查看货物的状态和位置。',
   faq5Question: '你们提供海关清关服务吗？',
   faq5Answer: '是的，我们为来自中国的货物提供全套海关清关服务。我们的专家将准备所有必要的文件并确保符合所有海关手续。',
   faq6Question: '从中国运送的货物最低重量是多少？',
@@ -252,4 +251,9 @@ export const zhTranslations = {
   servicesSubtitle: '我们为从中国进口商品的企业提供全方位服务。从寻找供应商到将货物送到您的门口。',
   contactsSubtitle: '通过任何方便的方式联系我们或留下请求，我们将很快给您回电。',
   aboutSubtitle: '我们帮助企业与中国有效合作，提供全方位的供应商搜索和物流服务。',
-};
+  
+  // Currency rates
+  currencyRates: '汇率',
+  loadingCurrencyRates: '加载汇率中...',
+  currencyFetchError: '无法加载汇率',
+} as const;
