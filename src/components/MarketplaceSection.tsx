@@ -53,7 +53,7 @@ const MarketplaceSection = () => {
           
           <div className="md:w-1/3">
             <div className="relative aspect-[4/3]">
-              <img src="https://images.unsplash.com/photo-1555529771-122e5d9f2341?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Marketplace business" className="rounded-lg shadow-lg object-cover w-full h-full" />
+              <img alt="Marketplace business" src="/lovable-uploads/2c4704e7-be65-4c01-9dbc-13e0c3a143d8.jpg" className="rounded-lg shadow-lg w-full h-full object-fill" />
               
               
             </div>
