@@ -1,3 +1,4 @@
+
 export const zhTranslations = {
   // Navbar
   home: '首页',
@@ -246,7 +247,7 @@ export const zhTranslations = {
   previous: '上一页',
   next: '下一页',
   
-  // Page subtitles
+  // Page subtitles - adding missing ones
   blogSubtitle: '有关物流、从中国进口和与中国合作伙伴开展业务的当前文章。',
   servicesSubtitle: '我们为从中国进口商品的企业提供全方位服务。从寻找供应商到将货物送到您的门口。',
   contactsSubtitle: '通过任何方便的方式联系我们或留下请求，我们将很快给您回电。',
