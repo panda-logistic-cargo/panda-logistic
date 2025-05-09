@@ -10,12 +10,10 @@ export const translations = {
 } as const;
 
 export type Language = keyof typeof translations;
-
-// Instead of manually listing all keys, we'll derive them from the ruTranslations object
-// This ensures that all new keys will be automatically included in the type definition
-export type TranslationKey = keyof typeof ruTranslations;
+export type TranslationKey = keyof typeof translations.ru;
 
 // This ensures all language files have the same keys
+// TypeScript will error if any language is missing keys
 type TranslationsCheck = {
   [K in Language]: Record<TranslationKey, string>
 };
