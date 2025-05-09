@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Calculator as CalculatorIcon, Smartphone, ShoppingBag, Sofa, Puzzle, Package } from "lucide-react";
+import { Calculator as CalculatorIcon, Smartphone, ShoppingBag, Sofa, Puzzle, Package, MapPin } from "lucide-react";
 import { DeliveryMethod } from './calculator/DeliveryMethod';
 import { PackagingType } from './calculator/PackagingType';
 import { ProductCategory } from './calculator/ProductCategory';
@@ -96,11 +96,36 @@ const Calculator: React.FC = () => {
                         <SelectValue placeholder={t('origin')} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="guangzhou">Гуанчжоу</SelectItem>
-                        <SelectItem value="shenzhen">Шеньчжень</SelectItem>
-                        <SelectItem value="yiwu">Иу</SelectItem>
-                        <SelectItem value="shanghai">Шанхай</SelectItem>
-                        <SelectItem value="beijing">Пекин</SelectItem>
+                        <SelectItem value="guangzhou">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4 text-cargo-red" />
+                            <span>Гуанчжоу</span>
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="shenzhen">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4 text-cargo-red" />
+                            <span>Шеньчжень</span>
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="yiwu">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4 text-cargo-red" />
+                            <span>Иу</span>
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="shanghai">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4 text-cargo-red" />
+                            <span>Шанхай</span>
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="beijing">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4 text-cargo-red" />
+                            <span>Пекин</span>
+                          </div>
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -112,11 +137,36 @@ const Calculator: React.FC = () => {
                         <SelectValue placeholder={t('destination')} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="Russia">Russia</SelectItem>
-                        <SelectItem value="Kazakhstan">Kazakhstan</SelectItem>
-                        <SelectItem value="Belarus">Belarus</SelectItem>
-                        <SelectItem value="Kyrgyzstan">Kyrgyzstan</SelectItem>
-                        <SelectItem value="Armenia">Armenia</SelectItem>
+                        <SelectItem value="Russia">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4 text-cargo-red" />
+                            <span>Russia</span>
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="Kazakhstan">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4 text-cargo-red" />
+                            <span>Kazakhstan</span>
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="Belarus">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4 text-cargo-red" />
+                            <span>Belarus</span>
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="Kyrgyzstan">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4 text-cargo-red" />
+                            <span>Kyrgyzstan</span>
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="Armenia">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4 text-cargo-red" />
+                            <span>Armenia</span>
+                          </div>
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

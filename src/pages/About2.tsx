@@ -1,8 +1,9 @@
+
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ArrowRight } from "lucide-react";
+import { Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import MarketplaceSection from "@/components/MarketplaceSection";
 const About2 = () => {
@@ -55,9 +56,6 @@ const About2 = () => {
                     <div className="text-sm text-cargo-gray-600">клиентов</div>
                   </div>
                 </div>
-                <Button className="w-full md:w-auto bg-cargo-red hover:bg-cargo-red/90">
-                  Начать сотрудничество
-                </Button>
               </div>
               <div className="relative">
                 <div className="absolute inset-0 bg-cargo-red/10 rounded-lg transform rotate-3"></div>

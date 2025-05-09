@@ -40,28 +40,30 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       </div>
       
       <div className="mt-auto">
-        <div className="flex items-center mb-2">
-          {image ? (
-            <img 
-              src={image} 
-              alt={name} 
-              className="w-12 h-12 rounded-full object-cover mr-4"
-            />
-          ) : (
-            <div className="w-12 h-12 rounded-full bg-cargo-gray-200 flex items-center justify-center mr-4">
-              <span className="text-cargo-gray-600 font-semibold">{name.charAt(0)}</span>
+        <div className="flex items-start flex-col mb-2">
+          <div className="flex items-center mb-1">
+            {image ? (
+              <img 
+                src={image} 
+                alt={name} 
+                className="w-12 h-12 rounded-full object-cover mr-4"
+              />
+            ) : (
+              <div className="w-12 h-12 rounded-full bg-cargo-gray-200 flex items-center justify-center mr-4">
+                <span className="text-cargo-gray-600 font-semibold">{name.charAt(0)}</span>
+              </div>
+            )}
+            
+            <div>
+              <h4 className="font-semibold">{name}</h4>
+              <p className="text-sm text-cargo-gray-500">{position}, {company}</p>
             </div>
-          )}
-          
-          <div>
-            <h4 className="font-semibold">{name}</h4>
-            <p className="text-sm text-cargo-gray-500">{position}, {company}</p>
           </div>
-        </div>
-        
-        <div className="flex items-center text-cargo-gray-500 mt-1">
-          <MapPin className="h-4 w-4 text-cargo-red mr-1" />
-          <span className="text-sm">{city}</span>
+          
+          <div className="flex items-center text-cargo-gray-500 mt-1 ml-16">
+            <MapPin className="h-4 w-4 text-cargo-red mr-1" />
+            <span className="text-sm">{city}</span>
+          </div>
         </div>
       </div>
     </div>

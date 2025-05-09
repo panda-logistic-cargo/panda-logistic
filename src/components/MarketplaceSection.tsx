@@ -1,7 +1,8 @@
+
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, ShieldCheck, TrendingUp } from "lucide-react";
+import { ShoppingCart, ShieldCheck, TrendingUp, Handshake } from "lucide-react";
 const MarketplaceSection = () => {
   const {
     t
@@ -47,7 +48,8 @@ const MarketplaceSection = () => {
             </div>
             
             <Button className="bg-cargo-red hover:bg-cargo-red/90">
-              {t('callMe')}
+              <Handshake className="w-4 h-4 mr-2" />
+              Начать сотрудничество
             </Button>
           </div>
           

@@ -50,13 +50,21 @@ const FAQSection: React.FC = () => {
         <h3 className="text-2xl font-bold">{t('faqTitle')}</h3>
       </div>
       
-      <Accordion type="single" collapsible className="w-full">
+      <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
         {faqs.map((faq, index) => (
-          <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger className="text-left font-medium">
+          <AccordionItem 
+            key={index} 
+            value={`item-${index}`} 
+            className="border border-cargo-gray-200 mb-3 rounded-lg overflow-hidden"
+          >
+            <AccordionTrigger 
+              className="text-left font-medium px-4 py-3 bg-cargo-gray-50 hover:bg-cargo-gray-100 hover:text-cargo-red transition-colors"
+            >
               {faq.question}
             </AccordionTrigger>
-            <AccordionContent className="text-cargo-gray-600">
+            <AccordionContent 
+              className="text-cargo-gray-700 bg-white p-4 border-t border-cargo-gray-100"
+            >
               {faq.answer}
             </AccordionContent>
           </AccordionItem>
