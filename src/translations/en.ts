@@ -1,4 +1,3 @@
-
 export const enTranslations = {
   // Navbar
   home: 'Home',
@@ -269,4 +268,9 @@ export const enTranslations = {
   servicesSubtitle: 'We offer a full range of services for businesses importing goods from China. From finding suppliers to delivering goods to your door.',
   contactsSubtitle: 'Contact us by any convenient method or leave a request and we will call you back shortly.',
   aboutSubtitle: 'We help businesses work effectively with China, providing a full range of supplier search and logistics services.',
-};
+  
+  // Currency rates
+  lastUpdate: 'Last update',
+  updating: 'Updating...',
+  currencyFetchError: 'Unable to fetch rates',
+} as const;

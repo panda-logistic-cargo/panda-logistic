@@ -45,8 +45,8 @@ export const DesktopNav = ({ navLinks, textColorClass, contactButtonText }: Desk
             className="ml-4 bg-cargo-red hover:bg-cargo-red/90 transition-colors"
             onClick={() => window.location.href = '/contacts'}
           >
-            <Send className="w-4 h-4 mr-2" />
             {contactButtonText}
+            <Send className="w-4 h-4 ml-2" />
           </Button>
         )}
       </div>

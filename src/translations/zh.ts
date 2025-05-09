@@ -1,4 +1,3 @@
-
 export const zhTranslations = {
   // Navbar
   home: '首页',
@@ -252,4 +251,9 @@ export const zhTranslations = {
   servicesSubtitle: '我们为从中国进口商品的企业提供全方位服务。从寻找供应商到将货物送到您的门口。',
   contactsSubtitle: '通过任何方便的方式联系我们或留下请求，我们将很快给您回电。',
   aboutSubtitle: '我们帮助企业与中国有效合作，提供全方位的供应商搜索和物流服务。',
-};
+  
+  // Currency rates
+  lastUpdate: '最后更新',
+  updating: '更新中...',
+  currencyFetchError: '无法获取汇率',
+} as const;
