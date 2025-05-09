@@ -45,22 +45,22 @@ const AdvantagesSection: React.FC = () => {
   const advantages = [
     {
       title: t('advantage1Title'),
-      description: t('advantage1Text'),
+      description: t('advantage1Description'),
       icon: <PackageOpen />
     },
     {
       title: t('advantage2Title'),
-      description: t('advantage2Text'),
+      description: t('advantage2Description'),
       icon: <DollarSign />
     },
     {
       title: t('advantage3Title'),
-      description: t('advantage3Text'),
+      description: t('advantage3Description'),
       icon: <User />
     },
     {
       title: t('advantage4Title'),
-      description: t('advantage4Text'),
+      description: t('advantage4Description'),
       icon: <Shield />
     }
   ];
@@ -77,7 +77,7 @@ const AdvantagesSection: React.FC = () => {
             </span>
           </h2>
           <p className="text-cargo-gray-600 max-w-2xl mx-auto">
-            {t('advantagesSubtitle')}
+            {t('advantagesDescription')}
           </p>
         </div>
         

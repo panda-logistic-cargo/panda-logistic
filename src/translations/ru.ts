@@ -1,3 +1,4 @@
+
 export const ruTranslations = {
   home: 'Главная',
   about: 'О компании',
@@ -20,8 +21,9 @@ export const ruTranslations = {
   termsOfService: 'Условия использования',
   
   heroTitle: 'Международная логистика и ВЭД консалтинг',
-  heroDescription: 'Ваш надежный партнер в сфере международной торговли и логистики. Мы предлагаем широкий спектр услуг, от поиска поставщиков до таможенного оформления и доставки грузов.',
-  callToAction: 'Связаться с нами',
+  heroSubtitle: 'Ваш надежный партнер в сфере международной торговли и логистики. Мы предлагаем широкий спектр услуг, от поиска поставщиков до таможенного оформления и доставки грузов.',
+  getQuote: 'Рассчитать стоимость',
+  contactUs: 'Связаться с нами',
   
   servicesTitle: 'Наши услуги',
   servicesDescription: 'Мы предлагаем полный спектр услуг в сфере международной логистики и ВЭД консалтинга. Наша цель - сделать ваш бизнес более эффективным и прибыльным.',
@@ -37,7 +39,7 @@ export const ruTranslations = {
   advantage4Title: 'Прозрачность и надежность',
   advantage4Description: 'Мы гарантируем полную прозрачность на всех этапах работы и несем ответственность за сохранность вашего груза.',
   
-  testimonialsTitle: 'Отзывы клиентов',
+  testimonialsTitle: 'Отзывы наших клиентов',
   testimonialsDescription: 'Что говорят о нас наши клиенты?',
   testimonial1Text: 'Panda Logistic - надежный партнер, который всегда выполняет свои обязательства. Рекомендую!',
   testimonial1Author: 'Иван Иванов, ООО "Ромашка"',
@@ -49,6 +51,7 @@ export const ruTranslations = {
   // Calculator page
   calculatorTitle: 'Таможенный калькулятор',
   calculatorDescription: 'Рассчитайте стоимость таможенного оформления вашего груза.',
+  calculatorFormSubtitle: 'Заполните форму для быстрого расчета',
   countryOfOrigin: 'Страна происхождения',
   countryOfDestination: 'Страна назначения',
   currency: 'Валюта',
@@ -56,15 +59,24 @@ export const ruTranslations = {
   volume: 'Объем (м3)',
   declaredValue: 'Заявленная стоимость',
   calculate: 'Рассчитать',
+  origin: 'Откуда',
+  destination: 'Куда',
+  
+  // Pages subtitles
+  blogSubtitle: 'Актуальные статьи о логистике, импорте из Китая и ведении бизнеса с китайскими партнерами.',
+  servicesSubtitle: 'Мы предлагаем полный спектр услуг для бизнеса, импортирующего товары из Китая. От поиска поставщиков до доставки товаров до вашей двери.',
+  contactsSubtitle: 'Свяжитесь с нами любым удобным способом или оставьте заявку, и мы скоро перезвоним.',
+  aboutSubtitle: 'Мы помогаем бизнесу эффективно работать с Китаем, предоставляя полный спектр услуг по поиску поставщиков и логистике.',
   
   // Contacts page
-  contactsTitle: 'Контакты',
-  contactsDescription: 'Свяжитесь с нами для получения консультации.',
-  contactName: 'Имя',
-  contactEmail: 'Email',
-  contactPhone: 'Телефон',
-  contactMessage: 'Сообщение',
-  contactSubmit: 'Отправить',
+  contactTitle: 'Контакты',
+  contactSubtitle: 'Свяжитесь с нами для получения консультации.',
+  yourName: 'Имя',
+  yourEmail: 'Email',
+  yourPhone: 'Телефон',
+  message: 'Сообщение',
+  send: 'Отправить',
+  offices: 'Наши офисы',
   
   // About page
   aboutTitle: 'О компании',
@@ -120,8 +132,44 @@ export const ruTranslations = {
   marketplacePartner: 'Мы - ваш надежный партнер в сфере закупок на маркетплейсах.',
   callMe: 'Позвоните мне',
 
+  // Calculator extra fields
+  calculatorDisclaimer: '*Это предварительный расчет. Для точной стоимости свяжитесь с нашим менеджером.',
+
+  // Air, rail, sea delivery
+  airDelivery: 'Авиа доставка',
+  airDeliveryDesc: 'Самый быстрый способ доставки.',
+  airDeliveryTime: '7-12 дней',
+  railDelivery: 'ЖД доставка',
+  railDeliveryDesc: 'Оптимальный баланс цены и скорости.',
+  railDeliveryTime: '18-25 дней',
+  seaDelivery: 'Морская доставка',
+  seaDeliveryDesc: 'Экономичный вариант для крупных грузов.',
+  seaDeliveryTime: '35-45 дней',
+
+  // Product categories
+  category: 'Категория товара',
+  electronicsCategory: 'Электроника',
+  clothingCategory: 'Одежда',
+  furnitureCategory: 'Мебель',
+  toysCategory: 'Игрушки',
+  otherCategory: 'Другое',
+
+  // Supplier descriptions
+  supplierSearchDesc: 'Мы помогаем найти надежных поставщиков в Китае, которые соответствуют вашим требованиям и бюджету.',
+  marketplacePurchaseDesc: 'Закупка товаров на популярных китайских маркетплейсах, таких как Taobao, 1688, Alibaba и другие.',
+  supplierPaymentDesc: 'Безопасные платежи китайским поставщикам в любой валюте с минимальной комиссией.',
+  cargoConsolidationDesc: 'Объединение нескольких отправлений на нашем складе для оптимизации затрат.',
+  inspectionDesc: 'Проверка качества, количества и комплектности товаров перед отправкой.',
+  deliveryDesc: 'Доставка любым способом: авиа, ж/д, море, автотранспорт до вашего склада.',
+  businessToursDesc: 'Организация поездок в Китай для посещения выставок и встреч с поставщиками.',
+  viewAllServices: 'Посмотреть все услуги',
+
   // Currency rates
   currencyRates: 'Курс валют',
   loadingCurrencyRates: 'Загрузка курса валют...',
   currencyFetchError: 'Не удалось загрузить курс валют',
+
+  // Important info
+  calculatorImportantInfo: 'Важная информация',
+  calculatorImportantDetails: 'Калькулятор предоставляет примерную стоимость. На окончательную цену влияют дополнительные факторы: характер груза, сезонность, необходимость специальной упаковки и т.д. Для точного расчета рекомендуем обратиться к нашим специалистам.',
 } as const;
