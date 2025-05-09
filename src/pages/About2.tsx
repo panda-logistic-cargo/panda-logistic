@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -6,7 +5,6 @@ import Footer from "@/components/Footer";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import MarketplaceSection from "@/components/MarketplaceSection";
-
 const About2 = () => {
   const {
     t
@@ -63,7 +61,7 @@ const About2 = () => {
               </div>
               <div className="relative">
                 <div className="absolute inset-0 bg-cargo-red/10 rounded-lg transform rotate-3"></div>
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Team" className="relative rounded-lg shadow-lg" />
+                <img alt="Team" className="relative rounded-lg shadow-lg" src="/lovable-uploads/903ecf9d-7422-48eb-b6de-a76e64a037c6.jpg" />
               </div>
             </div>
 
