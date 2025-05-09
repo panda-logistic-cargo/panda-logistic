@@ -87,51 +87,83 @@ export const zhTranslations = {
   calculateDeliveryCost: '计算运输成本',
   
   // Testimonials
-  testimonialsTitle: '客户评价',
+  testimonialsTitle: '我们客户的评价',
   testimonial1Name: '亚历克斯 史密斯',
   testimonial1Position: '首席执行官',
   testimonial1Company: 'TechImport LLC',
+  testimonial1City: '莫斯科',
   testimonial1Content: '我们已经与Panda Logistic合作了3年。他们始终提供快速交付和优质服务。我们特别重视他们的个性化方法和在线跟踪货物状态的能力。',
   
   testimonial2Name: '艾琳娜 约翰逊',
   testimonial2Position: '进口经理',
   testimonial2Company: 'FashionRetail',
+  testimonial2City: '圣彼得堡',
   testimonial2Content: '非常满意与Panda Logistic的合作。我们公司定期从中国订购服装，多亏了他们，这个过程变得更加容易。我们特别喜欢他们的效率和透明定价。',
   
   testimonial3Name: '迈克尔 彼得森',
   testimonial3Position: '总监',
   testimonial3Company: 'GadgetMarket',
+  testimonial3City: '叶卡捷琳堡',
   testimonial3Content: 'Panda Logistic帮助我们商店建立了来自中国的电子产品稳定供应。他们在寻找供应商和采购商品方面提供了出色的服务。我向所有与中国合作伙伴合作的人推荐他们。',
   
   testimonial4Name: '奥利维亚 威尔逊',
   testimonial4Position: '所有者',
   testimonial4Company: 'KidsStore',
+  testimonial4City: '新西伯利亚',
   testimonial4Content: '我们在寻找可靠的公司来送儿童产品，而Panda Logistic正是我们所需要的。我很欣赏他们对细节的关注和对易碎物品的优质包装。',
   
   testimonial5Name: '大卫 布朗',
   testimonial5Position: '采购主管',
   testimonial5Company: 'HomeDecor Plus',
+  testimonial5City: '喀山',
   testimonial5Content: '我们已经合作了2年多。我特别欣赏团队的专业精神和他们解决复杂物流问题的意愿。他们总是找到最佳的交付路线。',
   
   testimonial6Name: '安娜 威廉姆斯',
   testimonial6Position: '商务总监',
   testimonial6Company: 'BeautyMarket',
+  testimonial6City: '顿河畔罗斯托夫',
   testimonial6Content: '我们感谢Panda Logistic团队在组织化妆品供应方面的帮助。他们对与中国制造商合作的特殊知识为我们节省了大量时间和资源。',
   
   testimonial7Name: '伊戈尔 泰勒',
   testimonial7Position: '创始人',
   testimonial7Company: 'SportGear',
+  testimonial7City: '克拉斯诺达尔',
   testimonial7Content: '很棒的公司！他们帮助建立了体育器材的供应。他们在发货前检查商品质量时对细节的关注尤为宝贵。',
   
   testimonial8Name: '玛丽娜 克拉克',
   testimonial8Position: '发展总监',
   testimonial8Company: 'FurniturePro',
+  testimonial8City: '符拉迪沃斯托克',
   testimonial8Content: 'Panda Logistic已成为中国家具供应的可靠合作伙伴。他们在组织合并货物和处理超大型商品方面的经验令人印象深刻。',
   
   testimonial9Name: '谢尔盖 戴维斯',
   testimonial9Position: '首席执行官',
   testimonial9Company: 'AutoParts Ltd',
+  testimonial9City: '下诺夫哥罗德',
   testimonial9Content: '我要感谢他们在组织汽车零部件供应方面的专业态度。他们总是遵守期限并让我们了解交付状态。',
+  
+  // FAQ section
+  faqTitle: '常见问题',
+  faq1Question: '如何计算从中国的运输成本？',
+  faq1Answer: '运输成本取决于货物的重量和体积、运输方式（空运、铁路、海运）、商品类别以及是否需要额外服务。使用我们的计算器进行初步计算。',
+  faq2Question: '从中国到俄罗斯的送货时间是多少？',
+  faq2Answer: '时间因所选运输方式而异：空运 - 7-12天，铁路运输 - 18-25天，海运 - 35-45天。',
+  faq3Question: '从中国运送货物时应该投保吗？',
+  faq3Answer: '我们强烈建议为货物投保，特别是贵重或易碎物品。保险可以覆盖运输过程中货物损坏或丢失的风险。',
+  faq4Question: '如何跟踪我的货物位置？',
+  faq4Answer: '我们为所有客户提供在线跟踪。您会收到一个唯一的跟踪号码，可以通过我们的网站或联系您的经理随时查看货物的状态和位置。',
+  faq5Question: '你们提供海关清关服务吗？',
+  faq5Answer: '是的，我们为来自中国的货物提供全套海关清关服务。我们的专家将准备所有必要的文件并确保符合所有海关手续。',
+  faq6Question: '从中国运送的货物最低重量是多少？',
+  faq6Answer: '我们处理1公斤起的货物。对于小型货物，我们建议使用空运或合并货物，这样可以优化成本。',
+  faq7Question: '如果收到的商品有缺陷怎么办？',
+  faq7Answer: '在发货前，我们会对商品进行质量检查。如果收到后发现缺陷，请在24小时内联系我们。如果有保险并确认缺陷，我们将协助您获得赔偿或退货。',
+  
+  // Marketplace section
+  marketplaceTitle: '货运服务非常适合Wildberries和Ozon业务',
+  marketplaceDescription: '我们从任何中国制造商处购买零售和批发商品，并运送到莫斯科的仓库。我们检查所有商品是否有缺陷，并在必要时发送照片。产品质量将处于最高水平，良好的客户评价不会让您久等。',
+  marketplacePartner: 'China Town不仅在采购和货运方面是优秀的中介，对于您在市场平台上的业务也是如此。留下通话请求，亲自体验',
+  callMe: '给我打电话',
   
   // Contact
   contactTitle: '联系我们',
@@ -172,7 +204,7 @@ export const zhTranslations = {
   address: '地址',
   workingHours: '工作时间',
   allServices: '所有服务',
-  orderService: '订购服务',
+  orderService: '订��服务',
   requestConsultation: '请求咨询',
   
   // Privacy Policy

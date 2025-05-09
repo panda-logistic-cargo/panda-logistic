@@ -87,57 +87,83 @@ export const enTranslations = {
   calculateDeliveryCost: 'Calculate Delivery Cost',
   
   // Testimonials
-  testimonialsTitle: 'Client Testimonials',
+  testimonialsTitle: 'Our Client Testimonials',
   testimonial1Name: 'Alex Smith',
   testimonial1Position: 'CEO',
   testimonial1Company: 'TechImport LLC',
+  testimonial1City: 'Moscow',
   testimonial1Content: 'We have been working with Panda Logistic for 3 years. They always provide prompt delivery and excellent service. We especially value their personal approach and the ability to track cargo status online.',
   
   testimonial2Name: 'Elena Johnson',
   testimonial2Position: 'Import Manager',
   testimonial2Company: 'FashionRetail',
+  testimonial2City: 'Saint Petersburg',
   testimonial2Content: 'Very pleased with our cooperation with Panda Logistic. Our company regularly orders clothing from China, and thanks to them, the process has become much easier. We especially like the efficiency and transparent pricing.',
   
   testimonial3Name: 'Michael Peterson',
   testimonial3Position: 'Director',
   testimonial3Company: 'GadgetMarket',
+  testimonial3City: 'Yekaterinburg',
   testimonial3Content: 'Panda Logistic helped establish stable supplies of electronics from China for our store. Excellent service for finding suppliers and purchasing goods. I recommend them to everyone who works with Chinese partners.',
   
   testimonial4Name: 'Olivia Wilson',
   testimonial4Position: 'Owner',
   testimonial4Company: 'KidsStore',
+  testimonial4City: 'Novosibirsk',
   testimonial4Content: 'We were looking for a reliable company to deliver children\'s products, and Panda Logistic turned out to be exactly what we needed. I appreciate their attention to detail and quality packaging of fragile items.',
   
   testimonial5Name: 'David Brown',
   testimonial5Position: 'Head of Procurement',
   testimonial5Company: 'HomeDecor Plus',
+  testimonial5City: 'Kazan',
   testimonial5Content: 'We have been cooperating for more than 2 years. I am especially pleased with the professionalism of the team and their willingness to solve complex logistics problems. They always find the optimal delivery routes.',
   
   testimonial6Name: 'Anna Williams',
   testimonial6Position: 'Commercial Director',
   testimonial6Company: 'BeautyMarket',
+  testimonial6City: 'Rostov-on-Don',
   testimonial6Content: 'We are grateful to the Panda Logistic team for their help in organizing cosmetics supplies. Their knowledge of the specifics of working with Chinese manufacturers has saved us a lot of time and resources.',
   
   testimonial7Name: 'Igor Taylor',
   testimonial7Position: 'Founder',
   testimonial7Company: 'SportGear',
+  testimonial7City: 'Krasnodar',
   testimonial7Content: 'Great company! They helped establish supplies of sports equipment. Their attention to detail when checking the quality of goods before shipment is especially valuable.',
   
   testimonial8Name: 'Marina Clark',
   testimonial8Position: 'Development Director',
   testimonial8Company: 'FurniturePro',
+  testimonial8City: 'Vladivostok',
   testimonial8Content: 'Panda Logistic has become a reliable partner in furniture supplies from China. Their experience in organizing consolidated cargo and working with oversized goods is impressive.',
   
   testimonial9Name: 'Sergey Davis',
   testimonial9Position: 'CEO',
   testimonial9Company: 'AutoParts Ltd',
+  testimonial9City: 'Nizhny Novgorod',
   testimonial9Content: 'I would like to express my gratitude for the professional approach to organizing the supply of auto parts. They always meet deadlines and keep us informed of the delivery status.',
   
-  // Page subtitles
-  blogSubtitle: 'Current articles on logistics, imports from China, and doing business with Chinese partners.',
-  servicesSubtitle: 'We offer a full range of services for businesses importing goods from China. From finding suppliers to delivering cargo to your door.',
-  contactsSubtitle: 'Contact us in any convenient way or leave a request, and we will call you back shortly.',
-  aboutSubtitle: 'We help businesses work effectively with China, providing a full range of supplier search and logistics services.',
+  // FAQ section
+  faqTitle: 'FAQ',
+  faq1Question: 'How is the cost of delivery from China calculated?',
+  faq1Answer: 'The cost of delivery depends on the weight and volume of the cargo, the method of delivery (air, rail, sea), the category of goods, and the need for additional services. Use our calculator for a preliminary calculation.',
+  faq2Question: 'What are the delivery times from China to Russia?',
+  faq2Answer: 'Timelines vary depending on the chosen delivery method: air delivery - 7-12 days, rail delivery - 18-25 days, sea delivery - 35-45 days.',
+  faq3Question: 'Should I insure my cargo when delivering from China?',
+  faq3Answer: 'We strongly recommend insuring cargo, especially for valuable or fragile items. Insurance covers risks of damage or loss of cargo during transportation.',
+  faq4Question: 'How do I track the location of my cargo?',
+  faq4Answer: 'We provide online tracking for all our clients. You receive a unique tracking number and can check the status and location of your cargo at any time through our website or with your manager.',
+  faq5Question: 'Do you provide customs clearance services?',
+  faq5Answer: 'Yes, we provide a full range of customs clearance services for cargo from China. Our specialists will prepare all necessary documents and ensure compliance with all customs formalities.',
+  faq6Question: 'What is the minimum weight of cargo for delivery from China?',
+  faq6Answer: 'We work with cargo from 1 kg. For small shipments, we recommend using air delivery or consolidated cargo, which allows you to optimize costs.',
+  faq7Question: 'What should I do if the goods arrive with defects?',
+  faq7Answer: 'Before shipping, we conduct a quality check of the goods. If defects are found after receipt, contact us within 24 hours. With insurance and confirmation of defects, we will help with compensation or return of goods.',
+  
+  // Marketplace section
+  marketplaceTitle: 'Cargo delivery is perfect for Wildberries and Ozon business',
+  marketplaceDescription: 'We purchase retail and wholesale goods from any Chinese manufacturer and deliver to a warehouse in Moscow. We check all goods for defects and send photos if necessary. The quality of the products will be at the highest level and good customer reviews will not keep you waiting.',
+  marketplacePartner: 'China Town is an excellent intermediary not only in purchasing and cargo delivery, but also for your business on marketplaces. Leave a request for a call and see for yourself',
+  callMe: 'Call Me',
   
   // Contact
   contactTitle: 'Contact Us',
@@ -196,7 +222,7 @@ export const enTranslations = {
   authSuccess: 'You have been logged in successfully.',
   registerSuccess: 'Registration successful. Please confirm your email if required.',
   logoutSuccess: 'You have been logged out successfully.',
-  passwordsNotMatch: 'Passwords do not match.',
+  passwordsNotMatch: 'Passwords do not match',
   
   // Privacy Policy
   privacyPolicyTitle: 'Privacy Policy',

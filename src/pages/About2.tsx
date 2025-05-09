@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import MarketplaceSection from "@/components/MarketplaceSection";
 
 const About2 = () => {
   const {
@@ -65,6 +66,8 @@ const About2 = () => {
                 <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Team" className="relative rounded-lg shadow-lg" />
               </div>
             </div>
+
+            <MarketplaceSection />
 
             <div className="mb-16">
               <h2 className="text-3xl font-bold mb-8 text-center">Наша история</h2>

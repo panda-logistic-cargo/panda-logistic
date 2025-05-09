@@ -4,7 +4,9 @@ import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Calculator from "@/components/Calculator";
+import FAQSection from "@/components/FAQSection";
 import { Plane, TrainFront, Ship, Info } from "lucide-react";
+
 const CalculatorPage = () => {
   const {
     t
@@ -64,9 +66,12 @@ const CalculatorPage = () => {
             </h3>
             <p className="text-cargo-gray-700">{t('calculatorImportantDetails')}</p>
           </div>
+          
+          <FAQSection />
         </div>
       </div>
       <Footer />
     </div>;
 };
+
 export default CalculatorPage;
