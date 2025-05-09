@@ -196,9 +196,9 @@ const Contacts = () => {
                   <Phone className="w-6 h-6" />
                 </div>
                 <div className="mb-1 text-cargo-gray-600 text-sm">Телефон для связи</div>
-                <div className="font-bold text-xl mb-2">8 999 999 99 99</div>
+                <div className="font-bold text-xl mb-2">8 909 801 08 88</div>
                 <Button asChild variant="outline" className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white">
-                  <a href="https://wa.me/79999999999" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/89098010888" target="_blank" rel="noopener noreferrer">
                     <Phone className="mr-2 w-4 h-4" />
                     Написать в WhatsApp
                   </a>
@@ -211,7 +211,7 @@ const Contacts = () => {
                 </div>
                 <div className="mb-1 text-cargo-gray-600 text-sm">Электронная почта</div>
                 <div className="font-bold text-base mb-1">
-                  <a href="mailto:granit-svg@mail.ru" className="hover:text-cargo-red transition-all">example@mail.ru</a>
+                  <a href="mailto:example@mail.ru" className="hover:text-cargo-red transition-all">example@mail.ru</a>
                 </div>
                 <div className="text-xs text-cargo-gray-500 mt-1">Среднее время ответа: <span className="font-semibold">24 часа</span></div>
               </div>
@@ -222,10 +222,10 @@ const Contacts = () => {
                 </div>
                 <div className="mb-1 text-cargo-gray-600 text-sm">Адрес офиса</div>
                 <div className="font-bold text-base mb-2 text-center">
-                  г. Хабаровск <br /> ул. Строительная 28
+                  г. Хабаровск <br /> ул. Ленина 28
                 </div>
                 <Button asChild variant="outline" className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white">
-                  <a href="https://www.google.com/maps?q=ул.+Строительная+28,+Хабаровск" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.google.com/maps?q=ул.+Ленина+28,+Хабаровск" target="_blank" rel="noopener noreferrer">
                     Открыть на карте
                   </a>
                 </Button>
@@ -313,12 +313,12 @@ const Contacts = () => {
                   <h2 className="text-2xl font-bold mb-2">Расположение офиса</h2>
                   <div className="text-cargo-gray-700 mb-2">г. Хабаровск, ул. Ленина 28</div>
                   <Button asChild variant="outline" className="mb-4 border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full">
-                    <a href="https://www.google.com/maps?q=ул.+Строительная+28,+Хабаровск" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.google.com/maps?q=ул.+Ленина+28,+Хабаровск" target="_blank" rel="noopener noreferrer">
                       Открыть в Google Картах
                     </a>
                   </Button>
                   <div className="aspect-video w-full mt-2 rounded-lg overflow-hidden border border-cargo-gray-200">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2464.5589479199303!2d135.05884367745338!3d48.488796926470664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5efafc2d83e4767b%3A0x75d6679e765d3e14!2z0L_RgNC-0YHQvy4g0KHRg9C80L7QutGB0LrQsNGPLCAyOCwg0JrQvtCz0L7RgNC90YvQuSDQo9C60YDQsNC80YHQutCw0Y8sINCU0L3QuNC6LCDRgNCw0YHRgdC40Y8sIDY4MDAwMg!5e0!3m2!1sru!2sru!4v1713682418897!5m2!1sru!2sru" width="100%" height="100%" style={{
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2744.1959652883166!2d135.0714791251825!3d48.47855064661679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5efae9a4d42c06cf%3A0xdc555ffa4f6e1c53!2z0YPQuy4g0JvQtdC90LjQvdCwLCAyOCwg0KXQsNCx0LDRgNC-0LLRgdC6LCDQpdCw0LHQsNGA0L7QstGB0LrQuNC5INC60YDQsNC5LCDQoNC-0YHRgdC40Y8sIDY4MDAwMA!5e0!3m2!1sru!2sru!4v1715169332989!5m2!1sru!2sru" width="100%" height="100%" style={{
                     border: 0
                   }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Офис на карте"></iframe>
                   </div>

@@ -159,14 +159,14 @@ const ContactSection: React.FC = () => {
     {
       icon: <Phone className="h-5 w-5" />,
       label: "Телефон",
-      value: "+7 (495) 123-45-67",
-      link: "tel:+74951234567"
+      value: "8 909 801 08 88",
+      link: "tel:+89098010888"
     },
     {
       icon: <Mail className="h-5 w-5" />,
       label: "Email",
-      value: "info@cargoa71.com",
-      link: "mailto:info@cargoa71.com"
+      value: "example@mail.ru",
+      link: "mailto:example@mail.ru"
     },
     {
       icon: <MapPin className="h-5 w-5" />,
@@ -229,7 +229,7 @@ const ContactSection: React.FC = () => {
               <div className="mt-8">
                 <div className="aspect-video w-full rounded-lg overflow-hidden">
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.5887659093777!2d37.62044081582621!3d55.75318999841034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a50b315e573%3A0xa886bf5a3d9b2e68!2sRed%20Square%2C%20Moscow%2C%20Russia!5e0!3m2!1sen!2s!4v1650804719214!5m2!1sen!2s" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2744.1959652883166!2d135.0714791251825!3d48.47855064661679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5efae9a4d42c06cf%3A0xdc555ffa4f6e1c53!2z0YPQuy4g0JvQtdC90LjQvdCwLCAyOCwg0KXQsNCx0LDRgNC-0LLRgdC6LCDQpdCw0LHQsNGA0L7QstGB0LrQuNC5INC60YDQsNC5LCDQoNC-0YHRgdC40Y8sIDY4MDAwMA!5e0!3m2!1sru!2sru!4v1715169332989!5m2!1sru!2sru" 
                     width="100%" 
                     height="100%" 
                     style={{ border: 0 }} 

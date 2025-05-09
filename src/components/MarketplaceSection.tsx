@@ -1,47 +1,77 @@
-import React from 'react';
+
+import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-const MarketplaceSection: React.FC = () => {
-  const {
-    t
-  } = useLanguage();
-  return <div className="bg-white rounded-lg shadow-md overflow-hidden mb-16">
-      <div className="p-8 md:p-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
-          <span className="text-cargo-gray-800">
-            {t('marketplaceTitle').split('Wildberries')[0]}
-          </span>
-          <span className="text-red-600 font-extrabold">Wildberries</span>
-          <span className="text-cargo-gray-800"> {t('marketplaceTitle').split('Wildberries')[1].split('Ozon')[0]}</span>
-          <span className="text-blue-600 font-extrabold">Ozon</span>
-        </h2>
-        
-        <div className="grid md:grid-cols-5 gap-8 items-center">
-          <div className="md:col-span-3">
-            <p className="text-cargo-gray-600 mb-6">
-              {t('marketplaceDescription')}
-            </p>
-            <p className="text-cargo-gray-600 mb-8">
-              {t('marketplacePartner')}
-            </p>
+import { ShoppingCart, ShieldCheck, TrendingUp } from "lucide-react";
+
+const MarketplaceSection = () => {
+  const { t } = useLanguage();
+
+  return (
+    <div className="relative mb-16 py-10 overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-cargo-red/5 rounded-full -mr-16 -mt-16" />
+      <div className="absolute bottom-0 left-0 w-24 h-24 bg-cargo-red/5 rounded-full -ml-12 -mb-12" />
+      
+      <div className="relative z-10 bg-cargo-gray-100 rounded-2xl p-8 md:p-10">
+        <div className="flex flex-col md:flex-row md:items-center gap-8">
+          <div className="flex-1">
+            <div className="inline-flex items-center gap-2 bg-cargo-red/10 text-cargo-red px-3 py-1 rounded-full text-sm mb-4">
+              <ShoppingCart className="w-4 h-4" />
+              <span className="font-medium">Wildberries</span>
+              <span className="mx-1">•</span>
+              <span className="font-medium">Ozon</span>
+            </div>
             
-            <Button className="bg-cargo-red hover:bg-cargo-red/90 flex items-center gap-2">
-              <Phone className="h-4 w-4" />
+            <h3 className="text-2xl font-bold mb-4">{t('marketplaceTitle')}</h3>
+            
+            <p className="text-cargo-gray-700 mb-6">{t('marketplaceDescription')}</p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <div className="flex items-start gap-3">
+                <div className="mt-1 bg-white p-1 rounded-full">
+                  <ShieldCheck className="w-4 h-4 text-cargo-red" />
+                </div>
+                <div className="text-sm">Гарантия качества товаров</div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="mt-1 bg-white p-1 rounded-full">
+                  <TrendingUp className="w-4 h-4 text-cargo-red" />
+                </div>
+                <div className="text-sm">Рост рейтинга магазина</div>
+              </div>
+            </div>
+            
+            <div className="bg-white p-4 rounded-lg border border-cargo-gray-200 text-sm mb-6">
+              <p className="text-cargo-gray-700">
+                <span className="font-semibold">Panda Logistic</span> – отличный посредник не только в выкупе и карго доставке, но и для вашего бизнеса на маркетплейсах. Оставляйте заявку на звонок и убедитесь в этом сами.
+              </p>
+            </div>
+            
+            <Button className="bg-cargo-red hover:bg-cargo-red/90">
               {t('callMe')}
             </Button>
           </div>
           
-          <div className="md:col-span-2 grid grid-cols-2 gap-6 justify-items-center">
-            <div className="flex items-center justify-center">
-              <img alt="Wildberries" src="/lovable-uploads/3c1ca77d-ca86-4ba8-8149-f82e73480559.png" className="h-12 object-cover" />
-            </div>
-            <div className="flex items-center justify-center">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Ozon_logo.svg" alt="Ozon" className="h-12 object-contain" />
+          <div className="md:w-1/3">
+            <div className="relative aspect-[4/3]">
+              <img 
+                src="https://images.unsplash.com/photo-1555529771-122e5d9f2341?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                alt="Marketplace business" 
+                className="rounded-lg shadow-lg object-cover w-full h-full" 
+              />
+              <div className="absolute bottom-4 right-4 bg-white rounded-full p-4 shadow-lg">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Wildberries_Logo.svg" alt="Wildberries logo" className="w-8 h-8" />
+              </div>
+              <div className="absolute bottom-4 left-4 bg-white rounded-full p-2 shadow-lg">
+                <img src="https://upload.wikimedia.org/wikipedia/ru/3/3a/Ozon_logo.svg" alt="Ozon logo" className="w-10 h-10" />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default MarketplaceSection;
