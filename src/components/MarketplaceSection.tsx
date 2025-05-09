@@ -1,14 +1,12 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, ShieldCheck, TrendingUp } from "lucide-react";
-
 const MarketplaceSection = () => {
-  const { t } = useLanguage();
-
-  return (
-    <div className="relative mb-16 py-10 overflow-hidden">
+  const {
+    t
+  } = useLanguage();
+  return <div className="relative mb-16 py-10 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-cargo-red/5 rounded-full -mr-16 -mt-16" />
       <div className="absolute bottom-0 left-0 w-24 h-24 bg-cargo-red/5 rounded-full -ml-12 -mb-12" />
@@ -55,23 +53,13 @@ const MarketplaceSection = () => {
           
           <div className="md:w-1/3">
             <div className="relative aspect-[4/3]">
-              <img 
-                src="https://images.unsplash.com/photo-1555529771-122e5d9f2341?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                alt="Marketplace business" 
-                className="rounded-lg shadow-lg object-cover w-full h-full" 
-              />
-              <div className="absolute bottom-4 right-4 bg-white rounded-full p-4 shadow-lg">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Wildberries_Logo.svg" alt="Wildberries logo" className="w-8 h-8" />
-              </div>
-              <div className="absolute bottom-4 left-4 bg-white rounded-full p-2 shadow-lg">
-                <img src="https://upload.wikimedia.org/wikipedia/ru/3/3a/Ozon_logo.svg" alt="Ozon logo" className="w-10 h-10" />
-              </div>
+              <img src="https://images.unsplash.com/photo-1555529771-122e5d9f2341?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Marketplace business" className="rounded-lg shadow-lg object-cover w-full h-full" />
+              
+              
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default MarketplaceSection;
