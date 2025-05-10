@@ -3,11 +3,12 @@ import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, ShieldCheck, TrendingUp, Handshake } from "lucide-react";
+
 const MarketplaceSection = () => {
-  const {
-    t
-  } = useLanguage();
-  return <div className="relative mb-16 py-10 overflow-hidden">
+  const { t } = useLanguage();
+  
+  return (
+    <div className="relative mb-16 py-10 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-cargo-red/5 rounded-full -mr-16 -mt-16" />
       <div className="absolute bottom-0 left-0 w-24 h-24 bg-cargo-red/5 rounded-full -ml-12 -mb-12" />
@@ -60,6 +61,8 @@ const MarketplaceSection = () => {
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default MarketplaceSection;

@@ -1,3 +1,4 @@
+
 export const zhTranslations = {
   // Navbar
   home: '首页',
@@ -151,7 +152,7 @@ export const zhTranslations = {
   faq3Question: '从中国运送货物时应该投保吗？',
   faq3Answer: '我们强烈建议为货物投保，特别是贵重或易碎物品。保险可以覆盖运输过程中货物损坏或丢失的风险。',
   faq4Question: '如何跟踪我的货物位置？',
-  faq4Answer: '我们为所有客户提供在线跟踪。您会收到一个唯一的跟踪号码，可以通过我们的网站或联系您的经理随时查看货物的状态和���置。',
+  faq4Answer: '我们为所有客户提供在线跟踪。您会收到一个唯一的跟踪号码，可以通过我们的网站或联系您的经理随时查看货物的状态和位置。',
   faq5Question: '你们提供海关清关服务吗？',
   faq5Answer: '是的，我们为来自中国的货物提供全套海关清关服务。我们的专家将准备所有必要的文件并确保符合所有海关手续。',
   faq6Question: '从中国运送的货物最低重量是多少？',
@@ -206,7 +207,7 @@ export const zhTranslations = {
   address: '地址',
   workingHours: '工作时间',
   allServices: '所有服务',
-  orderService: '订��服务',
+  orderService: '订购服务',
   requestConsultation: '请求咨询',
   
   // Privacy Policy
@@ -258,4 +259,8 @@ export const zhTranslations = {
   lastUpdate: '最后更新',
   updating: '更新中...',
   currencyFetchError: '无法获取汇率',
+  
+  // Adding the missing keys
+  marketplacePartner: 'China Town 不仅是采购和货运的优秀中介，也是您在市场平台上业务的理想合作伙伴。留下通话请求，亲自体验。',
+  callMe: '联系我',
 } as const;
