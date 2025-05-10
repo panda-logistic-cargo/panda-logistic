@@ -68,21 +68,26 @@ const Services = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {servicesList.map((service) => (
-              <div key={service.id} className="border border-cargo-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
-                <div className="h-48 w-full relative">
+            {servicesList.map((service, index) => (
+              <div 
+                key={service.id} 
+                className="border border-cargo-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 group animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="h-48 w-full relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-cargo-red/0 to-cargo-red/80 opacity-0 group-hover:opacity-70 transition-opacity duration-300 z-10"></div>
                   <img 
                     src={service.image} 
                     alt={service.title} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-6 bg-white">
                   <h2 className="text-2xl font-bold mb-3">{service.title}</h2>
                   <p className="text-cargo-gray-600 mb-4">{service.description}</p>
                   <Link to={service.link}>
-                    <Button variant="outline" className="mt-2 border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white">
-                      Подробнее <ArrowRight className="ml-2 h-4 w-4" />
+                    <Button variant="outline" className="mt-2 border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-colors duration-300">
+                      Подробнее <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 </div>

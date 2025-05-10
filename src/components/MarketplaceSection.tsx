@@ -31,33 +31,31 @@ const MarketplaceSection = () => {
                 <div className="mt-1 bg-white p-1 rounded-full">
                   <ShieldCheck className="w-4 h-4 text-cargo-red" />
                 </div>
-                <div className="text-sm">Гарантия качества товаров</div>
+                <div className="text-sm">{t('qualityGuarantee')}</div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="mt-1 bg-white p-1 rounded-full">
                   <TrendingUp className="w-4 h-4 text-cargo-red" />
                 </div>
-                <div className="text-sm">Рост рейтинга магазина</div>
+                <div className="text-sm">{t('storeRatingGrowth')}</div>
               </div>
             </div>
             
             <div className="bg-white p-4 rounded-lg border border-cargo-gray-200 text-sm mb-6">
               <p className="text-cargo-gray-700">
-                <span className="font-semibold">Panda Logistic</span> – отличный посредник не только в выкупе и карго доставке, но и для вашего бизнеса на маркетплейсах. Оставляйте заявку на звонок и убедитесь в этом сами.
+                {t('pandaLogistic')}
               </p>
             </div>
             
             <Button className="bg-cargo-red hover:bg-cargo-red/90">
               <Handshake className="w-4 h-4 mr-2" />
-              Начать сотрудничество
+              {t('startCooperation')}
             </Button>
           </div>
           
           <div className="md:w-1/3">
             <div className="relative aspect-[4/3]">
               <img alt="Marketplace business" src="/lovable-uploads/2c4704e7-be65-4c01-9dbc-13e0c3a143d8.jpg" className="rounded-lg shadow-lg w-full h-full object-fill" />
-              
-              
             </div>
           </div>
         </div>

@@ -162,7 +162,11 @@ export const enTranslations = {
   // Marketplace section
   marketplaceTitle: 'Cargo delivery is perfect for Wildberries and Ozon business',
   marketplaceDescription: 'We purchase retail and wholesale goods from any Chinese manufacturer and deliver to a warehouse in Moscow. We check all goods for defects and send photos if necessary. The quality of the products will be at the highest level and good customer reviews will not keep you waiting.',
-  marketplacePartner: 'China Town is an excellent intermediary not only in purchasing and cargo delivery, but also for your business on marketplaces. Leave a request for a call and see for yourself',
+  qualityGuarantee: 'Quality product guarantee',
+  storeRatingGrowth: 'Store rating growth',
+  pandaLogistic: 'Panda Logistic is an excellent intermediary not only for purchasing and cargo delivery but also for your business on marketplaces. Leave a request for a call and see for yourself.',
+  startCooperation: 'Start cooperation',
+  marketplacePartner: 'China Town is an excellent intermediary not only in purchasing and cargo delivery, but also for your business on marketplaces. Leave a request for a call and see for yourself.',
   callMe: 'Call Me',
   
   // Contact
