@@ -151,7 +151,7 @@ export const zhTranslations = {
   faq3Question: '从中国运送货物时应该投保吗？',
   faq3Answer: '我们强烈建议为货物投保，特别是贵重或易碎物品。保险可以覆盖运输过程中货物损坏或丢失的风险。',
   faq4Question: '如何跟踪我的货物位置？',
-  faq4Answer: '我们为所有客户提供在线跟踪。您会收到一个唯一的跟踪号码，可以通过我们的网站或联系您的经理随��查看货物的状态和位置。',
+  faq4Answer: '我们为所有客户提供在线跟踪。您会收到一个唯一的跟踪号码，可以通过我们的网站或联系您的经理随时查看货物的状态和位置。',
   faq5Question: '你们提供海关清关服务吗？',
   faq5Answer: '是的，我们为来自中国的货物提供全套海关清关服务。我们的专家将准备所有必要的文件并确保符合所有海关手续。',
   faq6Question: '从中国运送的货物最低重量是多少？',
@@ -162,11 +162,8 @@ export const zhTranslations = {
   // Marketplace section
   marketplaceTitle: '货运服务非常适合Wildberries和Ozon业务',
   marketplaceDescription: '我们从任何中国制造商处购买零售和批发商品，并运送到莫斯科的仓库。我们检查所有商品是否有缺陷，并在必要时发送照片。产品质量将处于最高水平，良好的客户评价不会让您久等。',
-  marketplacePartner: 'Panda Logistic不仅在采购和货运方面是优秀的中介，对于您在市场平台上的业务也是如此。留下通话请求，亲自体验',
+  marketplacePartner: 'China Town不仅在采购和货运方面是优秀的中介，对于您在市场平台上的业务也是如此。留下通话请求，亲自体验',
   callMe: '给我打电话',
-  qualityGuarantee: '产品质量保证',
-  storeRatingIncrease: '商店评级增长',
-  startCooperation: '开始合作',
   
   // Contact
   contactTitle: '联系我们',
@@ -259,6 +256,4 @@ export const zhTranslations = {
   lastUpdate: '最后更新',
   updating: '更新中...',
   currencyFetchError: '无法获取汇率',
-  currencyRates: '货币汇率',
-  cbr: '俄罗斯中央银行',
 } as const;
