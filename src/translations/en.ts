@@ -162,8 +162,11 @@ export const enTranslations = {
   // Marketplace section
   marketplaceTitle: 'Cargo delivery is perfect for Wildberries and Ozon business',
   marketplaceDescription: 'We purchase retail and wholesale goods from any Chinese manufacturer and deliver to a warehouse in Moscow. We check all goods for defects and send photos if necessary. The quality of the products will be at the highest level and good customer reviews will not keep you waiting.',
-  marketplacePartner: 'China Town is an excellent intermediary not only in purchasing and cargo delivery, but also for your business on marketplaces. Leave a request for a call and see for yourself',
+  marketplacePartner: 'Panda Logistic is an excellent intermediary not only in purchasing and cargo delivery, but also for your business on marketplaces. Leave a request for a call and see for yourself',
   callMe: 'Call Me',
+  qualityGuarantee: 'Product Quality Guarantee',
+  storeRatingIncrease: 'Store Rating Growth',
+  startCooperation: 'Start Cooperation',
   
   // Contact
   contactTitle: 'Contact Us',
@@ -273,4 +276,6 @@ export const enTranslations = {
   lastUpdate: 'Last update',
   updating: 'Updating...',
   currencyFetchError: 'Unable to fetch rates',
+  currencyRates: 'Currency Rates',
+  cbr: 'Central Bank of Russia',
 } as const;
