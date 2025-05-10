@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -366,6 +367,10 @@ const ContactSection: React.FC = () => {
                     </>
                   )}
                 </Button>
+                
+                <p className="text-xs text-cargo-gray-500 text-center mt-2">
+                  *Нажимая на кнопку, вы будете перенаправлены в WhatsApp для отправки сообщения.
+                </p>
               </form>
             </div>
           </div>

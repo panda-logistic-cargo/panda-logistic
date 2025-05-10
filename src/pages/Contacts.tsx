@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -7,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import PhoneInput from "@/components/PhoneInput";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Phone, Mail, MapPin, Clock, Search, ShoppingCart, Package, Truck, Plane, FileText, HelpCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Search, ShoppingCart, Package, Truck, Plane, FileText, HelpCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 type ServiceOption = {
   value: string;
@@ -188,47 +189,61 @@ const Contacts = () => {
               </p>
             </div>
 
-            {/* ТРИ ПЛИТОЧКИ */}
+            {/* Стилизованные карточки преимуществ */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
               {/* Телефон */}
-              <div className="bg-white border border-cargo-gray-100 rounded-xl p-6 flex flex-col items-center shadow group hover:border-cargo-red/30 hover:shadow-md transition-all">
-                <div className="mb-3 flex items-center justify-center w-12 h-12 rounded-lg bg-cargo-red/10 text-cargo-red group-hover:bg-cargo-red/20">
-                  <Phone className="w-6 h-6" />
+              <div className="relative group overflow-hidden">
+                <div className="bg-white border border-cargo-gray-100 rounded-xl p-6 flex flex-col items-center shadow hover:shadow-lg transition-all duration-300 z-10 relative h-full">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cargo-red/5 to-cargo-gray-100/30 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out -z-10"></div>
+                  
+                  <div className="w-16 h-16 flex items-center justify-center rounded-full bg-cargo-red/10 text-cargo-red mb-3 group-hover:bg-cargo-red/20 transition-colors duration-300">
+                    <Phone className="w-8 h-8" />
+                  </div>
+                  <div className="mb-1 text-cargo-gray-600 text-sm">Телефон для связи</div>
+                  <div className="font-bold text-xl mb-2">8 909 801 08 88</div>
+                  <Button asChild variant="outline" className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white">
+                    <a href="https://wa.me/89098010888" target="_blank" rel="noopener noreferrer">
+                      <Phone className="mr-2 w-4 h-4" />
+                      Написать в WhatsApp
+                    </a>
+                  </Button>
                 </div>
-                <div className="mb-1 text-cargo-gray-600 text-sm">Телефон для связи</div>
-                <div className="font-bold text-xl mb-2">8 909 801 08 88</div>
-                <Button asChild variant="outline" className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white">
-                  <a href="https://wa.me/89098010888" target="_blank" rel="noopener noreferrer">
-                    <Phone className="mr-2 w-4 h-4" />
-                    Написать в WhatsApp
-                  </a>
-                </Button>
               </div>
+              
               {/* Почта */}
-              <div className="bg-white border border-cargo-gray-100 rounded-xl p-6 flex flex-col items-center shadow group hover:border-cargo-red/30 hover:shadow-md transition-all">
-                <div className="mb-3 flex items-center justify-center w-12 h-12 rounded-lg bg-cargo-red/10 text-cargo-red group-hover:bg-cargo-red/20">
-                  <Mail className="w-6 h-6" />
+              <div className="relative group overflow-hidden">
+                <div className="bg-white border border-cargo-gray-100 rounded-xl p-6 flex flex-col items-center shadow hover:shadow-lg transition-all duration-300 z-10 relative h-full">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cargo-red/5 to-cargo-gray-100/30 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out -z-10"></div>
+                  
+                  <div className="w-16 h-16 flex items-center justify-center rounded-full bg-cargo-red/10 text-cargo-red mb-3 group-hover:bg-cargo-red/20 transition-colors duration-300">
+                    <Mail className="w-8 h-8" />
+                  </div>
+                  <div className="mb-1 text-cargo-gray-600 text-sm">Электронная почта</div>
+                  <div className="font-bold text-base mb-1">
+                    <a href="mailto:example@mail.ru" className="hover:text-cargo-red transition-all">example@mail.ru</a>
+                  </div>
+                  <div className="text-xs text-cargo-gray-500 mt-1">Среднее время ответа: <span className="font-semibold">24 часа</span></div>
                 </div>
-                <div className="mb-1 text-cargo-gray-600 text-sm">Электронная почта</div>
-                <div className="font-bold text-base mb-1">
-                  <a href="mailto:example@mail.ru" className="hover:text-cargo-red transition-all">example@mail.ru</a>
-                </div>
-                <div className="text-xs text-cargo-gray-500 mt-1">Среднее время ответа: <span className="font-semibold">24 часа</span></div>
               </div>
+              
               {/* Адрес */}
-              <div className="bg-white border border-cargo-gray-100 rounded-xl p-6 flex flex-col items-center shadow group hover:border-cargo-red/30 hover:shadow-md transition-all">
-                <div className="mb-3 flex items-center justify-center w-12 h-12 rounded-lg bg-cargo-red/10 text-cargo-red group-hover:bg-cargo-red/20">
-                  <MapPin className="w-6 h-6" />
+              <div className="relative group overflow-hidden">
+                <div className="bg-white border border-cargo-gray-100 rounded-xl p-6 flex flex-col items-center shadow hover:shadow-lg transition-all duration-300 z-10 relative h-full">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cargo-red/5 to-cargo-gray-100/30 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out -z-10"></div>
+                  
+                  <div className="w-16 h-16 flex items-center justify-center rounded-full bg-cargo-red/10 text-cargo-red mb-3 group-hover:bg-cargo-red/20 transition-colors duration-300">
+                    <MapPin className="w-8 h-8" />
+                  </div>
+                  <div className="mb-1 text-cargo-gray-600 text-sm">Адрес офиса</div>
+                  <div className="font-bold text-base mb-2 text-center">
+                    г. Хабаровск <br /> ул. Ленина 28
+                  </div>
+                  <Button asChild variant="outline" className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white">
+                    <a href="https://www.google.com/maps?q=ул.+Ленина+28,+Хабаровск" target="_blank" rel="noopener noreferrer">
+                      Открыть на карте
+                    </a>
+                  </Button>
                 </div>
-                <div className="mb-1 text-cargo-gray-600 text-sm">Адрес офиса</div>
-                <div className="font-bold text-base mb-2 text-center">
-                  г. Хабаровск <br /> ул. Ленина 28
-                </div>
-                <Button asChild variant="outline" className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white">
-                  <a href="https://www.google.com/maps?q=ул.+Ленина+28,+Хабаровск" target="_blank" rel="noopener noreferrer">
-                    Открыть на карте
-                  </a>
-                </Button>
               </div>
             </div>
 
@@ -302,8 +317,13 @@ const Contacts = () => {
                   </div>
                   
                   <Button type="submit" className="w-full bg-cargo-red hover:bg-cargo-red/90 transition-all">
+                    <Send className="mr-2 h-4 w-4" />
                     Отправить сообщение
                   </Button>
+                  
+                  <p className="text-xs text-cargo-gray-500 text-center mt-2">
+                    *Нажимая на кнопку, вы будете перенаправлены в WhatsApp для отправки сообщения.
+                  </p>
                 </form>
               </div>
               

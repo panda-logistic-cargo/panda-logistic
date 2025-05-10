@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { RefreshCw } from 'lucide-react';
+import { RefreshCw, DollarSign, BadgeRussianRuble } from 'lucide-react';
 import { useLanguage } from "@/context/LanguageContext";
 
 type CurrencyRate = {
@@ -59,7 +59,10 @@ export const CurrencyRates = () => {
     <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
       <div className="text-cargo-gray-300 text-sm flex flex-col">
         <div className="flex items-center justify-between">
-          <span className="font-bold">USD → RUB</span>
+          <span className="font-bold flex items-center">
+            <DollarSign className="h-4 w-4 mr-1" />
+            USD → RUB
+          </span>
           {loading ? (
             <RefreshCw className="h-3.5 w-3.5 animate-spin" />
           ) : (
@@ -75,7 +78,10 @@ export const CurrencyRates = () => {
       
       <div className="text-cargo-gray-300 text-sm flex flex-col">
         <div className="flex items-center justify-between">
-          <span className="font-bold">CNY → RUB</span>
+          <span className="font-bold flex items-center">
+            <span className="inline-flex items-center justify-center mr-1 text-xs">¥</span>
+            CNY → RUB
+          </span>
           {loading ? (
             <RefreshCw className="h-3.5 w-3.5 animate-spin" />
           ) : (
