@@ -18,6 +18,9 @@ interface MobileMenuProps {
 export const MobileMenu = ({ navLinks, textColorClass }: MobileMenuProps) => {
   const { t } = useLanguage();
   const { user, signOut } = useAuth();
+  
+  const foundingYear = 2019;
+  const currentYear = new Date().getFullYear();
 
   return (
     <Sheet>
@@ -64,7 +67,7 @@ export const MobileMenu = ({ navLinks, textColorClass }: MobileMenuProps) => {
           </div>
           <div className="p-6 border-t border-gray-200">
             <p className="text-sm text-cargo-gray-500 text-center">
-              © {new Date().getFullYear()} Panda Logistic
+              © {foundingYear} - {currentYear} Panda Logistic
             </p>
           </div>
         </div>

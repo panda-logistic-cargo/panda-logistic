@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -252,7 +251,7 @@ const ContactSection: React.FC = () => {
                     <Label htmlFor="name">{t('yourName')}</Label>
                     <Input
                       id="name"
-                      placeholder="Иван Иванов"
+                      placeholder="Ваше имя"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
@@ -264,7 +263,7 @@ const ContactSection: React.FC = () => {
                     <Input
                       id="email"
                       type="email"
-                      placeholder="ivan@example.com"
+                      placeholder="example@mail.ru"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
@@ -329,7 +328,7 @@ const ContactSection: React.FC = () => {
                         id="captchaAnswer"
                         value={captchaAnswer}
                         onChange={(e) => setCaptchaAnswer(e.target.value)}
-                        placeholder="Введите ответ"
+                        placeholder="Ответ"
                         className="max-w-[120px]"
                         type="number"
                         required

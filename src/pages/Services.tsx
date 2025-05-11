@@ -95,7 +95,7 @@ const Services = () => {
             ))}
           </div>
 
-          <div className="bg-cargo-gray-100 p-8 rounded-lg">
+          <div className="bg-cargo-gray-100 p-8 rounded-lg mb-16">
             <h2 className="text-2xl font-bold mb-4">{t('needConsultation')}</h2>
             <p className="text-cargo-gray-700 mb-4">
               {t('consultationDescription')}
@@ -105,6 +105,42 @@ const Services = () => {
                 {t('contactUs')} <MessageSquare className="ml-2 h-4 w-4" />
               </Button>
             </Link>
+          </div>
+          
+          {/* Наша история - стилизованная секция */}
+          <div className="relative mb-16 overflow-hidden rounded-2xl">
+            <div className="absolute inset-0 bg-gradient-to-r from-cargo-red/90 to-cargo-red/70 z-0"></div>
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576189737246-8a2a792337c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center opacity-20 z-0"></div>
+            
+            <div className="relative z-10 p-10 md:p-16">
+              <div className="max-w-4xl mx-auto text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Наша история</h2>
+                <div className="w-20 h-1 bg-white mx-auto mb-8"></div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                  <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 text-white">
+                    <div className="text-3xl font-bold mb-2">2019</div>
+                    <p>Основание компании и первые шаги на рынке международной логистики</p>
+                  </div>
+                  
+                  <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 text-white">
+                    <div className="text-3xl font-bold mb-2">2021</div>
+                    <p>Открытие офиса в Китае и расширение спектра услуг</p>
+                  </div>
+                  
+                  <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20 text-white">
+                    <div className="text-3xl font-bold mb-2">2023</div>
+                    <p>Запуск новых маршрутов доставки и технологическое обновление сервисов</p>
+                  </div>
+                </div>
+                
+                <Link to="/contacts">
+                  <Button className="bg-white text-cargo-red hover:bg-white/90 transition-all">
+                    Начать сотрудничество <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

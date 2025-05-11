@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -10,11 +9,13 @@ import PhoneInput from "@/components/PhoneInput";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Phone, Mail, MapPin, Clock, Search, ShoppingCart, Package, Truck, Plane, FileText, HelpCircle, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+
 type ServiceOption = {
   value: string;
   label: string;
   icon: React.ReactNode;
 };
+
 const Contacts = () => {
   const {
     t
@@ -222,7 +223,13 @@ const Contacts = () => {
                   <div className="font-bold text-base mb-1">
                     <a href="mailto:example@mail.ru" className="hover:text-cargo-red transition-all">example@mail.ru</a>
                   </div>
-                  <div className="text-xs text-cargo-gray-500 mt-1">Среднее время ответа: <span className="font-semibold">24 часа</span></div>
+                  <div className="text-xs text-cargo-gray-500 mt-1 mb-2">Среднее время ответа: <span className="font-semibold">24 часа</span></div>
+                  <Button asChild variant="outline" className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white">
+                    <a href="mailto:example@mail.ru" target="_blank" rel="noopener noreferrer">
+                      <Mail className="mr-2 w-4 h-4" />
+                      Отправить письмо
+                    </a>
+                  </Button>
                 </div>
               </div>
               
@@ -256,11 +263,11 @@ const Contacts = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="name">Ваше имя</label>
-                      <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Иван" required />
+                      <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Ваше имя" required />
                     </div>
                     <div>
                       <label className="block text-cargo-gray-700 mb-1 text-sm" htmlFor="email">Электронная почта</label>
-                      <Input id="email" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="you@email.com" required />
+                      <Input id="email" type="email" name="email" value={formData.email} onChange={handleChange} placeholder="example@mail.ru" required />
                     </div>
                   </div>
                   <div>
@@ -302,7 +309,7 @@ const Contacts = () => {
                         Решите пример: <span className="font-medium">{captcha.num1} {formatOperator(captcha.operator)} {captcha.num2} = ?</span>
                       </p>
                       <div className="flex items-center">
-                        <Input id="captchaAnswer" name="captchaAnswer" value={formData.captchaAnswer} onChange={handleChange} placeholder="Введите ответ" className="max-w-[120px]" type="number" required />
+                        <Input id="captchaAnswer" name="captchaAnswer" value={formData.captchaAnswer} onChange={handleChange} placeholder="Ответ" className="max-w-[120px]" type="number" required />
                         <Button type="button" variant="outline" size="sm" className="ml-2 text-xs" onClick={() => {
                         generateCaptcha();
                         setFormData(prev => ({

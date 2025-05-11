@@ -1,9 +1,10 @@
 
 import React from 'react';
 import { useLanguage } from "@/context/LanguageContext";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, BadgeRussianRuble } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CurrencyRates } from "./footer/CurrencyRates";
+
 const Footer: React.FC = () => {
   const {
     t
