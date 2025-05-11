@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,600;1,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -45,7 +46,8 @@
     --sidebar-ring: 353 83% 57%;
 
     /* Additional custom properties */
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Advent Pro', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Advent Pro', system-ui, -apple-system, sans-serif;
   }
 
   .dark {
@@ -100,18 +102,19 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-tight;
+    font-family: var(--font-heading);
   }
   
   h1 {
-    @apply text-4xl lg:text-5xl;
+    @apply text-4xl lg:text-5xl font-semibold italic;
   }
   
   h2 {
-    @apply text-3xl lg:text-4xl;
+    @apply text-3xl lg:text-4xl font-semibold italic;
   }
   
   h3 {
-    @apply text-2xl lg:text-3xl;
+    @apply text-2xl lg:text-3xl font-semibold;
   }
 
   .container {
