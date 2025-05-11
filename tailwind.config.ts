@@ -20,7 +20,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Advent Pro', 'system-ui', '-apple-system', 'sans-serif'],
+				sans: ['Didact Gothic', 'system-ui', '-apple-system', 'sans-serif'],
 				heading: ['Advent Pro', 'system-ui', '-apple-system', 'sans-serif'],
 			},
 			colors: {

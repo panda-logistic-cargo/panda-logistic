@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,600;1,600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,600;1,600&family=Didact+Gothic&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -46,7 +47,7 @@
     --sidebar-ring: 353 83% 57%;
 
     /* Additional custom properties */
-    --font-sans: 'Advent Pro', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Didact Gothic', system-ui, -apple-system, sans-serif;
     --font-heading: 'Advent Pro', system-ui, -apple-system, sans-serif;
   }
 
@@ -96,7 +97,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground;
     font-family: var(--font-sans);
   }
 
@@ -115,6 +116,11 @@
   
   h3 {
     @apply text-2xl lg:text-3xl font-semibold;
+  }
+
+  p {
+    font-family: var(--font-heading);
+    @apply font-semibold italic;
   }
 
   .container {
