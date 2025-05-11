@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
@@ -65,20 +64,7 @@ const About2 = () => {
 
             <MarketplaceSection />
 
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-center">Наша история</h2>
-              <div className="space-y-8">
-                {milestones.map((milestone, index) => <div key={index} className="flex gap-8 items-start">
-                    <div className="flex-shrink-0 w-20 h-20 bg-cargo-red/10 rounded-full flex items-center justify-center">
-                      <span className="text-xl font-bold text-cargo-red">{milestone.year}</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">{milestone.title}</h3>
-                      <p className="text-cargo-gray-600">{milestone.description}</p>
-                    </div>
-                  </div>)}
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
