@@ -1,10 +1,11 @@
+
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, CheckCircle2, Phone, Mail } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Phone, Mail, Calculator, MessageSquare } from "lucide-react";
 import OtherServicesSection from "@/components/OtherServicesSection";
 
 const SupplierSearch = () => {
@@ -88,11 +89,13 @@ const SupplierSearch = () => {
                 </p>
                 <Link to="/calculator">
                   <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full mb-4">
+                    <Calculator className="mr-2 h-4 w-4" />
                     Рассчитать стоимость доставки
                   </Button>
                 </Link>
                 <Link to="/contacts">
                   <Button variant="outline" className="border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white w-full">
+                    <MessageSquare className="mr-2 h-4 w-4" />
                     {t('requestConsultation')}
                   </Button>
                 </Link>

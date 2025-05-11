@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from "@/context/LanguageContext";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
@@ -45,6 +46,10 @@ const Footer: React.FC = () => {
     name: t('customsClearance'),
     href: '/services/customs-clearance'
   }];
+  
+  const foundingYear = 2019;
+  const currentYear = new Date().getFullYear();
+  
   return <footer className="bg-cargo-gray-900 text-white pt-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -91,7 +96,7 @@ const Footer: React.FC = () => {
         
         <div className="border-t border-cargo-gray-800 py-8 flex flex-col md:flex-row items-center justify-between">
           <div className="text-cargo-gray-400 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Panda Logistic. {t('allRightsReserved')}
+            © {foundingYear} - {currentYear} Panda Logistic. {t('allRightsReserved')}
           </div>
           <div className="flex items-center space-x-4">
             <Link to="/privacy-policy" className="text-cargo-gray-400 hover:text-cargo-red text-sm">

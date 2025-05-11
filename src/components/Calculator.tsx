@@ -114,16 +114,16 @@ const Calculator: React.FC = () => {
                             <span>Иу</span>
                           </div>
                         </SelectItem>
-                        <SelectItem value="shanghai">
+                        <SelectItem value="suifenhe">
                           <div className="flex items-center gap-2">
                             <MapPin className="h-4 w-4 text-cargo-red" />
-                            <span>Шанхай</span>
+                            <span>Суйфеньхэ</span>
                           </div>
                         </SelectItem>
-                        <SelectItem value="beijing">
+                        <SelectItem value="foshan">
                           <div className="flex items-center gap-2">
                             <MapPin className="h-4 w-4 text-cargo-red" />
-                            <span>Пекин</span>
+                            <span>Фошань</span>
                           </div>
                         </SelectItem>
                       </SelectContent>
@@ -149,22 +149,10 @@ const Calculator: React.FC = () => {
                             <span>Kazakhstan</span>
                           </div>
                         </SelectItem>
-                        <SelectItem value="Belarus">
-                          <div className="flex items-center gap-2">
-                            <MapPin className="h-4 w-4 text-cargo-red" />
-                            <span>Belarus</span>
-                          </div>
-                        </SelectItem>
                         <SelectItem value="Kyrgyzstan">
                           <div className="flex items-center gap-2">
                             <MapPin className="h-4 w-4 text-cargo-red" />
                             <span>Kyrgyzstan</span>
-                          </div>
-                        </SelectItem>
-                        <SelectItem value="Armenia">
-                          <div className="flex items-center gap-2">
-                            <MapPin className="h-4 w-4 text-cargo-red" />
-                            <span>Armenia</span>
                           </div>
                         </SelectItem>
                       </SelectContent>

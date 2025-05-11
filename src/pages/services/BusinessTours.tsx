@@ -1,10 +1,11 @@
+
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowLeft, CheckCircle2, Phone, Mail, Calendar } from "lucide-react";
+import { ArrowLeft, CheckCircle2, Phone, Mail, Calendar, MessageSquare } from "lucide-react";
 import OtherServicesSection from "@/components/OtherServicesSection";
 
 const BusinessTours = () => {
@@ -92,6 +93,7 @@ const BusinessTours = () => {
                 </p>
                 <Link to="/contacts">
                   <Button className="bg-cargo-red hover:bg-cargo-red/90 w-full">
+                    <MessageSquare className="mr-2 h-4 w-4" />
                     Запросить консультацию
                   </Button>
                 </Link>

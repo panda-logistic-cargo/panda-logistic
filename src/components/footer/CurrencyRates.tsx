@@ -23,19 +23,17 @@ export const CurrencyRates = () => {
   const fetchRates = async () => {
     setLoading(true);
     try {
-      // In a real app, you'd use a real API like this:
-      // const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
-      // const data = await response.json();
+      // Using the CBR API to get real exchange rates
+      const response = await fetch('https://www.cbr-xml-daily.ru/daily_json.js');
+      const data = await response.json();
       
-      // For demo purposes, we'll use mock data
-      const mockData = {
-        cnyToRub: Math.random() * (12 - 10) + 10, // Random rate between 10 and 12
-        usdToRub: Math.random() * (95 - 90) + 90, // Random rate between 90 and 95
-      };
+      // Extract USD and CNY rates from CBR data
+      const usdRate = data.Valute.USD.Value;
+      const cnyRate = data.Valute.CNY.Value;
       
       setRates({
-        cnyToRub: { rate: parseFloat(mockData.cnyToRub.toFixed(2)), lastUpdate: new Date() },
-        usdToRub: { rate: parseFloat(mockData.usdToRub.toFixed(2)), lastUpdate: new Date() }
+        cnyToRub: { rate: parseFloat(cnyRate.toFixed(2)), lastUpdate: new Date(data.Timestamp) },
+        usdToRub: { rate: parseFloat(usdRate.toFixed(2)), lastUpdate: new Date(data.Timestamp) }
       });
       setError(null);
     } catch (err) {
