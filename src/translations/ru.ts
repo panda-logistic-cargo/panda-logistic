@@ -230,7 +230,7 @@ export const ruTranslations = {
   termsSection2_1Title: '2.1. Пользователь обязуется:',
   termsSection2_1Item1: 'Предоставлять достоверную информацию при заполнении форм.',
   termsSection2_1Item2: 'Не использовать сайт в противозаконных целях.',
-  termsSection2_1Item3: 'Не на��ушать права других пользователей или третьих лиц.',
+  termsSection2_1Item3: 'Не нарушать права других пользователей или третьих лиц.',
   termsLastUpdated: 'Дата последнего обновления',
   
   // Privacy Policy
@@ -261,4 +261,5 @@ export const ruTranslations = {
   lastUpdate: 'Последнее обновление',
   updating: 'Обновление...',
   currencyFetchError: 'Не удалось загрузить курсы',
+  currencyFallbackUsed: 'Используются резервные курсы',
 } as const;

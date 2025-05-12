@@ -1,4 +1,3 @@
-
 export const zhTranslations = {
   // Navbar
   home: '首页',
@@ -259,6 +258,7 @@ export const zhTranslations = {
   lastUpdate: '最后更新',
   updating: '更新中...',
   currencyFetchError: '无法获取汇率',
+  currencyFallbackUsed: '使用备用汇率',
   
   // Adding the missing keys
   marketplacePartner: 'China Town 不仅是采购和货运的优秀中介，也是您在市场平台上业务的理想合作伙伴。留下通话请求，亲自体验。',

@@ -277,4 +277,5 @@ export const enTranslations = {
   lastUpdate: 'Last update',
   updating: 'Updating...',
   currencyFetchError: 'Unable to fetch rates',
+  currencyFallbackUsed: 'Using fallback rates',
 } as const;
