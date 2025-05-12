@@ -202,6 +202,7 @@ const Contacts = () => {
                   </div>
                   <div className="mb-1 text-cargo-gray-600 text-sm">Телефон для связи</div>
                   <div className="font-bold text-xl mb-2">8 909 801 08 88</div>
+                  <div className="text-xs text-cargo-gray-500 mt-1 mb-2">Нажми на телефон чтобы позвонить</div>
                   <Button asChild variant="outline" className="w-full bg-white border-cargo-red text-cargo-red hover:bg-cargo-red hover:text-white transition-all group-hover:bg-cargo-red group-hover:text-white">
                     <a href="https://wa.me/89098010888" target="_blank" rel="noopener noreferrer">
                       <Phone className="mr-2 w-4 h-4" />
@@ -345,7 +346,7 @@ const Contacts = () => {
                     </a>
                   </Button>
                   <div className="aspect-video w-full mt-2 rounded-lg overflow-hidden border border-cargo-gray-200">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2744.1959652883166!2d135.0714791251825!3d48.47855064661679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5efae9a4d42c06cf%3A0xdc555ffa4f6e1c53!2z0YPQuy4g0JvQtdC90LjQvdCwLCAyOCwg0KXQsNCx0LDRgNC-0LLRgdC6LCDQpdCw0LHQsNGA0L7QstGB0LrQuNC5INC60YDQsNC5LCDQoNC-0YHRgdC40Y8sIDY4MDAwMA!5e0!3m2!1sru!2sru!4v1715169332989!5m2!1sru!2sru" width="100%" height="100%" style={{
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2744.1959652883166!2d135.0714791251825!3d48.47855064661679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5efae9a4d42c06cf%3A0xdc555ffa4f6e1c53!2z0YPQuy4g0JvQtdC90LjQvdCwLCAyOCwg0KXQsNCx0LDRgNC-0LLRgdC6LCDQpdCw0LHQsNGA0L7QstGB0LrQuNC5INC60YDQsNC5LCDQoNC-0YHRgdC40Y8sIDY4MDAwMA!5e0!3m2!1sru!2sru!4v1715169332989!5m2!1sru!2sru!4v1715169332989!5m2!1sru!2sru" width="100%" height="100%" style={{
                     border: 0
                   }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Офис на карте"></iframe>
                   </div>

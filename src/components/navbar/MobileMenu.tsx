@@ -1,5 +1,5 @@
 
-import { Menu } from "lucide-react";
+import { Menu, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -60,6 +60,7 @@ export const MobileMenu = ({ navLinks, textColorClass }: MobileMenuProps) => {
                   className="mt-4 bg-cargo-red hover:bg-cargo-red/90 transition-colors w-full"
                   onClick={() => window.location.href = '/contacts'}
                 >
+                  <Send className="mr-2 h-4 w-4" />
                   {t('contactUs')}
                 </Button>
               )}

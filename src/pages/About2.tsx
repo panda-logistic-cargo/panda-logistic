@@ -34,6 +34,15 @@ const About2 = () => {
     title: "Новые горизонты",
     description: "Расширение географии услуг"
   }];
+  
+  // Временные заполнители для логотипов партнеров
+  const partners = Array.from({ length: 10 }, (_, i) => ({
+    id: i + 1,
+    name: `Partner ${i + 1}`,
+    // Используем временные квадратные заполнители
+    logo: `/placeholder.svg`
+  }));
+  
   return <div className="min-h-screen">
       <Navbar />
       <div className="pt-20 pb-16">
@@ -63,6 +72,28 @@ const About2 = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-cargo-red/10 rounded-lg transform rotate-3"></div>
                 <img alt="Team" className="relative rounded-lg shadow-lg" src="/lovable-uploads/903ecf9d-7422-48eb-b6de-a76e64a037c6.jpg" />
+              </div>
+            </div>
+
+            {/* Наши партнеры - новая секция */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold mb-8 text-center">Наши партнеры</h2>
+              <div className="w-20 h-1 bg-cargo-red mx-auto mb-8"></div>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-8">
+                {partners.map((partner) => (
+                  <div 
+                    key={partner.id}
+                    className="flex items-center justify-center p-4"
+                  >
+                    <img 
+                      src={partner.logo} 
+                      alt={partner.name} 
+                      className="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" 
+                      title={partner.name}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
 
