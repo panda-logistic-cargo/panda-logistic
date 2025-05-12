@@ -1,7 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
-import { RefreshCw, DollarSign } from 'lucide-react';
+import { RefreshCw, DollarSign, AlertCircle } from 'lucide-react';
 import { useLanguage } from "@/context/LanguageContext";
+import { toast } from '@/hooks/use-toast';
 
 type CurrencyRate = {
   rate: number;
@@ -20,27 +21,112 @@ export const CurrencyRates = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const fetchRatesFromCBR = async () => {
+    try {
+      const response = await fetch('https://www.cbr-xml-daily.ru/daily_json.js', {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+      });
+      
+      if (!response.ok) {
+        throw new Error('CBR API request failed');
+      }
+      
+      const data = await response.json();
+      
+      setRates({
+        cnyToRub: { 
+          rate: parseFloat(data.Valute.CNY.Value.toFixed(2)), 
+          lastUpdate: new Date(data.Timestamp) 
+        },
+        usdToRub: { 
+          rate: parseFloat(data.Valute.USD.Value.toFixed(2)), 
+          lastUpdate: new Date(data.Timestamp) 
+        }
+      });
+      return true;
+    } catch (err) {
+      console.error("Failed to fetch from CBR API:", err);
+      return false;
+    }
+  };
+
+  const fetchRatesFromBackup = async () => {
+    try {
+      // Using Open Exchange Rates API as backup
+      // In a real implementation, you'd need to replace this with a working API
+      // and potentially add an API key
+      const response = await fetch('https://open.er-api.com/v6/latest/USD', {
+        method: 'GET',
+        cache: 'no-cache',
+      });
+      
+      if (!response.ok) {
+        throw new Error('Backup API request failed');
+      }
+      
+      const data = await response.json();
+      const currentDate = new Date(data.time_last_update_utc);
+      
+      // Calculate rates against RUB
+      const usdToRub = data.rates.RUB;
+      const cnyToRub = data.rates.RUB / data.rates.CNY;
+      
+      setRates({
+        cnyToRub: { 
+          rate: parseFloat(cnyToRub.toFixed(2)), 
+          lastUpdate: currentDate
+        },
+        usdToRub: { 
+          rate: parseFloat(usdToRub.toFixed(2)), 
+          lastUpdate: currentDate
+        }
+      });
+      return true;
+    } catch (err) {
+      console.error("Failed to fetch from backup API:", err);
+      return false;
+    }
+  };
+  
+  // Last resort fallback to hardcoded recent rates
+  const useFallbackRates = () => {
+    const currentDate = new Date();
+    setRates({
+      cnyToRub: { rate: 12.75, lastUpdate: currentDate },
+      usdToRub: { rate: 90.56, lastUpdate: currentDate }
+    });
+    setError(t('currencyFallbackUsed'));
+    toast({
+      title: t('currencyFetchError'),
+      description: t('currencyFallbackUsed'),
+      variant: "destructive",
+    });
+  };
+
   const fetchRates = async () => {
     setLoading(true);
     try {
-      // Use mock data since the CBR API is not accessible in the preview environment
-      const mockData = {
-        Valute: {
-          USD: { Value: 90.56 },
-          CNY: { Value: 12.75 },
-        },
-        Timestamp: new Date().toISOString()
-      };
+      // Try primary source (CBR)
+      const cbrSuccess = await fetchRatesFromCBR();
       
-      // Set the mock rates
-      setRates({
-        cnyToRub: { rate: parseFloat(mockData.Valute.CNY.Value.toFixed(2)), lastUpdate: new Date(mockData.Timestamp) },
-        usdToRub: { rate: parseFloat(mockData.Valute.USD.Value.toFixed(2)), lastUpdate: new Date(mockData.Timestamp) }
-      });
-      setError(null);
+      // If CBR fails, try backup source
+      if (!cbrSuccess) {
+        const backupSuccess = await fetchRatesFromBackup();
+        
+        // If both fail, use fallback rates
+        if (!backupSuccess) {
+          useFallbackRates();
+        } else {
+          setError(null);
+        }
+      } else {
+        setError(null);
+      }
     } catch (err) {
-      setError(t('currencyFetchError'));
       console.error("Failed to fetch currency rates:", err);
+      useFallbackRates();
     } finally {
       setLoading(false);
     }
