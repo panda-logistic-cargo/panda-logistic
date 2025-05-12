@@ -44,42 +44,48 @@ const FAQSection: React.FC = () => {
   ];
   
   return (
-    <div className="relative z-10 bg-white rounded-xl shadow-lg overflow-hidden mt-12">
-      <div className="md:flex">
-        <div className="md:w-1/3 bg-cargo-red p-8">
-          <div className="h-full flex flex-col justify-center">
-            <HelpCircle className="text-white h-16 w-16 mb-6 opacity-80" />
-            <h3 className="text-2xl font-bold text-white mb-4">{t('faqTitle')}</h3>
-            <p className="text-white/80">
-              Ответы на часто задаваемые вопросы о доставке грузов из Китая
-            </p>
-          </div>
+    <section className="mt-20">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('faqTitle')}</h2>
+          <div className="w-20 h-1 bg-cargo-red mx-auto"></div>
+          <p className="mt-4 text-lg text-cargo-gray-600">Ответы на часто задаваемые вопросы о доставке грузов из Китая</p>
         </div>
         
-        <div className="md:w-2/3 p-8">
-          <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
+        <div className="relative z-10 bg-white rounded-xl shadow-lg overflow-hidden p-6 border-t-4 border-cargo-red">
+          <Accordion type="single" collapsible className="w-full space-y-4" defaultValue="item-0">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`} 
-                className="border border-cargo-gray-200 mb-3 rounded-lg overflow-hidden transition-all duration-300"
+                className="border border-cargo-gray-200 rounded-md overflow-hidden shadow-sm transition-all duration-200 hover:shadow-md"
               >
                 <AccordionTrigger 
-                  className="text-left font-medium px-4 py-3 bg-cargo-gray-50 hover:bg-cargo-gray-100 hover:text-cargo-red transition-colors"
+                  className="text-left font-semibold px-6 py-4 bg-cargo-gray-50 hover:bg-cargo-red/5 hover:text-cargo-red transition-colors flex items-center"
                 >
-                  {faq.question}
+                  <div className="flex items-center">
+                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-cargo-red/10 text-cargo-red mr-4 text-lg font-bold">
+                      {index + 1}
+                    </span>
+                    {faq.question}
+                  </div>
                 </AccordionTrigger>
                 <AccordionContent 
-                  className="text-cargo-gray-700 bg-white p-4 border-t border-cargo-gray-100"
+                  className="text-cargo-gray-700 bg-white px-6 py-4 border-t border-cargo-gray-100"
                 >
-                  {faq.answer}
+                  <div className="pl-12 border-l-2 border-cargo-red/20">
+                    {faq.answer}
+                  </div>
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
+          
+          <div className="absolute -right-20 -bottom-20 w-64 h-64 rounded-full bg-cargo-red/5 -z-10"></div>
+          <div className="absolute -left-20 -top-20 w-64 h-64 rounded-full bg-cargo-red/5 -z-10"></div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
