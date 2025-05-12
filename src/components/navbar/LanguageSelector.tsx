@@ -20,7 +20,9 @@ interface LanguageOption {
 const languages: LanguageOption[] = [
   { code: 'ru', name: 'Русский', flag: '🇷🇺' },
   { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'zh', name: '中文', flag: '🇨🇳' }
+  { code: 'zh', name: '中文', flag: '🇨🇳' },
+  { code: 'kz', name: 'Қазақша', flag: '🇰🇿' },
+  { code: 'kg', name: 'Кыргызча', flag: '🇰🇬' }
 ];
 
 export const LanguageSelector = ({ className }: { className?: string }) => {

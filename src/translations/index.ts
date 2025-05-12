@@ -2,11 +2,15 @@
 import { ruTranslations } from './ru';
 import { enTranslations } from './en';
 import { zhTranslations } from './zh';
+import { kzTranslations } from './kz';
+import { kgTranslations } from './kg';
 
 export const translations = {
   ru: ruTranslations,
   en: enTranslations,
-  zh: zhTranslations
+  zh: zhTranslations,
+  kz: kzTranslations,
+  kg: kgTranslations
 } as const;
 
 export type Language = keyof typeof translations;
