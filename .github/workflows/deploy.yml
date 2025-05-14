@@ -1,3 +1,4 @@
+
 name: Deploy to GitHub Pages
 
 on:
@@ -19,6 +20,9 @@ jobs:
 
       - name: Copy index.html to 404.html
         run: cp dist/index.html dist/404.html
+        
+      - name: Ensure .nojekyll exists
+        run: touch dist/.nojekyll
 
       - name: Debug build output
         run: |
